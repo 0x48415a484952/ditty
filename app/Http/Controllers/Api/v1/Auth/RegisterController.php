@@ -3,8 +3,13 @@
 namespace App\Http\Controllers\Api\v1\Auth;
 
 use App\User;
+use Exception;
+use App\Classes\Response;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use App\Repositories\UsersRepository;
+use App\Http\Requests\UserRegiserRequest;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -30,43 +35,53 @@ class RegisterController extends Controller
      */
     protected $redirectTo = '/';
 
+    private $users;
+
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(UsersRepository $users)
     {
         $this->middleware('guest');
+
+        $this->users = $users;
     }
 
     /**
-     * Get a validator for an incoming registration request.
+     * Show the application registration form.
      *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
+     * @return \Illuminate\Http\Response
      */
-    protected function validator(array $data)
+    public function showRegistrationForm()
     {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+        return view('auth.register');
     }
 
     /**
-     * Create a new user instance after a valid registration.
+     * Handle a registration request for the application.
      *
-     * @param  array  $data
-     * @return \App\User
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
-    protected function create(array $data)
+    public function register(UserRegiserRequest $request)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        try {
+            DB::beginTransaction();
+            $user = $this->users->create(
+                $request->only(
+                    ['name', 'username', 'email', 'password']
+                )
+            );
+            $user->token = $user->createToken('General Token')->accessToken;
+            DB::commit();
+
+            return Response::success('User registered successfully', $user);
+        } catch(Exception $e) {
+            DB::rollBack();
+
+            return Response::error($e->getMessage());
+        }
     }
 }

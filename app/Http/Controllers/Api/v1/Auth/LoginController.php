@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Api\v1\Auth;
 
+use App\Classes\Response;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -35,5 +38,32 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function login(Request $request)
+    {
+        if (Auth::guard('api')->check()) {
+            return; // Needs refactoring
+        }
+
+        $this->validateLogin($request);
+
+        if ($this->attemptLogin($request)) {
+            $user = Auth::user();
+
+            return Response::success('', [
+                'token' => $user->createToken('General Token')->accessToken,
+            ]);
+        }
+
+        return Response::error('Invalid username or password', 401);
+
+        // If the login attempt was unsuccessful we will increment the number of attempts
+        // to login and redirect the user back to the login form. Of course, when this
+        // user surpasses their maximum number of attempts they will get locked out.
+
+        // $this->incrementLoginAttempts($request);
+
+        // return $this->sendFailedLoginResponse($request);
     }
 }
