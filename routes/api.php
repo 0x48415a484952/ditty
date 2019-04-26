@@ -19,4 +19,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(['namespace' => 'Api\v1', 'prefix' => 'v1'], function() {
     Auth::routes();
+
+    Route::group(['middleware' => 'auth:api'], function() {
+        Route::get('/profile', 'ProfileController@show');
+        Route::put('/profile', 'ProfileController@update');
+    });
 });

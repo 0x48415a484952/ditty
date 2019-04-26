@@ -8,7 +8,7 @@ use App\Contracts\RepositoryInterface;
 
 abstract class Repository implements RepositoryInterface
 {
-    protected $model;
+    public $model;
     private $app;
 
     abstract public function model();
@@ -37,11 +37,7 @@ abstract class Repository implements RepositoryInterface
 
     public function update($model, array $data)
     {
-        foreach ($data as $key => $value) {
-            $model->{$key} = $value;
-        }
-
-        $model->save();
+        $model->update($data);
 
         return $model;
     }

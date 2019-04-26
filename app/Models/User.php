@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Image;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Notifications\Notifiable;
@@ -10,7 +11,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable, HasApiTokens;
+    use Notifiable, HasApiTokens, Image;
 
     /**
      * The attributes that are mass assignable.
@@ -49,5 +50,24 @@ class User extends Authenticatable
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = Hash::make($value);
+    }
+
+    public function setSocialUrlsAttribute($value)
+    {
+        $this->attributes['social_urls'] = mb_json_encode($value);
+    }
+
+    public function getSocialUrlsAttribute()
+    {
+        return json_decode($this->attributes['social_urls']);
+    }
+
+    public function setAvatarAttribute($value)
+    {
+        if ($this->avatar) {
+            $this->deleteImage('avatars', $this->avatar);
+        }
+
+        $this->attributes['avatar'] = $this->storeImage($value, 'avatars', [300, 300]);
     }
 }
