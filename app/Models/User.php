@@ -1,0 +1,73 @@
+<?php
+
+namespace App\Models;
+
+use App\Traits\Image;
+use Laravel\Passport\HasApiTokens;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+class User extends Authenticatable
+{
+    use Notifiable, HasApiTokens, Image;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+        'username',
+        'avatar',
+        'biography',
+        'credentials',
+        'social_urls',
+    ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = Hash::make($value);
+    }
+
+    public function setSocialUrlsAttribute($value)
+    {
+        $this->attributes['social_urls'] = mb_json_encode($value);
+    }
+
+    public function getSocialUrlsAttribute()
+    {
+        return json_decode($this->attributes['social_urls']);
+    }
+
+    public function setAvatarAttribute($value)
+    {
+        if ($this->avatar) {
+            $this->deleteImage('avatars', $this->avatar);
+        }
+
+        $this->attributes['avatar'] = $this->storeImage($value, 'avatars', [300, 300]);
+    }
+}
