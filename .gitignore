@@ -4,6 +4,7 @@
 /public_html/assets/images/*/*.jpg
 /storage/*.key
 /vendor
+.idea
 .env
 .phpunit.result.cache
 Homestead.json
