@@ -25,6 +25,12 @@ abstract class Repository implements RepositoryInterface
         return $this->model->all();
     }
 
+    public function paginate($limit)
+    {
+        return $this->model->paginate($limit);
+    }
+
+
     public function create(array $data)
     {
         return $this->model->create($data);
