@@ -4,6 +4,7 @@ namespace App\Observers;
 
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class PostObserver
 {
@@ -42,7 +43,9 @@ class PostObserver
      */
     public function deleted(Post $post)
     {
-        $post->deleteImage();
+        if ($post->cover_image) {
+            File::delete(public_path() . $post->cover_image);
+        }
     }
 
     /**

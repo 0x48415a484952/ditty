@@ -21,11 +21,6 @@ class Post extends Model
         'status'
     ];
 
-    public function deleteImage()
-    {
-        return File::delete(public_path() . $this->cover_image);
-    }
-
     public function setCoverImageAttribute($value)
     {
         $this->attributes['cover_image'] = $this->storeImage($value, 'cover-images', 900);
