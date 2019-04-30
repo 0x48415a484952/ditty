@@ -26,6 +26,11 @@ Route::group(['namespace' => 'Api\v1', 'prefix' => 'v1'], function() {
         Route::get('/{post}', 'PostsController@show');
         Route::put('/{post}', 'PostsController@update')->middleware('auth:api');
         Route::delete('/{post}', 'PostsController@destroy')->middleware('auth:api');
+
+        Route::get('/{post}/comments', 'CommentsController@index');
+        Route::post('/{post}/comments', 'CommentsController@store');
+        Route::put('/{post}/comments/{comment}', 'CommentsController@update');
+        Route::delete('/{post}/comments/{comment}', 'CommentsController@delete')->middleware('auth:api');
     });
 
     Route::group(['middleware' => 'auth:api'], function() {

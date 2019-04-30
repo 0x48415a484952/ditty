@@ -6,9 +6,13 @@ use App\Traits\Image;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class Post extends Model
 {
+
+    const STATUS_PUBLISHED = 3;
+
     use Image;
 
     protected $fillable = [
@@ -20,6 +24,16 @@ class Post extends Model
         'cnt_comments',
         'status'
     ];
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope('status', function (Builder $builder) {
+            $builder->where('status', self::STATUS_PUBLISHED);
+        });
+    }
+
 
     public function setCoverImageAttribute($value)
     {
