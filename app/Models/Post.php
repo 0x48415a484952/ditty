@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Traits\Image;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
@@ -20,15 +21,9 @@ class Post extends Model
         'status'
     ];
 
-
-    // This function should go to an observer class later.
-    public static function boot()
+    public function deleteImage()
     {
-        parent::boot();
-
-        static::creating(function($model) {
-            $model->user_id = Auth::id();
-        });
+        return File::delete(public_path() . $this->cover_image);
     }
 
     public function setCoverImageAttribute($value)
@@ -39,7 +34,7 @@ class Post extends Model
     public function getCoverImageAttribute()
     {
         if ($this->attributes['cover_image']) {
-            return url('/assets/images/cover-images/' . $this->attributes['cover_image']) . '.jpg';
+            return '/assets/images/cover-images/' . $this->attributes['cover_image'] . '.jpg';
         }
     }
 }

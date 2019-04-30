@@ -26,7 +26,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        return $this->posts->all();
+        return Response::success('', $this->posts->paginate(10));
     }
 
     /**
@@ -62,7 +62,7 @@ class PostsController extends Controller
      */
     public function show(Post $post)
     {
-        dd($post->toArray());
+        return Response::success('', $post);
     }
 
     /**
@@ -100,6 +100,8 @@ class PostsController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+
+        return Response::success('Deleted Successfully');
     }
 }
