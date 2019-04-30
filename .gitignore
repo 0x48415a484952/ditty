@@ -1,7 +1,9 @@
 /node_modules
 /public_html/hot
 /public_html/storage
-/public_html/assets/images/*/*.jpg
+/public_html/assets/images/**/*.jpg
+/public_html/assets/images/**/*.png
+
 /storage/*.key
 /vendor
 .env
