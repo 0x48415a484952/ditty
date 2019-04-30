@@ -62,7 +62,7 @@ class PostsController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        dd($post->toArray());
     }
 
     /**
@@ -83,9 +83,13 @@ class PostsController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(PostsRequest $request, Post $post)
     {
-        //
+        $post = $this->posts->update($post, $request->only(
+            $this->posts->model->getFillable()
+        ));
+
+        return Response::success('Edited Successfully', $post);
     }
 
     /**
