@@ -2,25 +2,22 @@
 
 namespace App\Http\Controllers\Api\v1;
 
-use App\Models\Post;
-use App\Models\Comment;
+use App\Models\Category;
 use App\Classes\Response;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CommentsRequest;
-use App\Repositories\CommentsRepository;
+use App\Http\Requests\CategoriesRequest;
+use App\Repositories\CategoriesRepository;
 
-class CommentsController extends Controller
+class CategoriesController extends Controller
 {
 
-    private $comments;
+    private $categories;
 
-    public function __construct(CommentsRepository $comments)
+    public function __construct(CategoriesRepository $categories)
     {
-        $this->comments = $comments;
+        $this->categories = $categories;
     }
-
-
     /**
      * Display a listing of the resource.
      *
@@ -28,7 +25,7 @@ class CommentsController extends Controller
      */
     public function index()
     {
-        //
+        return Response::success('', $this->categories->all());
     }
 
     /**
@@ -47,24 +44,22 @@ class CommentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CommentsRequest $request, Post $post)
+    public function store(CategoriesRequest $request)
     {
-        $request->request->add(['post_id' => $post->id]);
-
-        $comment = $this->comments->create($request->only(
-            $this->comments->model->getFillable()
+        $category = $this->categories->create($request->only(
+            $this->categories->model->getFillable()
         ));
 
-        return Response::success('Created Successfully', $comment);
+        return Response::success('created successfully', $category);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Comment  $comment
+     * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Comment $comment)
+    public function show(Category $category)
     {
         //
     }
@@ -72,10 +67,10 @@ class CommentsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Comment  $comment
+     * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Comment $comment)
+    public function edit(Category $category)
     {
         //
     }
@@ -84,23 +79,27 @@ class CommentsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Comment  $comment
+     * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Comment $comment)
+    public function update(CategoriesRequest $request, Category $category)
     {
-        //
+        $category = $this->categories->update($category, $request->only(
+            $this->categories->model->getFillable()
+        ));
+
+        return Response::success('edited successfully', $category);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Comment  $comment
+     * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post, Comment $comment)
+    public function destroy(Category $category)
     {
-        $comment->delete();
+        $category->delete();
 
         return Response::success('deleted successfully');
     }

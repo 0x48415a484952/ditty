@@ -7,17 +7,18 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {
+    use Image, SoftDeletes;
 
     const STATUS_PUBLISHED = 3;
-
-    use Image;
 
     protected $fillable = [
         'user_id',
         'title',
+        'category_id',
         'brief_text',
         'text',
         'cover_image',

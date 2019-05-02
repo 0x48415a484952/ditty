@@ -22,6 +22,7 @@ class CreateCommentsTable extends Migration
             $table->string('text', 1024)->nullable();
             $table->tinyInteger('status');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
