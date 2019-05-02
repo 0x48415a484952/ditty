@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PostsRequest extends FormRequest
+class CommentsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,12 +24,12 @@ class PostsRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|string|max:1024',
-            'category_id' => 'required|integer|exists:post_categories,id',
-            'brief_text' => 'nullable|string|max:1024',
-            'text' => 'required|string',
-            'cover_image' => 'nullable|image',
-            'status' => 'required|in:' . implode(',', array_keys(config('constants.post_statuses'))),
+            // 'post_id' => 'required|integer|exists:posts,id',
+            // 'user_id' => 'nullable|integer',
+            'reply_to' => 'nullable|integer|exists:comments,id',
+            'email'   => 'required|email',
+            'name'    => 'nullable|string|max:191',
+            'text'    => 'required|min:3|max:1000'
         ];
     }
 }

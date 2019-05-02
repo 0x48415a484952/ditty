@@ -3,21 +3,23 @@
 namespace App\Http\Controllers\Api\v1;
 
 use App\Models\Post;
+use App\Models\Comment;
 use App\Classes\Response;
 use Illuminate\Http\Request;
-use App\Http\Requests\PostsRequest;
 use App\Http\Controllers\Controller;
-use App\Repositories\PostsRepository;
+use App\Http\Requests\CommentsRequest;
+use App\Repositories\CommentsRepository;
 
-class PostsController extends Controller
+class CommentsController extends Controller
 {
 
-    private $posts;
+    private $comments;
 
-    public function __construct(PostsRepository $posts)
+    public function __construct(CommentsRepository $comments)
     {
-        $this->posts = $posts;
+        $this->comments = $comments;
     }
+
 
     /**
      * Display a listing of the resource.
@@ -26,7 +28,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        return Response::success('', $this->posts->paginate(10)->load('tagged'));
+        //
     }
 
     /**
@@ -45,33 +47,35 @@ class PostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PostsRequest $request)
+    public function store(CommentsRequest $request, Post $post)
     {
-        $post = $this->posts->create($request->only(
-            $this->posts->model->getFillable()
+        $comment = new $this->comments->model($request->only(
+            $this->comments->model->getFillable()
         ));
 
-        return Response::success('پست با موفقیت اضافه شد', $post->load('tagged'));
+        $post->comments()->save($comment);
+
+        return Response::success('Created Successfully', $comment);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(Comment $comment)
     {
-        return Response::success('', $post->load('tagged'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit(Comment $comment)
     {
         //
     }
@@ -80,28 +84,24 @@ class PostsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function update(PostsRequest $request, Post $post)
+    public function update(Request $request, Comment $comment)
     {
-        $post = $this->posts->update($post, $request->only(
-            $this->posts->model->getFillable()
-        ));
-
-        return Response::success('Edited Successfully', $post->load('tagged'));
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy(Post $post, Comment $comment)
     {
-        $post->delete();
+        $comment->delete();
 
-        return Response::success('Deleted Successfully');
+        return Response::success('deleted successfully');
     }
 }
