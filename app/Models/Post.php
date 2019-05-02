@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\Image;
+use Conner\Tagging\Taggable;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Database\Eloquent\Model;
@@ -11,7 +12,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {
-    use Image, SoftDeletes;
+    use Image, SoftDeletes, Taggable;
 
     const STATUS_PUBLISHED = 3;
 
@@ -35,6 +36,10 @@ class Post extends Model
         });
     }
 
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable');
+    }
 
     public function setCoverImageAttribute($value)
     {

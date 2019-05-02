@@ -16,6 +16,7 @@ class Comment extends Model
     protected $fillable = [
         // 'user_id',
         'post_id',
+        'reply_to',
         'name',
         'email',
         'text',
@@ -30,7 +31,6 @@ class Comment extends Model
             $comment->status = self::STATUS_PENDING;
         });
     }
-
 
     public function setTextAttribute($text)
     {

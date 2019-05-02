@@ -26,8 +26,9 @@ class CommentsRequest extends FormRequest
         return [
             // 'post_id' => 'required|integer|exists:posts,id',
             // 'user_id' => 'nullable|integer',
+            'reply_to' => 'nullable|integer|exists:comments,id',
             'email'   => 'required|email',
-            'name'    => 'required|string|max:191',
+            'name'    => 'nullable|string|max:191',
             'text'    => 'required|min:3|max:1000'
         ];
     }

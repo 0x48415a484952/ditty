@@ -26,7 +26,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        return Response::success('', $this->posts->paginate(10));
+        return Response::success('', $this->posts->paginate(10)->load('tagged'));
     }
 
     /**
@@ -51,7 +51,7 @@ class PostsController extends Controller
             $this->posts->model->getFillable()
         ));
 
-        return Response::success('پست با موفقیت اضافه شد', $post);
+        return Response::success('پست با موفقیت اضافه شد', $post->load('tagged'));
     }
 
     /**
@@ -62,7 +62,7 @@ class PostsController extends Controller
      */
     public function show(Post $post)
     {
-        return Response::success('', $post);
+        return Response::success('', $post->load('tagged'));
     }
 
     /**
@@ -89,7 +89,7 @@ class PostsController extends Controller
             $this->posts->model->getFillable()
         ));
 
-        return Response::success('Edited Successfully', $post);
+        return Response::success('Edited Successfully', $post->load('tagged'));
     }
 
     /**

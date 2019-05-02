@@ -49,11 +49,11 @@ class CommentsController extends Controller
      */
     public function store(CommentsRequest $request, Post $post)
     {
-        $request->request->add(['post_id' => $post->id]);
-
-        $comment = $this->comments->create($request->only(
+        $comment = new $this->comments->model($request->only(
             $this->comments->model->getFillable()
         ));
+
+        $post->comments()->save($comment);
 
         return Response::success('Created Successfully', $comment);
     }

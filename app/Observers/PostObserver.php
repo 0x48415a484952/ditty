@@ -21,7 +21,7 @@ class PostObserver
      */
     public function created(Post $post)
     {
-        //
+        $post->tag(request()->tags);
     }
 
     /**
@@ -32,7 +32,7 @@ class PostObserver
      */
     public function updated(Post $post)
     {
-        //
+        $post->retag(request()->tags);
     }
 
     /**
@@ -43,6 +43,8 @@ class PostObserver
      */
     public function deleted(Post $post)
     {
+        $post->untag();
+
         if ($post->cover_image) {
             File::delete(public_path() . $post->cover_image);
         }
