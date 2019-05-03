@@ -43,8 +43,6 @@ class PostObserver
      */
     public function deleted(Post $post)
     {
-        $post->untag();
-
         if ($post->cover_image) {
             File::delete(public_path() . $post->cover_image);
         }
