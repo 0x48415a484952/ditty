@@ -52,11 +52,12 @@ class LoginController extends Controller
             $user = Auth::user();
 
             return Response::success('', [
+                'user' => $user,
                 'token' => $user->createToken('General Token')->accessToken,
             ]);
         }
 
-        return Response::error('Invalid username or password', 401);
+        return Response::error('Invalid username or password', 422);
 
         // If the login attempt was unsuccessful we will increment the number of attempts
         // to login and redirect the user back to the login form. Of course, when this
