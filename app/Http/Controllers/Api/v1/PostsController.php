@@ -7,14 +7,14 @@ use App\Classes\Response;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostsRequest;
 use App\Http\Controllers\Controller;
-use App\Repositories\PostsRepository;
+use App\Contracts\PostsRepositoryInterface;
 
 class PostsController extends Controller
 {
 
     private $posts;
 
-    public function __construct(PostsRepository $posts)
+    public function __construct(PostsRepositoryInterface $posts)
     {
         $this->posts = $posts;
     }
