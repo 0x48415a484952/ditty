@@ -10,6 +10,8 @@ try {
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap');
+    require('es6-promise/auto');
+
 } catch (e) {
     console.warn(e);
 }

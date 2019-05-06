@@ -8,9 +8,11 @@
 let Vue = require('vue');
 let VueRouter = require('vue-router').default;
 let BootstrapVue = require('bootstrap-vue').default;
+let Vuex = require('vuex');
 
 require('./bootstrap');
 
+Vue.use(Vuex);
 Vue.use(VueRouter);
 Vue.use(BootstrapVue);
 Vue.component('main-layout', require('./components/layouts/main').default);
