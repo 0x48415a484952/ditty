@@ -3,10 +3,10 @@ namespace App\Repositories;
 
 use Illuminate\Http\Request;
 
-class UsersRepository extends Repository
+class CategoriesRepository extends Repository
 {
     public function model()
     {
-        return \App\Models\User::class;
+        return \App\Models\Category::class;
     }
 }
