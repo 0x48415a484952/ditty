@@ -7,10 +7,12 @@
 
 let Vue = require('vue');
 let VueRouter = require('vue-router').default;
+let BootstrapVue = require('bootstrap-vue').default;
 
 require('./bootstrap');
 
 Vue.use(VueRouter);
+Vue.use(BootstrapVue);
 Vue.component('main-layout', require('./components/layouts/main').default);
 
 const router = new VueRouter({
