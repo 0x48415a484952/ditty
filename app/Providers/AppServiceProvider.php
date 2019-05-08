@@ -16,7 +16,10 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
 
-        $this->app->bind(\App\Contracts\PostsRepositoryInterface::class, \App\Repositories\PostsRepository::class);
+        // $this->app->bind(\App\Contracts\PostsRepositoryInterface::class, \App\Repositories\PostsRepository::class);
+        $this->app->when(\App\Http\Controllers\Api\v1\PostsController::class)
+                  ->needs(\App\Repositories\Repository::class)
+                  ->give(\App\Repositories\PostsRepository::class);
     }
 
     /**
