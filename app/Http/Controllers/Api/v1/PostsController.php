@@ -8,10 +8,16 @@ use Illuminate\Http\Request;
 use App\Repositories\Repository;
 use App\Http\Requests\PostsRequest;
 use App\Http\Controllers\Controller;
-use App\Contracts\PostsRepositoryInterface;
 
 class PostsController extends Controller
 {
+
+    private $posts;
+
+    public function __construct(Repository $posts)
+    {
+        $this->posts = $posts;
+    }
 
     /**
      * Display a listing of the resource.
@@ -20,7 +26,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        return Response::success('', $this->repo->paginate(10)->load('tagged'));
+        return Response::success('', $this->posts->paginate(10)->load('tagged'));
     }
 
     /**
@@ -41,8 +47,8 @@ class PostsController extends Controller
      */
     public function store(PostsRequest $request)
     {
-        $post = $this->repo->create($request->only(
-            $this->repo->model->getFillable()
+        $post = $this->posts->create($request->only(
+            $this->posts->model->getFillable()
         ));
 
         return Response::success('پست با موفقیت اضافه شد', $post->load('tagged'));
@@ -79,8 +85,8 @@ class PostsController extends Controller
      */
     public function update(PostsRequest $request, Post $post)
     {
-        $post = $this->repo->update($post, $request->only(
-            $this->repo->model->getFillable()
+        $post = $this->posts->update($post, $request->only(
+            $this->posts->model->getFillable()
         ));
 
         return Response::success('Edited Successfully', $post->load('tagged'));

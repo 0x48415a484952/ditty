@@ -11,11 +11,4 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-
-    protected $repo;
-
-    public function __construct(Repository $repo)
-    {
-        $this->repo = $repo;
-    }
 }
