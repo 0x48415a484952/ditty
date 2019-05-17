@@ -15,7 +15,7 @@ require('./bootstrap');
 Vue.use(Vuex);
 Vue.use(VueRouter);
 Vue.use(BootstrapVue);
-Vue.component('main-layout', require('./components/layouts/main').default);
+Vue.component('main-layout', require('./views/layouts/main').default);
 
 const router = new VueRouter({
     mode: 'history',
