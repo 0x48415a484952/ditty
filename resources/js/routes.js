@@ -6,7 +6,7 @@
 export default [
     {
         path: '/',
-        component: { template: '<div>foo</div>' },
+        component: require('./views/elements/blog-items/blog-item-style2').default,
         name: 'index',
     },
     {
