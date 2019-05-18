@@ -30,10 +30,13 @@ Route::group(['namespace' => 'Api\v1\Dashboard', 'prefix' => 'v1/dashboard'], fu
         Route::get('/{post}', 'PostsController@show');
         Route::put('/{post}', 'PostsController@update')->middleware('auth:api');
         Route::delete('/{post}', 'PostsController@destroy')->middleware('auth:api');
-
         Route::get('/{post}/comments', 'CommentsController@index');
         Route::post('/{post}/comments', 'CommentsController@store');
         Route::delete('/{post}/comments/{comment}', 'CommentsController@destroy')->middleware('auth:api');
+    });
+
+    Route::group(['prefix' => 'comments'], function() {
+        Route::resource('/', 'CommentsController');
     });
 });
 

@@ -4,7 +4,7 @@
 
         <b-table
             id="posts"
-            :items="items"
+            :items="posts.items"
             class="mt-5 bg-white"
             :fields="table_fields"
         >
@@ -69,33 +69,33 @@
 
         <b-modal size="lg" id="edit-post" title="ویرایش پست" hide-footer>
             <div v-if="! $root.isEmptyObject(edit)">
-                <form :action="$root.api_url + '/posts/' + edit.id" method="POST" class="js-submit-form" data-on-success="postUpdated">
+                <form :action="$root.api_url + '/posts/' + posts.edit.id" method="POST" class="js-submit-form" data-on-success="postUpdated">
                     <div class="form-group">
                         <label for="edit-title">عنوان</label>
-                        <input id="edit-title" type="text" name="title" class="form-control" v-model="edit.title" data-required>
+                        <input id="edit-title" type="text" name="title" class="form-control" v-model="posts.edit.title" data-required>
                     </div>
                     <div class="form-group">
                         <label for="edit-slug">اسلاگ</label>
-                        <input id="edit-slug" type="text" name="slug" class="form-control" v-model="edit.slug">
+                        <input id="edit-slug" type="text" name="slug" class="form-control" v-model="posts.edit.slug">
                     </div>
                     <div class="form-group">
                         <label for="edit-brief-text">توضیح کوتاه</label>
-                        <textarea id="edit-brief-text" name="brief_text" class="form-control" v-model="edit.brief_text"></textarea>
+                        <textarea id="edit-brief-text" name="brief_text" class="form-control" v-model="posts.edit.brief_text"></textarea>
                     </div>
                     <div class="row form-group">
                         <div class="col-md-6">
                             <label for="edit-category">دسته بندی</label>
-                            <multiselect id="edit-category" dir="rtl" v-model="edit.category" :options="categories" placeholder="دسته بندی" label="title" track-by="title"></multiselect>
-                            <input type="hidden" name="category_id" v-model="edit.category.id">
+                            <multiselect id="edit-category" dir="rtl" v-model="posts.edit.category" :options="categories" placeholder="دسته بندی" label="title" track-by="title"></multiselect>
+                            <input type="hidden" name="category_id" v-model="posts.edit.category.id">
                         </div>
                         <div class="col-md-6">
                             <label for="edit-tags">برچسب ها</label>
-                            <tags-input element-id="tags" v-model="edit.tags"></tags-input>
+                            <tags-input element-id="tags" v-model="posts.edit.tags"></tags-input>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="edit-text">متن</label>
-                        <ckeditor tag-name="textarea" dir="rtl" name="text" :editor="editor" v-model="edit.text" :config="editorConfig"></ckeditor>
+                        <ckeditor tag-name="textarea" dir="rtl" name="text" :editor="editor" v-model="posts.edit.text" :config="editorConfig"></ckeditor>
                     </div>
                     <div class="row form-group">
                         <div class="col-md-6">
@@ -104,7 +104,7 @@
                         </div>
                         <div class="col-md-6">
                             <label for="edit-status">وضعیت</label>
-                            <select name="status" id="edit-status" class="form-control" v-model="edit.status">
+                            <select name="status" id="edit-status" class="form-control" v-model="posts.edit.status">
                                 <option v-for="(status, status_id) in post_statuses" :value="status_id">{{ status.title }}</option>
                             </select>
                         </div>
@@ -146,8 +146,10 @@ export default {
     data() {
         return {
             functionsInitialized: false,
-            edit: {},
-            items: [],
+            posts: {
+                items: [],
+                edit: {},
+            },
             table_fields: [
                 {key: 'id', label: 'شناسه'},
                 {key: 'title', label: 'عنوان'},
@@ -193,11 +195,11 @@ export default {
             if (! this.functionsInitialized) {
                 window.postUpdated = (response) => {
                     if (response.status == 1) {
-                        var index = this.edit.index;
+                        var index = this.posts.edit.index;
                         var post  = response.data;
                         post.index = index;
-                        this.items[index] = post;
-                        this.edit = post;
+                        this.posts.items[index] = post;
+                        this.posts.edit = post;
                         window.success_notification(response.message);
                         this.$root.$emit('bv::hide::modal', 'edit-post', '#btnHide');
 
@@ -218,14 +220,14 @@ export default {
         loadPost: function() {
             $.get(this.$root.api_url + '/posts', (response) => {
                 if (response.status == 1) {
-                    this.items = response.data;
+                    this.posts.items = response.data;
                 }
             });
         },
         editPost: function(index) {
-            var post = window.clone(this.items[index]);
+            var post = window.clone(this.posts.items[index]);
             post.index = index;
-            this.edit = post;
+            this.posts.edit = post;
             this.$root.$emit('bv::toggle::modal', 'edit-post', '#btnToggle');
         }
     }

@@ -22,12 +22,12 @@ abstract class Repository implements RepositoryInterface
 
     public function all()
     {
-        return $this->model->all();
+        return $this->model->orderBy('id', 'desc')->get();
     }
 
     public function paginate($limit)
     {
-        return $this->model->paginate($limit);
+        return $this->model->orderBy('id', 'desc')->paginate($limit);
     }
 
 

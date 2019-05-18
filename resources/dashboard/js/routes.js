@@ -26,6 +26,11 @@ export default [
         name: 'dashboard.categories'
     },
     {
+        path: '/dashboard/comments',
+        component: require('./components/pages/CommentsComponent.vue').default,
+        name: 'dashboard.comments'
+    },
+    {
         path: '/dashboard/profile',
         component: require('./components/pages/ProfileComponent.vue').default,
         name: 'dashboard.profile'

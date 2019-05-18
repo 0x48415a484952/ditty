@@ -10,6 +10,7 @@ Route::group(['namespace' => 'Web\Dashboard', 'prefix' => 'dashboard'], function
     Route::get('/organizations', 'HomeController@index');
     Route::get('/posts', 'HomeController@index');
     Route::get('/categories', 'HomeController@index');
+    Route::get('/comments', 'HomeController@index');
 });
 
 Route::view('/{parameters?}', 'main')->where('parameters', '.*');

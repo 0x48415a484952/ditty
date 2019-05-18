@@ -32,6 +32,11 @@ class Comment extends Model
         });
     }
 
+    // public function post()
+    // {
+    //     return $this->hasOne(Post::class);
+    // }
+
     public function setTextAttribute($text)
     {
         $text = preg_replace('/[ \t]+/', ' ', preg_replace("/[\n|\n\r|\r]{3,}/", "\n\n", $text));
