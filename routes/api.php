@@ -17,8 +17,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['namespace' => 'Api\v1', 'prefix' => 'v1'], function() {
+
+Route::group(['namespace' => 'Api\v1\Dashboard', 'prefix' => 'v1/dashboard'], function() {
     Auth::routes();
+    Route::get('/profile', 'ProfileController@index');
+    Route::put('/profile', 'ProfileController@update');
+    Route::resource('categories', 'CategoriesController')->middleware('auth:api');
 
     Route::group(['prefix' => 'posts'], function() {
         Route::get('/', 'PostsController@index');
@@ -31,8 +35,12 @@ Route::group(['namespace' => 'Api\v1', 'prefix' => 'v1'], function() {
         Route::post('/{post}/comments', 'CommentsController@store');
         Route::delete('/{post}/comments/{comment}', 'CommentsController@destroy')->middleware('auth:api');
     });
+});
 
-    Route::resource('categories', 'CategoriesController');//->middleware('auth:api');
+Route::group(['namespace' => 'Api\v1', 'prefix' => 'v1'], function() {
+
+
+
 
     Route::group(['middleware' => 'auth:api'], function() {
         Route::get('/profile', 'ProfileController@show');

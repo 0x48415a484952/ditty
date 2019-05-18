@@ -17,6 +17,7 @@ class CreatePostsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->index();
             $table->string('title', 1024);
+            $table->string('slug')->nullable();
             $table->bigInteger('category_id')->index();
             $table->string('brief_text', 1024)->nullable();
             $table->text('text');
