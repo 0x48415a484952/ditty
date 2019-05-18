@@ -120,6 +120,31 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/layouts/footer.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/layouts/footer.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/layouts/main.vue?vue&type=script&lang=js&":
 /*!******************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/layouts/main.vue?vue&type=script&lang=js& ***!
@@ -349,24 +374,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    navbar: __webpack_require__(/*! ./navbar */ "./resources/js/views/layouts/navbar.vue")["default"]
+    navbar: __webpack_require__(/*! ./navbar */ "./resources/js/views/layouts/navbar.vue")["default"],
+    'footer-layout': __webpack_require__(/*! ./footer */ "./resources/js/views/layouts/footer.vue")["default"]
   }
 });
 
@@ -47514,6 +47525,52 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/layouts/footer.vue?vue&type=template&id=57ecde20&":
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/layouts/footer.vue?vue&type=template&id=57ecde20& ***!
+  \************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "footer" }, [
+      _c("p", { staticClass: "float-left" }, [
+        _vm._v("\n        Copyright © 2017 Your Website Name\n    ")
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "float-right" }, [
+        _vm._v("\n        All rights reserved for "),
+        _c(
+          "a",
+          { attrs: { target: "_blank", href: "https://www.yoursite.net" } },
+          [_vm._v("yoursite.net")]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "clearfix" })
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/layouts/main.vue?vue&type=template&id=de3c3304&":
 /*!**********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/layouts/main.vue?vue&type=template&id=de3c3304& ***!
@@ -47534,406 +47591,237 @@ var render = function() {
     [
       _c("navbar"),
       _vm._v(" "),
-      _c("div", { staticClass: "container" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c("section", { staticClass: "featured-posts" }, [
-          _vm._m(1),
+      _c(
+        "div",
+        { staticClass: "container" },
+        [
+          _c("div", { staticClass: "row" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-lg-6" }, [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "flex-md-row mb-4 box-shadow h-xl-300 rtl text-right",
+                  attrs: { dir: "rtl" }
+                },
+                _vm._l([4, 5, 6], function(item) {
+                  return _c(
+                    "div",
+                    { staticClass: "mb-3 d-flex align-items-center" },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "./images/demo/blog" + item + ".jpg",
+                          height: "80"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _vm._m(1, true)
+                    ]
+                  )
+                }),
+                0
+              )
+            ])
+          ]),
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "card-columns listfeaturedtag" },
-            _vm._l(4, function(item) {
-              return _c(
-                "div",
-                { staticClass: "card rtl", attrs: { dir: "rtl" } },
-                [
-                  _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-md-5 wrapthumbnail" }, [
-                      _c("a", { attrs: { href: "post.html" } }, [
-                        _c("div", {
-                          staticClass: "thumbnail",
-                          style: {
-                            backgroundImage:
-                              "url(./images/demopic/" + item + ".jpg)"
-                          }
-                        })
-                      ])
-                    ]),
+            {
+              staticClass: "row justify-content-between text-right rtl",
+              attrs: { dir: "rtl" }
+            },
+            [
+              _c("div", { staticClass: "col-md-8" }, [
+                _vm._m(2),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "mb-3 d-flex justify-content-between" },
+                  [
+                    _c("img", {
+                      attrs: { src: "./images/demo/blog8.jpg", height: "120" }
+                    }),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-md-7" }, [
-                      _c("div", { staticClass: "card-block p-4" }, [
-                        _vm._m(2, true),
-                        _vm._v(" "),
-                        _c("h4", { staticClass: "card-text text-justify" }, [
-                          _vm._v(
-                            "\n                                        لورم ایپسوم متن ساختگی با تولید\n                                        سادگی نامفهوم از صنعت چاپ و با استفاده\n                                        از طراحان گرافیک است چاپگرها و متون\n                                    "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "metafooter" }, [
-                          _c("div", { staticClass: "wrapfooter" }, [
-                            _vm._m(3, true),
-                            _vm._v(" "),
-                            _vm._m(4, true),
-                            _vm._v(" "),
-                            _c("span", { staticClass: "post-read-more" }, [
-                              _c(
-                                "a",
-                                {
-                                  attrs: {
-                                    href: "post.html",
-                                    title: "Read Story"
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "svg",
-                                    {
-                                      staticClass: "svgIcon-use",
-                                      attrs: {
-                                        width: "25",
-                                        height: "25",
-                                        viewBox: "0 0 25 25"
-                                      }
-                                    },
-                                    [
-                                      _c("path", {
+                    _vm._m(3)
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _vm._m(4)
+            ]
+          ),
+          _vm._v(" "),
+          _c("section", { staticClass: "featured-posts" }, [
+            _vm._m(5),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "card-columns listfeaturedtag" },
+              _vm._l(4, function(item) {
+                return _c(
+                  "div",
+                  { staticClass: "card rtl", attrs: { dir: "rtl" } },
+                  [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-md-5 wrapthumbnail" }, [
+                        _c("a", { attrs: { href: "post.html" } }, [
+                          _c("div", {
+                            staticClass: "thumbnail",
+                            style: {
+                              backgroundImage:
+                                "url(./images/demopic/" + item + ".jpg)"
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-7" }, [
+                        _c("div", { staticClass: "card-block p-4" }, [
+                          _vm._m(6, true),
+                          _vm._v(" "),
+                          _c("h4", { staticClass: "card-text text-justify" }, [
+                            _vm._v(
+                              "\n                                        لورم ایپسوم متن ساختگی با تولید\n                                        سادگی نامفهوم از صنعت چاپ و با استفاده\n                                        از طراحان گرافیک است چاپگرها و متون\n                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "metafooter" }, [
+                            _c("div", { staticClass: "wrapfooter" }, [
+                              _vm._m(7, true),
+                              _vm._v(" "),
+                              _vm._m(8, true),
+                              _vm._v(" "),
+                              _c("span", { staticClass: "post-read-more" }, [
+                                _c(
+                                  "a",
+                                  {
+                                    attrs: {
+                                      href: "post.html",
+                                      title: "Read Story"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "svg",
+                                      {
+                                        staticClass: "svgIcon-use",
                                         attrs: {
-                                          d:
-                                            "M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z",
-                                          "fill-rule": "evenodd"
+                                          width: "25",
+                                          height: "25",
+                                          viewBox: "0 0 25 25"
                                         }
-                                      })
-                                    ]
-                                  )
-                                ]
-                              )
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            d:
+                                              "M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z",
+                                            "fill-rule": "evenodd"
+                                          }
+                                        })
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ])
                             ])
                           ])
                         ])
                       ])
                     ])
-                  ])
-                ]
-              )
-            }),
-            0
-          )
-        ]),
-        _vm._v(" "),
-        _c("section", { staticClass: "recent-posts" }, [
-          _vm._m(5),
+                  ]
+                )
+              }),
+              0
+            )
+          ]),
           _vm._v(" "),
-          _c("div", { staticClass: "card-columns listrecent" }, [
-            _c("div", { staticClass: "card" }, [
-              _vm._m(6),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-block" }, [
-                _vm._m(7),
-                _vm._v(" "),
-                _c("h4", { staticClass: "card-text" }, [
-                  _vm._v(
-                    "This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "metafooter" }, [
-                  _c("div", { staticClass: "wrapfooter" }, [
-                    _vm._m(8),
-                    _vm._v(" "),
-                    _vm._m(9),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "post-read-more" }, [
-                      _c(
-                        "a",
-                        { attrs: { href: "post.html", title: "Read Story" } },
-                        [
-                          _c(
-                            "svg",
-                            {
-                              staticClass: "svgIcon-use",
-                              attrs: {
-                                width: "25",
-                                height: "25",
-                                viewBox: "0 0 25 25"
-                              }
-                            },
-                            [
-                              _c("path", {
-                                attrs: {
-                                  d:
-                                    "M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z",
-                                  "fill-rule": "evenodd"
-                                }
-                              })
-                            ]
-                          )
-                        ]
-                      )
-                    ])
-                  ])
-                ])
-              ])
-            ]),
+          _c("section", { staticClass: "recent-posts" }, [
+            _vm._m(9),
             _vm._v(" "),
-            _c("div", { staticClass: "card" }, [
-              _vm._m(10),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-block" }, [
-                _vm._m(11),
-                _vm._v(" "),
-                _c("h4", { staticClass: "card-text" }, [
-                  _vm._v(
-                    "This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "metafooter" }, [
-                  _c("div", { staticClass: "wrapfooter" }, [
-                    _vm._m(12),
+            _c(
+              "div",
+              { staticClass: "card-columns listrecent" },
+              _vm._l(6, function(item) {
+                return _c(
+                  "div",
+                  { staticClass: "card rtl", attrs: { dir: "rtl" } },
+                  [
+                    _c("a", { attrs: { href: "post.html" } }, [
+                      _c("img", {
+                        staticClass: "img-fluid",
+                        attrs: {
+                          src: "./images/demopic/" + item + ".jpg",
+                          alt: ""
+                        }
+                      })
+                    ]),
                     _vm._v(" "),
-                    _vm._m(13),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "post-read-more" }, [
-                      _c(
-                        "a",
-                        { attrs: { href: "post.html", title: "Read Story" } },
-                        [
-                          _c(
-                            "svg",
-                            {
-                              staticClass: "svgIcon-use",
-                              attrs: {
-                                width: "25",
-                                height: "25",
-                                viewBox: "0 0 25 25"
-                              }
-                            },
-                            [
-                              _c("path", {
+                    _c("div", { staticClass: "card-block p-4" }, [
+                      _vm._m(10, true),
+                      _vm._v(" "),
+                      _c("h4", { staticClass: "card-text text-justify" }, [
+                        _vm._v(
+                          "\n                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت\n                                چاپ و با استفاده از طراحان گرافیک است. چاپگرها و\n                                متون بلکه روزنامه و مجله در ستون و سطرآنچنان که\n                                لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و\n                                کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.\n                            "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "metafooter clearfix" }, [
+                        _c("div", { staticClass: "wrapfooter" }, [
+                          _vm._m(11, true),
+                          _vm._v(" "),
+                          _vm._m(12, true),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "post-read-more" }, [
+                            _c(
+                              "a",
+                              {
                                 attrs: {
-                                  d:
-                                    "M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z",
-                                  "fill-rule": "evenodd"
+                                  href: "post.html",
+                                  title: "Read Story"
                                 }
-                              })
-                            ]
-                          )
-                        ]
-                      )
+                              },
+                              [
+                                _c(
+                                  "svg",
+                                  {
+                                    staticClass: "svgIcon-use",
+                                    attrs: {
+                                      width: "25",
+                                      height: "25",
+                                      viewBox: "0 0 25 25"
+                                    }
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        d:
+                                          "M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z",
+                                        "fill-rule": "evenodd"
+                                      }
+                                    })
+                                  ]
+                                )
+                              ]
+                            )
+                          ])
+                        ])
+                      ])
                     ])
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card" }, [
-              _vm._m(14),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-block" }, [
-                _vm._m(15),
-                _vm._v(" "),
-                _c("h4", { staticClass: "card-text" }, [
-                  _vm._v(
-                    "This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "metafooter" }, [
-                  _c("div", { staticClass: "wrapfooter" }, [
-                    _vm._m(16),
-                    _vm._v(" "),
-                    _vm._m(17),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "post-read-more" }, [
-                      _c(
-                        "a",
-                        { attrs: { href: "post.html", title: "Read Story" } },
-                        [
-                          _c(
-                            "svg",
-                            {
-                              staticClass: "svgIcon-use",
-                              attrs: {
-                                width: "25",
-                                height: "25",
-                                viewBox: "0 0 25 25"
-                              }
-                            },
-                            [
-                              _c("path", {
-                                attrs: {
-                                  d:
-                                    "M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z",
-                                  "fill-rule": "evenodd"
-                                }
-                              })
-                            ]
-                          )
-                        ]
-                      )
-                    ])
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card" }, [
-              _vm._m(18),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-block" }, [
-                _vm._m(19),
-                _vm._v(" "),
-                _c("h4", { staticClass: "card-text" }, [
-                  _vm._v(
-                    "This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "metafooter" }, [
-                  _c("div", { staticClass: "wrapfooter" }, [
-                    _vm._m(20),
-                    _vm._v(" "),
-                    _vm._m(21),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "post-read-more" }, [
-                      _c(
-                        "a",
-                        { attrs: { href: "post.html", title: "Read Story" } },
-                        [
-                          _c(
-                            "svg",
-                            {
-                              staticClass: "svgIcon-use",
-                              attrs: {
-                                width: "25",
-                                height: "25",
-                                viewBox: "0 0 25 25"
-                              }
-                            },
-                            [
-                              _c("path", {
-                                attrs: {
-                                  d:
-                                    "M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z",
-                                  "fill-rule": "evenodd"
-                                }
-                              })
-                            ]
-                          )
-                        ]
-                      )
-                    ])
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card" }, [
-              _vm._m(22),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-block" }, [
-                _vm._m(23),
-                _vm._v(" "),
-                _c("h4", { staticClass: "card-text" }, [
-                  _vm._v(
-                    "This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "metafooter" }, [
-                  _c("div", { staticClass: "wrapfooter" }, [
-                    _vm._m(24),
-                    _vm._v(" "),
-                    _vm._m(25),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "post-read-more" }, [
-                      _c(
-                        "a",
-                        { attrs: { href: "post.html", title: "Read Story" } },
-                        [
-                          _c(
-                            "svg",
-                            {
-                              staticClass: "svgIcon-use",
-                              attrs: {
-                                width: "25",
-                                height: "25",
-                                viewBox: "0 0 25 25"
-                              }
-                            },
-                            [
-                              _c("path", {
-                                attrs: {
-                                  d:
-                                    "M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z",
-                                  "fill-rule": "evenodd"
-                                }
-                              })
-                            ]
-                          )
-                        ]
-                      )
-                    ])
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card" }, [
-              _vm._m(26),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-block" }, [
-                _vm._m(27),
-                _vm._v(" "),
-                _c("h4", { staticClass: "card-text" }, [
-                  _vm._v(
-                    "This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "metafooter" }, [
-                  _c("div", { staticClass: "wrapfooter" }, [
-                    _vm._m(28),
-                    _vm._v(" "),
-                    _vm._m(29),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "post-read-more" }, [
-                      _c(
-                        "a",
-                        { attrs: { href: "post.html", title: "Read Story" } },
-                        [
-                          _c(
-                            "svg",
-                            {
-                              staticClass: "svgIcon-use",
-                              attrs: {
-                                width: "25",
-                                height: "25",
-                                viewBox: "0 0 25 25"
-                              }
-                            },
-                            [
-                              _c("path", {
-                                attrs: {
-                                  d:
-                                    "M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z",
-                                  "fill-rule": "evenodd"
-                                }
-                              })
-                            ]
-                          )
-                        ]
-                      )
-                    ])
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
+                  ]
+                )
+              }),
+              0
+            )
+          ]),
+          _vm._v(" "),
+          _c("footer-layout")
+        ],
+        1
+      ),
       _vm._v(" "),
       _c("main", [_vm._t("default")], 2)
     ],
@@ -47945,13 +47833,186 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mainheading text-right" }, [
-      _c("h1", { staticClass: "sitetitle" }, [_vm._v("دیس ایز اٍ بلاگ")]),
-      _vm._v(" "),
-      _c("p", { staticClass: "lead" }, [
-        _vm._v(
-          "\n                    یه بلاگ دیگه که داره متولد میشه\n                "
+    return _c("div", { staticClass: "col-lg-6" }, [
+      _c(
+        "div",
+        {
+          staticClass: "card border-0 mb-4 box-shadow h-xl-300 rtl",
+          attrs: { dir: "rtl" }
+        },
+        [
+          _c("div", {
+            staticStyle: {
+              "background-image": "url(./images/demo/1.jpg)",
+              height: "150px",
+              "background-size": "cover",
+              "background-repeat": "no-repeat"
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass:
+                "card-body px-0 pb-0 d-flex flex-column align-items-start text-right"
+            },
+            [
+              _c("h2", { staticClass: "h4 font-weight-bold" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "text-dark",
+                    attrs: { href: "./article.html" }
+                  },
+                  [
+                    _vm._v(
+                      "طرح‌نما یا لورم ایپسوم به متنی آزمایشی و بی‌معنی در صنعت چاپ"
+                    )
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "card-text" }, [
+                _vm._v(
+                  "\n                                از آنجایی که طراحان عموماً نویسندهٔ متن نیستند و وظیفهٔ رعایت حق تکثیر\n                                متون را ندارند و در همان حال، کار آن‌ها به‌نوعی وابسته به متن است\n                            "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("small", { staticClass: "d-block" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "text-muted",
+                      attrs: { href: "./author.html" }
+                    },
+                    [_vm._v("مهدی خانزادی")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("small", { staticClass: "text-muted" }, [
+                  _vm._v("۱۲ اردیبهشت ۹۷ · ۵ دقیقه")
+                ])
+              ])
+            ]
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "pr-3" }, [
+      _c("h2", { staticClass: "mb-2 h6 font-weight-bold" }, [
+        _c(
+          "a",
+          { staticClass: "text-dark", attrs: { href: "./article.html" } },
+          [_vm._v("از آنجایی که طراحان عموماً نویسندهٔ متن نیستند و وظیفهٔ")]
         )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-text text-muted small" }, [
+        _vm._v(
+          "\n                                    مهدی خانزادی\n                                "
+        )
+      ]),
+      _vm._v(" "),
+      _c("small", { staticClass: "text-muted" }, [
+        _vm._v("۱۲ اردیبهشت ۹۷ · ۵ دقیقه")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h5", { staticClass: "font-weight-bold spanborder" }, [
+      _c("span", [_vm._v("جدیدترین نوشته ها")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "pr-3" }, [
+      _c("h2", { staticClass: "mb-1 h4 font-weight-bold" }, [
+        _c(
+          "a",
+          { staticClass: "text-dark", attrs: { href: "./article.html" } },
+          [
+            _vm._v(
+              "طرح‌نما یا لورم ایپسوم به متنی آزمایشی و بی‌معنی در صنعت چاپ"
+            )
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "\n                                از آنجایی که طراحان عموماً نویسندهٔ متن نیستند و\n                                وظیفه ٔ رعایت حق تکثیر متون را ندارند و در\n                                همان حال، کار آن‌ها به‌نوعی وابسته به متن است\n                            "
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-text text-muted small" }, [
+        _c("span", [_vm._v("مهدی خانزادی")])
+      ]),
+      _vm._v(" "),
+      _c("small", { staticClass: "text-muted" }, [
+        _vm._v("۱۲ اردیبهشت ۹۷ · ۵ دقیقه")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-4 pr-4" }, [
+      _c("h5", { staticClass: "font-weight-bold spanborder" }, [
+        _c("span", [_vm._v("محبوب ترین ها")])
+      ]),
+      _vm._v(" "),
+      _c("ol", { staticClass: "list-featured px-0" }, [
+        _c("li", [
+          _c("span", [
+            _c("h6", { staticClass: "font-weight-bold" }, [
+              _c(
+                "a",
+                { staticClass: "text-dark", attrs: { href: "./article.html" } },
+                [
+                  _vm._v(
+                    "از آنجایی که طراحان عموماً نویسندهٔ متن نیستند و وظیفهٔ"
+                  )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "text-muted" }, [
+              _c("span", [_vm._v("مهدی خانزادی")])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("span", [
+            _c("h6", { staticClass: "font-weight-bold" }, [
+              _c(
+                "a",
+                { staticClass: "text-dark", attrs: { href: "./article.html" } },
+                [
+                  _vm._v(
+                    "از آنجایی که طراحان عموماً نویسندهٔ متن نیستند و وظیفهٔ"
+                  )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "text-muted" }, [
+              _c("span", [_vm._v("مهدی خانزادی")])
+            ])
+          ])
+        ])
       ])
     ])
   },
@@ -48012,28 +48073,17 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "section-title" }, [
-      _c("h2", [_c("span", [_vm._v("All Stories")])])
+    return _c("div", { staticClass: "section-title text-right" }, [
+      _c("h2", [_c("span", [_vm._v("مطالب تصادفی")])])
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("a", { attrs: { href: "post.html" } }, [
-      _c("img", {
-        staticClass: "img-fluid",
-        attrs: { src: "assets/img/demopic/5.jpg", alt: "" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("h2", { staticClass: "card-title" }, [
+    return _c("h2", { staticClass: "card-title text-right" }, [
       _c("a", { attrs: { href: "post.html" } }, [
-        _vm._v("Autumn doesn't have to be nostalgic, you know?")
+        _vm._v("لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ")
       ])
     ])
   },
@@ -48060,278 +48110,16 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("span", { staticClass: "author-meta" }, [
       _c("span", { staticClass: "post-name" }, [
-        _c("a", { attrs: { href: "author.html" } }, [_vm._v("Sal")])
+        _c("a", { attrs: { href: "author.html" } }, [_vm._v("مهدی خانزادی")])
       ]),
+      _vm._v(" "),
       _c("br"),
       _vm._v(" "),
-      _c("span", { staticClass: "post-date" }, [_vm._v("22 July 2017")]),
-      _c("span", { staticClass: "dot" }),
-      _c("span", { staticClass: "post-read" }, [_vm._v("6 min read")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("a", { attrs: { href: "post.html" } }, [
-      _c("img", {
-        staticClass: "img-fluid",
-        attrs: { src: "assets/img/demopic/6.jpg", alt: "" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("h2", { staticClass: "card-title" }, [
-      _c("a", { attrs: { href: "post.html" } }, [
-        _vm._v("Best galleries in the world with photos")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "meta-footer-thumb" }, [
-      _c("a", { attrs: { href: "author.html" } }, [
-        _c("img", {
-          staticClass: "author-thumb",
-          attrs: {
-            src:
-              "https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&d=mm&r=x",
-            alt: "Sal"
-          }
-        })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "author-meta" }, [
-      _c("span", { staticClass: "post-name" }, [
-        _c("a", { attrs: { href: "author.html" } }, [_vm._v("Sal")])
-      ]),
-      _c("br"),
+      _c("span", { staticClass: "post-date" }, [_vm._v("۱۲ فروردین ۱۳۹۷")]),
       _vm._v(" "),
-      _c("span", { staticClass: "post-date" }, [_vm._v("22 July 2017")]),
       _c("span", { staticClass: "dot" }),
-      _c("span", { staticClass: "post-read" }, [_vm._v("6 min read")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("a", { attrs: { href: "post.html" } }, [
-      _c("img", {
-        staticClass: "img-fluid",
-        attrs: { src: "assets/img/demopic/7.jpg", alt: "" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("h2", { staticClass: "card-title" }, [
-      _c("a", { attrs: { href: "post.html" } }, [
-        _vm._v("Little red dress and a perfect summer")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "meta-footer-thumb" }, [
-      _c("a", { attrs: { href: "author.html" } }, [
-        _c("img", {
-          staticClass: "author-thumb",
-          attrs: {
-            src:
-              "https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&d=mm&r=x",
-            alt: "Sal"
-          }
-        })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "author-meta" }, [
-      _c("span", { staticClass: "post-name" }, [
-        _c("a", { attrs: { href: "author.html" } }, [_vm._v("Sal")])
-      ]),
-      _c("br"),
       _vm._v(" "),
-      _c("span", { staticClass: "post-date" }, [_vm._v("22 July 2017")]),
-      _c("span", { staticClass: "dot" }),
-      _c("span", { staticClass: "post-read" }, [_vm._v("6 min read")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("a", { attrs: { href: "post.html" } }, [
-      _c("img", {
-        staticClass: "img-fluid",
-        attrs: { src: "assets/img/demopic/8.jpg", alt: "" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("h2", { staticClass: "card-title" }, [
-      _c("a", { attrs: { href: "post.html" } }, [
-        _vm._v("Thinking outside the box can help you prosper")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "meta-footer-thumb" }, [
-      _c("a", { attrs: { href: "author.html" } }, [
-        _c("img", {
-          staticClass: "author-thumb",
-          attrs: {
-            src:
-              "https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&d=mm&r=x",
-            alt: "Sal"
-          }
-        })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "author-meta" }, [
-      _c("span", { staticClass: "post-name" }, [
-        _c("a", { attrs: { href: "author.html" } }, [_vm._v("Sal")])
-      ]),
-      _c("br"),
-      _vm._v(" "),
-      _c("span", { staticClass: "post-date" }, [_vm._v("22 July 2017")]),
-      _c("span", { staticClass: "dot" }),
-      _c("span", { staticClass: "post-read" }, [_vm._v("6 min read")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("a", { attrs: { href: "post.html" } }, [
-      _c("img", {
-        staticClass: "img-fluid",
-        attrs: { src: "assets/img/demopic/9.jpg", alt: "" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("h2", { staticClass: "card-title" }, [
-      _c("a", { attrs: { href: "post.html" } }, [
-        _vm._v("10 Things you should know about choosing your house")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "meta-footer-thumb" }, [
-      _c("a", { attrs: { href: "author.html" } }, [
-        _c("img", {
-          staticClass: "author-thumb",
-          attrs: {
-            src:
-              "https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&d=mm&r=x",
-            alt: "Sal"
-          }
-        })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "author-meta" }, [
-      _c("span", { staticClass: "post-name" }, [
-        _c("a", { attrs: { href: "author.html" } }, [_vm._v("Sal")])
-      ]),
-      _c("br"),
-      _vm._v(" "),
-      _c("span", { staticClass: "post-date" }, [_vm._v("22 July 2017")]),
-      _c("span", { staticClass: "dot" }),
-      _c("span", { staticClass: "post-read" }, [_vm._v("6 min read")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("a", { attrs: { href: "post.html" } }, [
-      _c("img", {
-        staticClass: "img-fluid",
-        attrs: { src: "assets/img/demopic/10.jpg", alt: "" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("h2", { staticClass: "card-title" }, [
-      _c("a", { attrs: { href: "post.html" } }, [
-        _vm._v("Visiting the world means learning cultures")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "meta-footer-thumb" }, [
-      _c("a", { attrs: { href: "author.html" } }, [
-        _c("img", {
-          staticClass: "author-thumb",
-          attrs: {
-            src:
-              "https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&d=mm&r=x",
-            alt: "Sal"
-          }
-        })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "author-meta" }, [
-      _c("span", { staticClass: "post-name" }, [
-        _c("a", { attrs: { href: "author.html" } }, [_vm._v("Sal")])
-      ]),
-      _c("br"),
-      _vm._v(" "),
-      _c("span", { staticClass: "post-date" }, [_vm._v("22 July 2017")]),
-      _c("span", { staticClass: "dot" }),
-      _c("span", { staticClass: "post-read" }, [_vm._v("6 min read")])
+      _c("span", { staticClass: "post-read" }, [_vm._v("۶ دقیقه")])
     ])
   }
 ]
@@ -64472,6 +64260,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_blog_item_style2_vue_vue_type_template_id_9de41d5e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_blog_item_style2_vue_vue_type_template_id_9de41d5e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/views/layouts/footer.vue":
+/*!***********************************************!*\
+  !*** ./resources/js/views/layouts/footer.vue ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _footer_vue_vue_type_template_id_57ecde20___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./footer.vue?vue&type=template&id=57ecde20& */ "./resources/js/views/layouts/footer.vue?vue&type=template&id=57ecde20&");
+/* harmony import */ var _footer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./footer.vue?vue&type=script&lang=js& */ "./resources/js/views/layouts/footer.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _footer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _footer_vue_vue_type_template_id_57ecde20___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _footer_vue_vue_type_template_id_57ecde20___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/views/layouts/footer.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/views/layouts/footer.vue?vue&type=script&lang=js&":
+/*!************************************************************************!*\
+  !*** ./resources/js/views/layouts/footer.vue?vue&type=script&lang=js& ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_footer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./footer.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/layouts/footer.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_footer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/views/layouts/footer.vue?vue&type=template&id=57ecde20&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/views/layouts/footer.vue?vue&type=template&id=57ecde20& ***!
+  \******************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_footer_vue_vue_type_template_id_57ecde20___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./footer.vue?vue&type=template&id=57ecde20& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/layouts/footer.vue?vue&type=template&id=57ecde20&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_footer_vue_vue_type_template_id_57ecde20___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_footer_vue_vue_type_template_id_57ecde20___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
