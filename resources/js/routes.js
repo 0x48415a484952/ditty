@@ -6,8 +6,13 @@
 export default [
     {
         path: '/',
-        component: require('./views/elements/blog-items/blog-item-style2').default,
+        component: require('./views/index').default,
         name: 'index',
+    },
+    {
+        path: '/posts/detail',
+        component: require('./views/detail').default,
+        name: 'posts.detail',
     },
     {
         path: '*',

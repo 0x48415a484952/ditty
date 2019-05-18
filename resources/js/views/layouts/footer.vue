@@ -1,5 +1,5 @@
 <template>
-    <div class="footer">
+    <div class="container footer">
         <p class="float-left">
             Copyright © 2017 Your Website Name
         </p>
