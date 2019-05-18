@@ -12,4 +12,4 @@ Route::group(['namespace' => 'Web\Dashboard', 'prefix' => 'dashboard'], function
     Route::get('/categories', 'HomeController@index');
 });
 
-// Route::view('/{parameters?}', 'main')->where('parameters', '.*');
+Route::view('/{parameters?}', 'main')->where('parameters', '.*');

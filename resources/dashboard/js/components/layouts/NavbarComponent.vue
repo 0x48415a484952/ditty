@@ -5,19 +5,8 @@
             <ul class="navbar-nav navbar-right mr-auto">
                 <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                 <!-- <img alt="image" src="../../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1"> -->
-                <div class="d-sm-none d-lg-inline-block">سلام مهدی</div></a>
+                <div class="d-sm-none d-lg-inline-block">سلام {{ $root.user.name }}</div></a>
                 <div class="dropdown-menu dropdown-menu-right text-right">
-                    <div class="dropdown-title text-center">۵ دقیقه پیش لاگین کردین</div>
-                    <a href="features-profile.html" class="dropdown-item has-icon">
-                    <span>پروفایل</span>
-                    <i class="far fa-user"></i>
-                    </a>
-
-                    <a href="features-settings.html" class="dropdown-item has-icon">
-                        <span>تنظیمات</span>
-                        <i class="fas fa-cog"></i>
-                    </a>
-                    <div class="dropdown-divider"></div>
                     <div class="dropdown-item has-icon text-danger" @click="logout">
                         <span>خروج</span>
                         <i class="fas fa-sign-out-alt"></i>

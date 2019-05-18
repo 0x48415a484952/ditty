@@ -22,7 +22,7 @@
                     <li><router-link class="nav-link" :to="{name: 'dashboard.categories'}">دسته‌بندی ها</router-link></li>
                 </ul>
             </li>
-            <li></li><router-link :to="{name: 'dashboard.profile'}" v-if="$root.isAuthenticated()"><i class="fas fa-fire"></i> پروفایل</router-link></li>
+            <li><router-link :to="{name: 'dashboard.profile'}" v-if="$root.isAuthenticated()"><i class="fas fa-fire"></i> پروفایل</router-link></li>
           </ul>
 
 

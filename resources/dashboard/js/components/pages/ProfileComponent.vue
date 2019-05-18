@@ -6,7 +6,45 @@
                     <div class="form-group">
                         <label for="name">نام و نام خانوادگی</label>
                         <input id="name" type="text" class="form-control" name="name" :value="$root.user.name" data-required>
-                        <span>{{ errors.first('name') }}</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="username">نام کاربری</label>
+                        <input id="username" type="text" class="form-control" name="username" :value="$root.user.username" data-required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">ایمیل</label>
+                        <input id="email" type="email" class="form-control" name="email" :value="$root.user.email" data-required>
+                    </div>
+                    <div class="form-group">
+                        <label for="credentials">درباره کوچولو (زیر اسم)</label>
+                        <input id="credentials" type="text" class="form-control" name="credentials" :value="$root.user.credentials">
+                    </div>
+                    <div class="form-group">
+                        <label>شبکه‌های اجتماعی</label>
+                        <div class="row">
+                            <div class="col-md-6 mb-1">
+                                <input type="url" name="social_urls[github]" class="form-control" :value="$root.user.social_urls.github" placeholder="گیت هاب">
+                            </div>
+                            <div class="col-md-6 mb-1">
+                                <input type="url" name="social_urls[linkedin]" class="form-control" :value="$root.user.social_urls.linkedin" placeholder="لینکدین">
+                            </div>
+                            <div class="col-md-6 mb-1">
+                                <input type="url" name="social_urls[instagram]" class="form-control" :value="$root.user.social_urls.instagram" placeholder="اینستاگرام">
+                            </div>
+                            <div class="col-md-6 mb-1">
+                                <input type="url" name="social_urls[telegram]" class="form-control" :value="$root.user.social_urls.telegram" placeholder="تلگرام">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="biography">بیوگرافی</label>
+                        <textarea id="biography" class="form-control" name="biography" :value="$root.user.biography"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="avatar">آواتار</label>
+                        <div>
+                            <input id="avatar" type="file" name="avatar">
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="password">رمز عبور</label>
@@ -43,15 +81,13 @@ export default {
         this.$root.setPageTitle('پروفایل');
 
         if (! window.profileUpdated) {
-            var _this = this;
-
-            window.profileUpdated = function(response) {
-                if (response.status) {
+            window.profileUpdated = (response) => {
+                if (response.status == 1) {
                     if (response.data.token) {
                         Cookies.set('authorization', 'Bearer ' + response.data.token, { expires: 30});
                     }
-                    _this.$root.$set(_this.$root, 'user', response.data.user);
-                    _this.$router.push({ name: 'dashboard.index'});
+                    this.$root.$set(this.$root, 'user', response.data.user);
+                    window.success_notification(response.message);
                 }
             }
         }

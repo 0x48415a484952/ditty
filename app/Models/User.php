@@ -47,6 +47,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function revokeTokens()
+    {
+        foreach ($this->tokens as $token) {
+            $token->revoke();
+        }
+    }
+
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = Hash::make($value);

@@ -13,7 +13,7 @@ class ProfileController extends Controller
 {
     public function index()
     {
-        $user = Auth::guard('api')->user();
+        $user = Auth::user();
 
         return Response::success('', ['user' => $user]);
     }
@@ -21,7 +21,9 @@ class ProfileController extends Controller
     public function update(ProfileUpdateRequest $request, UsersRepository $users)
     {
         $user = Auth::user();
-        $user = $users->update($user, $request->only(['tilte', 'password']));
+        $user = $users->update($user, $request->only(
+            $users->model->getFillable()
+        ));
 
         if ($request->filled('password')) {
             $user->revokeTokens();
