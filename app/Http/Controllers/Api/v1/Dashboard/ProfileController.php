@@ -22,7 +22,7 @@ class ProfileController extends Controller
     {
         $user = Auth::user();
         $user = $users->update($user, $request->only(
-            $users->model->getFillable()
+            $users->getFillable()
         ));
 
         if ($request->filled('password')) {

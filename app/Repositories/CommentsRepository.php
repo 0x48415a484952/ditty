@@ -9,4 +9,11 @@ class CommentsRepository extends Repository
     {
         return \App\Models\Comment::class;
     }
+
+    public function all()
+    {
+        return $this->model->with(['commentable' => function($query) {
+            $query->select('title', 'id');
+        }])->get();
+    }
 }

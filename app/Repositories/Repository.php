@@ -19,6 +19,10 @@ abstract class Repository implements RepositoryInterface
         $this->makeModel();
     }
 
+    public function getFillable()
+    {
+        return $this->model->getFillable();
+    }
 
     public function all()
     {

@@ -68,7 +68,7 @@
         </b-modal>
 
         <b-modal size="lg" id="edit-post" title="ویرایش پست" hide-footer>
-            <div v-if="! $root.isEmptyObject(edit)">
+            <div v-if="! $root.isEmptyObject(posts.edit)">
                 <form :action="$root.api_url + '/posts/' + posts.edit.id" method="POST" class="js-submit-form" data-on-success="postUpdated">
                     <div class="form-group">
                         <label for="edit-title">عنوان</label>
@@ -201,11 +201,8 @@ export default {
                         this.posts.items[index] = post;
                         this.posts.edit = post;
                         window.success_notification(response.message);
-                        this.$root.$emit('bv::hide::modal', 'edit-post', '#btnHide');
-
-                        setTimeout(() => {
-                            this.$root.$emit('bv::refresh::table', 'posts');
-                        }, 50)
+                        this.$root.toggleModal('edit-post');
+                        this.$root.updateTable('posts');
                     }
                 }
             }
@@ -228,7 +225,7 @@ export default {
             var post = window.clone(this.posts.items[index]);
             post.index = index;
             this.posts.edit = post;
-            this.$root.$emit('bv::toggle::modal', 'edit-post', '#btnToggle');
+            this.$root.toggleModal('edit-post');
         }
     }
 }

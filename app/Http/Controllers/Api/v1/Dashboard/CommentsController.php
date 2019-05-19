@@ -50,7 +50,7 @@ class CommentsController extends Controller
     public function store(CommentsRequest $request, Post $post)
     {
         $comment = new $this->comments->model($request->only(
-            $this->comments->model->getFillable()
+            $this->comments->getFillable()
         ));
 
         $post->comments()->save($comment);
@@ -89,7 +89,13 @@ class CommentsController extends Controller
      */
     public function update(Request $request, Comment $comment)
     {
-        //
+        $this->validate($request, ['text' => 'required']);
+
+        $comment = $this->comments->update($comment, $request->only(
+            $this->comments->getFillable()
+        ));
+
+        return Response::success('Edited Successfully', $comment->load('commentable'));
     }
 
     /**

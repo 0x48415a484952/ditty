@@ -58,7 +58,7 @@ class OrganizationsController extends Controller
             $request->request->add(['user_id' => $user->id]);
 
             $organization = $this->organizations->create(
-                $request->only($this->organizations->model->getFillable())
+                $request->only($this->organizations->getFillable())
             );
 
             DB::commit();
@@ -117,7 +117,7 @@ class OrganizationsController extends Controller
     {
         $organization = $this->organizations->update(
             $organization,
-            $request->only($this->organizations->model->getFillable())
+            $request->only($this->organizations->getFillable())
         );
 
         return Response::success('با موفقیت ویرایش شد', $organization);

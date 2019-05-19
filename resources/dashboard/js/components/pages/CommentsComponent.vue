@@ -10,15 +10,34 @@
                 <button class="btn btn-primary" v-on:click="editComment(data.index)"><i class="fa fa-edit"></i></button>
             </template>
             <template slot="delete" slot-scope="data">
-                <button class="btn btn-danger" v-on:click="deleteComment(data.index)"><i class="fa fa-close"></i></button>
+                <button class="btn btn-danger" v-on:click="deleteComment(data.item.id)">×</button>
             </template>
             <template slot="status" slot-scope="data">
                 <span :class="'badge badge-' + comment_statuses[data.item.status].color">{{ comment_statuses[data.item.status].title }}</span>
             </template>
             <template slot="post" slot-scope="data">
-
+                {{ data.item.commentable.title }}
             </template>
         </b-table>
+
+        <b-modal id="edit-comment" title="ویرایش نظر" hide-footer>
+            <div v-if="! $root.isEmptyObject(comments.edit)">
+                <form :action="$root.api_url + '/comments/' + comments.edit.id" method="POST" class="js-submit-form" data-on-success="commentUpdated">
+                    <div class="form-group">
+                        <label for="edit-text">متن</label>
+                        <textarea id="edit-text" name="text" class="form-control" v-model="comments.edit.text"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-status">وضعیت</label>
+                        <select name="status" id="edit-status" class="form-control" v-model="comments.edit.status">
+                            <option v-for="(status, status_id) in comment_statuses" :value="status_id">{{ status.title }}</option>
+                        </select>
+                    </div>
+                    <input type="hidden" name="_method" value="PUT">
+                    <button class="btn btn-primary">ویرایش</button>
+                </form>
+            </div>
+        </b-modal>
     </div>
 </template>
 
@@ -70,23 +89,24 @@ export default {
             });
         },
         editComment(index) {
-            var comment = window.clone(this.posts.items[index]);
+            var comment = window.clone(this.comments.items[index]);
             comment.index = index;
-            this.comment.edit = post;
-            this.$root.$emit('bv::toggle::modal', 'edit-post', '#btnToggle');
+            this.comments.edit = comment;
+            this.$root.$emit('bv::toggle::modal', 'edit-comment', '#btnToggle');
         },
         showComment(item) {
             this.comments.edit = window.clone(item);
         },
         deleteComment(id) {
-            $.post(this.$root.api_url + '/comments/' + id, {_method: 'delete'}, (response) => {
-                if (response.status == 1) {
-                    this.comments.items = this.comments.items.delete(id);
-                    this.comments.selected = null;
-                    this.comments.edit = {};
-                    window.success_notification(response.message);
-                }
-            });
+            if (confirm('نظر حذف شود؟')) {
+                $.post(this.$root.api_url + '/comments/' + id, {_method: 'delete'}, (response) => {
+                    if (response.status == 1) {
+                        this.comments.items = this.comments.items.delete(id);
+                        this.comments.edit = {};
+                        window.success_notification(response.message);
+                    }
+                });
+            }
         },
         initializeFunctions() {
             if (! this.functionsInitialized) {
@@ -94,7 +114,9 @@ export default {
                     if (response.status == 1) {
                         this.comments.items = this.comments.items.update(response.data.id, response.data);
                         this.comments.selected = response.data;
-                        window.show_notification('', response.message);
+                        window.success_notification(response.message);
+                        this.$root.toggleModal('edit-comment');
+                        this.$root.updateTable('comments');
                     }
                 }
             }

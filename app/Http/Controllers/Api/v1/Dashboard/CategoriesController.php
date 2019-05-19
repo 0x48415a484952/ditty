@@ -47,7 +47,7 @@ class CategoriesController extends Controller
     public function store(CategoriesRequest $request)
     {
         $category = $this->categories->create($request->only(
-            $this->categories->model->getFillable()
+            $this->categories->getFillable()
         ));
 
         return Response::success('created successfully', $category);
@@ -85,7 +85,7 @@ class CategoriesController extends Controller
     public function update(CategoriesRequest $request, Category $category)
     {
         $category = $this->categories->update($category, $request->only(
-            $this->categories->model->getFillable()
+            $this->categories->getFillable()
         ));
 
         return Response::success('edited successfully', $category);

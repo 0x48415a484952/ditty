@@ -80,4 +80,9 @@ class LoginController extends Controller
             $user->revokeTokens();
         }
     }
+
+    protected function guard()
+    {
+        return Auth::guard('web');
+    }
 }

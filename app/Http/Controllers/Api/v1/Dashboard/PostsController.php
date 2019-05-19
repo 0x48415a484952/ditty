@@ -50,7 +50,7 @@ class PostsController extends Controller
     public function store(PostsRequest $request)
     {
         $post = $this->posts->create($request->only(
-            $this->posts->model->getFillable()
+            $this->posts->getFillable()
         ));
 
         return Response::success(
@@ -91,7 +91,7 @@ class PostsController extends Controller
     public function update(PostsRequest $request, Post $post)
     {
         $post = $this->posts->update($post, $request->only(
-            $this->posts->model->getFillable()
+            $this->posts->getFillable()
         ));
 
         return Response::success('Edited Successfully', $post->load('tagged'));

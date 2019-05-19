@@ -78,8 +78,13 @@ const App = new Vue({
             }
             return false;
         },
-        toggleModal() {
-            this.$emit('bv::toggle::modal', 'modal-1', '#btnToggle');
+        toggleModal(modal) {
+            this.$emit('bv::toggle::modal', modal, '#btnToggle');
+        },
+        updateTable(table) {
+            setTimeout(() => {
+                this.$emit('bv::refresh::table', table);
+            }, 50)
         },
         redirectToLogin() {
             this.$router.push({ name: 'dashboard.login'});

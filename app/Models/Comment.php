@@ -32,10 +32,10 @@ class Comment extends Model
         });
     }
 
-    // public function post()
-    // {
-    //     return $this->hasOne(Post::class);
-    // }
+    public function commentable()
+    {
+        return $this->morphTo();
+    }
 
     public function setTextAttribute($text)
     {

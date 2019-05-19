@@ -61,7 +61,7 @@ class PollsController extends Controller
             $request->request->add(['organization_id' => $organization->id]);
 
             $poll = $this->polls->create($request->only(
-                $this->polls->model->getFillable()
+                $this->polls->getFillable()
             ));
 
             return Response::success('', $poll);

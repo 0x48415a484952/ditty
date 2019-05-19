@@ -18,27 +18,32 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::group(['namespace' => 'Api\v1\Dashboard', 'prefix' => 'v1/dashboard'], function() {
-    Auth::routes();
-    Route::get('/profile', 'ProfileController@index');
-    Route::put('/profile', 'ProfileController@update');
-    Route::resource('categories', 'CategoriesController')->middleware('auth:api');
+Route::group(
+    [
+        'namespace' => 'Api\v1\Dashboard',
+        'prefix' => 'v1/dashboard',
+        'middleware' => 'auth:api'
+    ],
+    function() {
+        Auth::routes();
+        Route::get('/profile', 'ProfileController@index');
+        Route::put('/profile', 'ProfileController@update');
+        Route::resource('categories', 'CategoriesController');
 
-    Route::group(['prefix' => 'posts'], function() {
-        Route::get('/', 'PostsController@index');
-        Route::post('/', 'PostsController@store')->middleware('auth:api');
-        Route::get('/{post}', 'PostsController@show');
-        Route::put('/{post}', 'PostsController@update')->middleware('auth:api');
-        Route::delete('/{post}', 'PostsController@destroy')->middleware('auth:api');
-        Route::get('/{post}/comments', 'CommentsController@index');
-        Route::post('/{post}/comments', 'CommentsController@store');
-        Route::delete('/{post}/comments/{comment}', 'CommentsController@destroy')->middleware('auth:api');
-    });
+        Route::group(['prefix' => 'posts'], function() {
+            Route::get('/', 'PostsController@index');
+            Route::post('/', 'PostsController@store');
+            Route::get('/{post}', 'PostsController@show');
+            Route::put('/{post}', 'PostsController@update');
+            Route::delete('/{post}', 'PostsController@destroy');
+            Route::get('/{post}/comments', 'CommentsController@index');
+            Route::post('/{post}/comments', 'CommentsController@store');
+            Route::delete('/{post}/comments/{comment}', 'CommentsController@destroy');
+        });
 
-    Route::group(['prefix' => 'comments'], function() {
-        Route::resource('/', 'CommentsController');
-    });
-});
+        Route::resource('/comments', 'CommentsController');
+    }
+);
 
 Route::group(['namespace' => 'Api\v1', 'prefix' => 'v1'], function() {
 
