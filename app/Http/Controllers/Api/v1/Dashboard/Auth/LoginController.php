@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Api\v1\Dashboard\Auth;
 
+use App\Models\User;
 use App\Classes\Response;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -48,11 +50,10 @@ class LoginController extends Controller
 
         $this->validateLogin($request);
 
-        if ($this->attemptLogin($request)) {
-            $user = Auth::user();
-
+        if (!empty($user = $this->getUser($request))) {
             return Response ::success('Login successful', [
                 'user' => $user,
+                'remember' => $request->has('remember') ? 30 : 1/24,
                 'token' => $user->createToken('General Token')->accessToken
             ]);
         }
@@ -68,7 +69,26 @@ class LoginController extends Controller
         // return $this->sendFailedLoginResponse($request);
     }
 
-        /**
+    /**
+     * Attempt to log the user into the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return bool
+     */
+    protected function getUser(Request $request)
+    {
+        $user = User::where('email', $request->email)->first();
+
+        if (!empty($user)) {
+            if (Hash::check($request->password, $user->password)) {
+                return $user;
+            }
+        }
+
+        return false;
+    }
+
+    /**
      * Log the user out of the application.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -83,6 +103,6 @@ class LoginController extends Controller
 
     protected function guard()
     {
-        return Auth::guard('web');
+        return Auth::guard('api');
     }
 }

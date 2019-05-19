@@ -15,8 +15,8 @@
                     </div>
                     <div class="form-group">
                         <div class="custom-control custom-checkbox">
-                            <label class="custom-control-label" for="remember">به یاد داشتن</label>
                             <input type="checkbox" name="remember" class="custom-control-input" id="remember">
+                            <label class="custom-control-label" for="remember">به یاد داشتن</label>
                         </div>
                     </div>
 
@@ -47,21 +47,19 @@
             this.$root.setPageTitle('ورود');
 
             if (! window.successfullLogin) {
-                var root = this;
-
-                window.successfullLogin = function(response) {
+                window.successfullLogin = (response) => {
                     if (response.status) {
                         Cookies.remove('authorization');
 
                         var token = 'Bearer ' + response.data.token;
-                        Cookies.set('authorization', token, { expires: 30});
+                        Cookies.set('authorization', token, { expires: response.data.remember});
 
                         $.ajaxSetup({
                             headers: {Authorization: token}
                         });
-
-                        root.$root.$set(root.$root, 'user', response.data.user);
-                        root.$router.push({ name: 'dashboard.index'});
+                        this.$root.$set(this.$root, 'user', response.data.user);
+                        this.$router.push({ name: 'dashboard.index'});
+                        window.initTemplate();
                         // window.show_notification();
                     }
                 }

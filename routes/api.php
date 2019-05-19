@@ -22,26 +22,27 @@ Route::group(
     [
         'namespace' => 'Api\v1\Dashboard',
         'prefix' => 'v1/dashboard',
-        'middleware' => 'auth:api'
     ],
     function() {
         Auth::routes();
-        Route::get('/profile', 'ProfileController@index');
-        Route::put('/profile', 'ProfileController@update');
-        Route::resource('categories', 'CategoriesController');
+        Route::group(['middleware' => 'auth:api'], function() {
+            Route::get('/profile', 'ProfileController@index');
+            Route::put('/profile', 'ProfileController@update');
+            Route::resource('categories', 'CategoriesController');
 
-        Route::group(['prefix' => 'posts'], function() {
-            Route::get('/', 'PostsController@index');
-            Route::post('/', 'PostsController@store');
-            Route::get('/{post}', 'PostsController@show');
-            Route::put('/{post}', 'PostsController@update');
-            Route::delete('/{post}', 'PostsController@destroy');
-            Route::get('/{post}/comments', 'CommentsController@index');
-            Route::post('/{post}/comments', 'CommentsController@store');
-            Route::delete('/{post}/comments/{comment}', 'CommentsController@destroy');
+            Route::group(['prefix' => 'posts'], function() {
+                Route::get('/', 'PostsController@index');
+                Route::post('/', 'PostsController@store');
+                Route::get('/{post}', 'PostsController@show');
+                Route::put('/{post}', 'PostsController@update');
+                Route::delete('/{post}', 'PostsController@destroy');
+                Route::get('/{post}/comments', 'CommentsController@index');
+                Route::post('/{post}/comments', 'CommentsController@store');
+                Route::delete('/{post}/comments/{comment}', 'CommentsController@destroy');
+            });
+
+            Route::resource('/comments', 'CommentsController');
         });
-
-        Route::resource('/comments', 'CommentsController');
     }
 );
 

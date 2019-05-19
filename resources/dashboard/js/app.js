@@ -50,17 +50,14 @@ const App = new Vue({
         footerStack: []
     },
     mounted() {
-        var root = this.$root;
 
-        $.get(root.api_url + '/profile', function(response) {
+        $.get(this.$root.api_url + '/profile', (response) => {
             if (response.data.user) {
-                root.user = response.data.user;
+                this.$root.user = response.data.user;
             }
-
-            root.$root.$set(root, 'isInitializing', false);
-            setTimeout(function() {
-                window.initTemplate();
-            }, 100);
+            this.$root.initTemplate();
+        }).always(() => {
+            this.$root.$set(this.$root, 'isInitializing', false);
         });
     },
     methods: {
@@ -92,9 +89,10 @@ const App = new Vue({
         setPageTitle(title) {
             document.title = title;
         },
-        openModal(id) {
-            $('.modal').modal('hide');
-            $('#' + id).modal('toggle');
+        initTemplate() {
+            setTimeout(() => {
+                window.initTemplate();
+            }, 100);
         }
     }
 });
