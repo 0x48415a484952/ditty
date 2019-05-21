@@ -13,7 +13,9 @@
         "@ckeditor/ckeditor5-alignment": "^11.1.0",
         "@voerro/vue-tagsinput": "^1.11.2",
         "bootstrap": "^4.0.0",
+        "bootstrap-vue": "^2.0.0-rc.19",
         "cross-env": "^5.1",
+        "es6-promise": "^4.2.6",
         "jquery": "^3.2",
         "laravel-mix": "^4.0.7",
         "resolve-url-loader": "^2.3.1",
@@ -21,7 +23,15 @@
         "sass-loader": "^7.1.0",
         "vue": "^2.5.17",
         "vue-router": "^3.0.6",
-        "vue-template-compiler": "^2.6.10"
+        "vue-template-compiler": "^2.6.10",
+        "@fortawesome/fontawesome-free": "^5.8.1",
+        "axios": "^0.18",
+        "firacode": "^1.206.0",
+        "lodash": "^4.17.5",
+        "popper.js": "^1.12",
+        "sarala": "^0.3.10",
+        "vazir-font": "^19.2.0",
+        "vuex": "^3.1.0"
     },
     "dependencies": {
         "@ckeditor/ckeditor5-basic-styles": "^11.1.0",
