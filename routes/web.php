@@ -1,16 +1,16 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::group(['namespace' => 'Web\Dashboard', 'prefix' => 'dashboard'], function() {
+    Route::get('/', 'HomeController@index')->name('dashboard.home');
+    Route::get('/login', 'Auth\LoginController@showLoginForm');
+    Route::get('/register', 'Auth\RegisterController@showRegisterForm');
+    Route::get('/profile', 'HomeController@index');
+    Route::get('/organizations', 'HomeController@index');
+    Route::get('/posts', 'HomeController@index');
+    Route::get('/categories', 'HomeController@index');
+    Route::get('/comments', 'HomeController@index');
 });
+
+Route::view('/{parameters?}', 'main')->where('parameters', '.*');
