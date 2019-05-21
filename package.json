@@ -10,39 +10,27 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "devDependencies": {
-<<<<<<< HEAD
         "@ckeditor/ckeditor5-alignment": "^11.1.0",
-        "@voerro/vue-tagsinput": "^1.11.2",
-=======
         "@fortawesome/fontawesome-free": "^5.8.1",
+        "@voerro/vue-tagsinput": "^1.11.2",
         "axios": "^0.18",
->>>>>>> 96c5714f2aab63594e0f149495245bcd6fcdee22
         "bootstrap": "^4.0.0",
-        "bootstrap-vue": "^2.0.0-rc.19",
+        "bootstrap-vue": "^2.0.0-rc.20",
         "cross-env": "^5.1",
         "es6-promise": "^4.2.6",
-<<<<<<< HEAD
-=======
         "firacode": "^1.206.0",
->>>>>>> 96c5714f2aab63594e0f149495245bcd6fcdee22
-        "jquery": "^3.2",
+        "jquery": "^3.4.1",
         "laravel-mix": "^4.0.7",
+        "lodash": "^4.17.5",
+        "popper.js": "^1.12",
         "resolve-url-loader": "^2.3.1",
         "sarala": "^0.3.10",
-        "sass": "^1.15.2",
+        "sass": "^1.20.1",
         "sass-loader": "^7.1.0",
         "vazir-font": "^19.2.0",
         "vue": "^2.5.17",
         "vue-router": "^3.0.6",
         "vue-template-compiler": "^2.6.10",
-<<<<<<< HEAD
-        "@fortawesome/fontawesome-free": "^5.8.1",
-        "axios": "^0.18",
-        "firacode": "^1.206.0",
-        "lodash": "^4.17.5",
-        "popper.js": "^1.12",
-        "sarala": "^0.3.10",
-        "vazir-font": "^19.2.0",
         "vuex": "^3.1.0"
     },
     "dependencies": {
@@ -59,7 +47,6 @@
         "@ckeditor/ckeditor5-vue": "^1.0.0-beta.2",
         "@fortawesome/fontawesome-free": "^5.8.2",
         "@tinymce/tinymce-vue": "^2.0.0",
-        "bootstrap-vue": "^2.0.0-rc.19",
         "jquery.nicescroll": "^3.7.6",
         "js-cookie": "^2.2.0",
         "moment": "^2.24.0",
@@ -68,9 +55,7 @@
         "raw-loader": "^0.5.1",
         "vee-validate": "^2.2.7",
         "vue-multiselect": "^2.1.6",
-        "vue-persian-datetime-picker": "^2.0.0"
-=======
+        "vue-persian-datetime-picker": "^2.0.1",
         "vuex": "^3.1.0"
->>>>>>> 96c5714f2aab63594e0f149495245bcd6fcdee22
     }
 }

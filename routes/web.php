@@ -13,4 +13,4 @@ Route::group(['namespace' => 'Web\Dashboard', 'prefix' => 'dashboard'], function
     Route::get('/comments', 'HomeController@index');
 });
 
-Route::view('/{parameters?}', 'main')->where('parameters', '.*');
+Route::view('/{parameters?}', 'front.main')->where('parameters', '.*');
