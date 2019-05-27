@@ -18,7 +18,7 @@
             <li class="dropdown" v-if="$root.isAuthenticated()">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-fire"></i><span>پست‌ها</span></a>
                 <ul class="dropdown-menu">
-                    <li><router-link class="nav-link" :to="{name: 'dashboard.posts'}">پست ها</router-link></li>
+                    <li><router-link class="nav-link" :to="{name: 'dashboard.posts.index'}">پست ها</router-link></li>
                     <li><router-link class="nav-link" :to="{name: 'dashboard.categories'}">دسته‌بندی ها</router-link></li>
                     <li><router-link class="nav-link" :to="{name: 'dashboard.comments'}">نظرات</router-link></li>
                 </ul>

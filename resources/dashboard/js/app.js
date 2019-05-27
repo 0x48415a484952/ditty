@@ -10,21 +10,21 @@ require('./bootstrap');
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import routes from './routes';
-import VeeValidate from 'vee-validate';
+// import VeeValidate from 'vee-validate';
 import Multiselect from 'vue-multiselect';
 import BootstrapVue from 'bootstrap-vue';
 
 Vue.use(VueRouter);
 Vue.use(BootstrapVue);
 
-Vue.use(VeeValidate, {
+/* Vue.use(VeeValidate, {
     classes: true,
     locale: 'fa',
     classNames: {
         valid: 'is-valid',
         invalid: 'is-invalid'
     }
-});
+}); */
 
 Vue.component('main-layout', require('./components/layouts/MainComponent.vue').default);
 // Vue.directive('b-card', require('bootstrap-vue/es/components/card/card').default);
@@ -50,7 +50,6 @@ const App = new Vue({
         footerStack: []
     },
     mounted() {
-
         $.get(this.$root.api_url + '/profile', (response) => {
             if (response.data.user) {
                 this.$root.user = response.data.user;
@@ -93,6 +92,26 @@ const App = new Vue({
             setTimeout(() => {
                 window.initTemplate();
             }, 100);
+        },
+        uploadImage(image) {
+            var data = new FormData();
+            data.append("image", image);
+            $.ajax({
+                url: this.api_url + '/upload-image',
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: data,
+                type: "post",
+                success: function(response) {
+                    if (response.status == 1) {
+                        $('#text').summernote("insertImage", response.data.url);
+                    }
+                },
+                error: function(data) {
+                    console.log(data);
+                }
+            });
         }
     }
 });
