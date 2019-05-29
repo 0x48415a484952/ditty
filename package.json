@@ -15,7 +15,7 @@
         "@voerro/vue-tagsinput": "^1.11.2",
         "axios": "^0.18",
         "bootstrap": "^4.0.0",
-        "bootstrap-vue": "^2.0.0-rc.20",
+        "bootstrap-vue": "^2.0.0-rc.21",
         "cross-env": "^5.1",
         "es6-promise": "^4.2.6",
         "firacode": "^1.206.0",
@@ -56,7 +56,7 @@
         "raw-loader": "^0.5.1",
         "summernote": "^0.8.12",
         "tiptap": "^1.20.1",
-        "vee-validate": "^2.2.7",
+        "vee-validate": "^2.2.8",
         "vue-multiselect": "^2.1.6",
         "vue-persian-datetime-picker": "^2.0.1",
         "vuex": "^3.1.0"
