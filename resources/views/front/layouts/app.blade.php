@@ -7,7 +7,7 @@
         <title>{{ config('app.name') }}</title>
 
         <!-- Styles -->
-        <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+        <link href="{{ mix('css/front/app.css') }}" rel="stylesheet">
         @stack('styles')
     </head>
     <body>
@@ -16,7 +16,7 @@
         </div>
 
         <!-- Scripts -->
-        <script src="{{ mix('js/app.js') }}" defer></script>
+        <script src="{{ mix('js/front/app.js') }}" defer></script>
         @stack('scripts')
     </body>
 </html>

@@ -15,3 +15,11 @@ mix
     .setPublicPath('public_html/')
     .js('resources/front/js/app.js', 'js')
     .sass('resources/front/sass/app.scss', 'css');
+
+mix.setPublicPath('public_html/');
+
+mix.js('resources/front/js/app.js', 'public_html/js/front')
+   .sass('resources/front/sass/app.scss', 'public_html/css/front');
+
+mix.js('resources/dashboard/js/app.js', 'public_html/js/dashboard')
+   .sass('resources/dashboard/sass/app.scss', 'public_html/css/dashboard');

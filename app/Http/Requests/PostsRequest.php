@@ -25,11 +25,12 @@ class PostsRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:1024',
+            'slug' => 'nullable|string|max:191',
             'category_id' => 'required|integer|exists:post_categories,id',
             'brief_text' => 'nullable|string|max:1024',
             'text' => 'required|string',
             'cover_image' => 'nullable|image',
-            'status' => 'required|in:' . implode(',', array_keys(config('constants.post_statuses'))),
+            // 'status' => 'required|in:' . implode(',', array_keys(config('constants.post_statuses'))),
         ];
     }
 }
