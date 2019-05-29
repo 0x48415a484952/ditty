@@ -2,12 +2,7 @@
     <div>
         <router-link class="btn btn-success" :to="{name: 'dashboard.posts.create'}">پست جدید</router-link>
 
-        <b-table
-            id="posts"
-            :items="posts.items"
-            class="mt-5 bg-white"
-            :fields="table_fields"
-        >
+        <b-table id="posts" :items="posts.items" class="mt-5 bg-white" :fields="table_fields">
             <template slot="edit" slot-scope="data">
                 <router-link class="btn btn-primary" :to="{name: 'dashboard.posts.edit', params: { post_id: data.item.id } }"><i class="fa fa-edit"></i></router-link>
             </template>
@@ -36,7 +31,6 @@ export default {
             functionsInitialized: false,
             posts: {
                 items: [],
-                edit: {}
             },
             table_fields: [
                 {key: 'id', label: 'شناسه'},
@@ -47,9 +41,6 @@ export default {
                 {key: 'created_at', label: 'ایجاد شده'},
                 {key: 'edit', label: 'ویرایش'}
             ],
-            new_post: {
-                cateogry: {}
-            },
             categories: [],
             post_statuses: {
                 1: {title: 'عدم انتشار', color: 'light'},
