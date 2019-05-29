@@ -12,13 +12,11 @@
                     <div class="form-group">
                         <label for="email">ایمیل</label>
                         <input id="email" type="email" class="form-control" name="email" data-required>
-                        <span>{{ errors.first('email') }}</span>
                     </div>
 
                     <div class="form-group">
                         <label for="username">نام کاربری</label>
                         <input id="username" type="text" class="form-control" name="username" data-required>
-                        <span>{{ errors.first('username') }}</span>
                     </div>
 
                     <div class="form-group">
