@@ -6,7 +6,6 @@
                     <div class="form-group">
                         <label for="email">ایمیل</label>
                         <input id="email" type="email" class="form-control" name="email" v-validate="'required|email'">
-                        <span>{{ errors.first('email') }}</span>
                     </div>
 
                     <div class="form-group">
