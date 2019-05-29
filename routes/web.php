@@ -1,3 +1,3 @@
 <?php
 
-Route::view('/{parameters?}', 'main')->where('parameters', '.*');
+Route::view('/{parameters?}', 'front.main')->where('parameters', '.*');
