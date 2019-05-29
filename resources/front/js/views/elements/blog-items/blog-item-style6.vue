@@ -1,17 +1,17 @@
 <template>
 
-    <div class="card">
-        <a href="author.html">
-            <img class="img-fluid img-thumb" src="assets/img/demopic/8.jpg" alt="">
+    <div dir="rtl" class="card rtl">
+        <a href="post.html">
+            <img class="img-fluid" :src="data.cover_image" alt="">
         </a>
-        <div class="card-block">
-            <h2 class="card-title">
-                <a href="post.html">Life is worth living forever and ever</a>
+        <div class="card-block p-4">
+            <h2 class="card-title text-right">
+                <a href="post.html">{{ data.title }}</a>
             </h2>
-            <h4 class="card-text">
-                This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+            <h4 class="card-text text-justify">
+                {{ data.brief_text }}
             </h4>
-            <div class="metafooter">
+            <div class="metafooter clearfix">
                 <div class="wrapfooter">
                     <span class="meta-footer-thumb">
                         <a href="author.html">
@@ -20,12 +20,12 @@
                     </span>
                     <span class="author-meta">
                         <span class="post-name">
-                            <a href="author.html">Sal</a>
+                            <a href="author.html">{{ data.user.name }}</a>
                         </span>
                         <br>
-                        <span class="post-date">22 July 2017</span>
+                        <span class="post-date">۱۲ فروردین ۱۳۹۷</span>
                         <span class="dot"></span>
-                        <span class="post-read">6 min read</span>
+                        <span class="post-read">۶ دقیقه</span>
                     </span>
                     <span class="post-read-more">
                         <a href="post.html" title="Read Story">
