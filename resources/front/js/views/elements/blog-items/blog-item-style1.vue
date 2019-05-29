@@ -1,24 +1,18 @@
 <template>
-    <div class="card border-0 mb-4 box-shadow h-xl-300">
-        <div class="cover" style="background-image: url(https://picsum.photos/200/300);"></div>
-        <div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
+    <div dir="rtl" class="card border-0 mb-4 box-shadow h-xl-300 rtl">
+        <div class="cover" :style="{ backgroundImage: 'url(' + data.cover_image + ')' }"></div>
+        <div class="card-body px-0 pb-0 d-flex flex-column align-items-start text-right">
             <h2 class="h4 font-weight-bold">
-                <a class="text-dark" href="#">
-                    {{ data.title }}
-                </a>
+                <a class="text-dark" href="./article.html">{{ data.title }}</a>
             </h2>
             <p class="card-text">
-                {{ data.body }}
+                {{ data.brief_text }}
             </p>
             <div>
                 <small class="d-block">
-                    <a class="text-muted" href="#">{{ data.user.name }}</a>
+                    <a class="text-muted" href="./author.html">{{ data.user.name }}</a>
                 </small>
-                <small class="text-muted">
-                    <span>{{ data.created_at }}</span>
-                    ·
-                    <span>Dec 12 5 min read</span>
-                </small>
+                <small class="text-muted">۱۲ اردیبهشت ۹۷ · ۵ دقیقه</small>
             </div>
         </div>
     </div>
@@ -26,7 +20,10 @@
 
 <script>
     export default {
-        props: ['data']
+        props: ['data'],
+        mounted() {
+            console.log(this.data);
+        }
     }
 </script>
 

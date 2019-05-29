@@ -1,20 +1,19 @@
 <template>
 
-    <div class="card">
+    <div dir="rtl" class="card rtl">
         <div class="row">
             <div class="col-md-5 wrapthumbnail">
                 <a href="post.html">
-                    <div class="thumbnail" style="background-image:url(assets/img/demopic/1.jpg);">
-                    </div>
+                    <div class="thumbnail" :style="{ backgroundImage: 'url('+ data.cover_image +')' }"></div>
                 </a>
             </div>
             <div class="col-md-7">
-                <div class="card-block">
-                    <h2 class="card-title">
-                        <a href="post.html">We're living some strange times</a>
+                <div class="card-block p-4">
+                    <h2 class="card-title text-right">
+                        <a href="post.html">{{ data.title }}</a>
                     </h2>
-                    <h4 class="card-text">
-                        This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                    <h4 class="card-text text-justify">
+                        {{ data.brief_text }}
                     </h4>
                     <div class="metafooter">
                         <div class="wrapfooter">
@@ -24,14 +23,15 @@
                                 </a>
                             </span>
                             <span class="author-meta">
-								<span class="post-name">
-                                    <a href="author.html">Steve</a>
+                                <span class="post-name">
+                                    <a href="author.html">{{ data.user.name }}</a>
                                 </span>
                                 <br>
-								<span class="post-date">22 July 2017</span>
+                                <span class="post-date">۱۲ فروردین ۱۳۹۷</span>
                                 <span class="dot"></span>
-                                <span class="post-read">6 min read</span>
+                                <span class="post-read">۶ دقیقه</span>
                             </span>
+
                             <span class="post-read-more">
                                 <a href="post.html" title="Read Story">
                                     <svg class="svgIcon-use" width="25" height="25" viewBox="0 0 25 25">
