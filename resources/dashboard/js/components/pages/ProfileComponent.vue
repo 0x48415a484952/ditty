@@ -49,12 +49,10 @@
                     <div class="form-group">
                         <label for="password">رمز عبور</label>
                         <input id="password" type="password" class="form-control" name="password">
-                        <span>{{ errors.first('name') }}</span>
                     </div>
                     <div class="form-group">
                         <label for="password_confirmation">تکرار رمز عبور</label>
                         <input id="password_confirmation" type="password" class="form-control" name="password_confirmation">
-                        <span>{{ errors.first('name') }}</span>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-lg btn-block">ویرایش</button>
