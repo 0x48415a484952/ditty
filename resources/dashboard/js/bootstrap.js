@@ -1,11 +1,14 @@
-// try {
+try {
     window.$ = window.jQuery = require('jquery');
     window.Popper = require('popper.js').default;
     require('bootstrap');
     require('jquery.nicescroll');
     window.moment = require('moment');
     window.Cookies = require('js-cookie');
-// } catch (e) {}
+    window.summernote = require('summernote');
+} catch (e) {
+    console.log(e);
+}
 
 
 

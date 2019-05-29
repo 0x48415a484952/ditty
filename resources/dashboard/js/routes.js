@@ -17,8 +17,18 @@ export default [
     },
     {
         path: '/dashboard/posts',
-        component: require('./components/pages/PostsComponent.vue').default,
-        name: 'dashboard.posts'
+        component: require('./components/pages/posts/Index.vue').default,
+        name: 'dashboard.posts.index'
+    },
+    {
+        path: '/dashboard/posts/create',
+        component: require('./components/pages/posts/Create.vue').default,
+        name: 'dashboard.posts.create'
+    },
+    {
+        path: '/dashboard/posts/:post_id/edit',
+        component: require('./components/pages/posts/Edit.vue').default,
+        name: 'dashboard.posts.edit'
     },
     {
         path: '/dashboard/categories',

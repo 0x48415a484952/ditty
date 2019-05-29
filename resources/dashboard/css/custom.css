@@ -26,3 +26,7 @@ body.modal-open .main-content {
 .main-sidebar .sidebar-menu li a i {
     width: initial;
 }
+
+.form-group {
+    text-align: right;
+}

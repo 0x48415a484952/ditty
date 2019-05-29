@@ -1,24 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Api\v1\Dashboard;
+namespace App\Http\Controllers\Web\Dashboard;
 
 use App\Models\Post;
-use App\Classes\Response;
 use Illuminate\Http\Request;
-use App\Http\Requests\PostsRequest;
 use App\Http\Controllers\Controller;
-use App\Repositories\PostsRepository;
 
-class PostsController extends Controller
+class HomeResourceController extends Controller
 {
-
-    private $posts;
-
-    public function __construct(PostsRepository $posts)
-    {
-        $this->posts = $posts;
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -26,9 +15,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        return Response::success('',
-            $this->posts->paginate(10)->load('tagged')
-        );
+        return view('dashboard.index');
     }
 
     /**
@@ -38,7 +25,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.index');
     }
 
     /**
@@ -47,16 +34,9 @@ class PostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PostsRequest $request)
+    public function store(Request $request)
     {
-        $post = $this->posts->create($request->only(
-            $this->posts->getFillable()
-        ));
-
-        return Response::success(
-            'پست با موفقیت اضافه شد',
-            $post->load('tagged')
-        );
+        //
     }
 
     /**
@@ -65,9 +45,9 @@ class PostsController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show()
     {
-        return Response::success('', $post->load('tagged'));
+        return view('dashboard.index');
     }
 
     /**
@@ -76,9 +56,9 @@ class PostsController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit()
     {
-        //
+        return view('dashboard.index');
     }
 
     /**
@@ -88,15 +68,9 @@ class PostsController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(PostsRequest $request, Post $post)
+    public function update(Request $request, Post $post)
     {
-        $post = $this->posts->update($post, $request->only(
-            $this->posts->getFillable()
-        ));
-
-        $post->retag($request->input('tags'));
-
-        return Response::success('Edited Successfully', $post->load('tagged'));
+        //
     }
 
     /**
@@ -107,8 +81,6 @@ class PostsController extends Controller
      */
     public function destroy(Post $post)
     {
-        $post->delete();
-
-        return Response::success('Deleted Successfully');
+        //
     }
 }

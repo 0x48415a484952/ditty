@@ -39,8 +39,10 @@ Route::group(
                 Route::get('/{post}/comments', 'CommentsController@index');
                 Route::post('/{post}/comments', 'CommentsController@store');
                 Route::delete('/{post}/comments/{comment}', 'CommentsController@destroy');
+
             });
 
+            Route::post('/upload-image', 'PhotoUploadController@upload');
             Route::resource('/comments', 'CommentsController');
         });
     }
