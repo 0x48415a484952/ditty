@@ -19,15 +19,19 @@ abstract class Repository implements RepositoryInterface
         $this->makeModel();
     }
 
+    public function getFillable()
+    {
+        return $this->model->getFillable();
+    }
 
     public function all()
     {
-        return $this->model->all();
+        return $this->model->orderBy('id', 'desc')->get();
     }
 
     public function paginate($limit)
     {
-        return $this->model->paginate($limit);
+        return $this->model->orderBy('id', 'desc')->paginate($limit);
     }
 
 

@@ -29,7 +29,7 @@ class ProfileUpdateRequest extends FormRequest
             "name" => "required|string",
             "username" => "required|unique:users,username," . $user->id . ',id',
             "email" => "required|email|unique:users,email," . $user->id . ',id',
-            "credentials" => 'nullable|string',
+            "credentials" => 'nullable|string|max:191',
             "social_urls" => 'nullable|array',
             "avatar" => "nullable|image",
             "biography" => "nullable|string",

@@ -13,5 +13,12 @@ const mix = require('laravel-mix');
 
 mix
     .setPublicPath('public_html/')
-    .js('resources/front/js/app.js', 'front/js')
-    .sass('resources/front/sass/app.scss', 'front/css');
+
+    // front
+    .js('resources/front/js/app.js', 'public_html/js/front')
+    .sass('resources/front/sass/app.scss', 'public_html/css/front')
+
+    // dashboard
+    .js('resources/dashboard/js/app.js', 'public_html/js/dashboard')
+    .sass('resources/dashboard/sass/app.scss', 'public_html/css/dashboard');
+

@@ -26,7 +26,7 @@ class ProfileController extends Controller
     public function update(ProfileUpdateRequest $request)
     {
         $user = $this->users->update(Auth::user(), $request->only(
-            $this->users->model->getFillable()
+            $this->users->getFillable()
         ));
 
         Return Response::success('Profile updated successfully', $user);

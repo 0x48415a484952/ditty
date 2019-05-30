@@ -190,6 +190,9 @@
             "time": "2019-05-15T13:55:49+00:00"
         },
         {
+    "content-hash": "b205340459f4dc605f453b4fa0e116a7",
+    "packages": [
+        
             "name": "cocur/slugify",
             "version": "v3.2",
             "source": {

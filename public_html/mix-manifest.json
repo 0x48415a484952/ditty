@@ -1,4 +1,6 @@
 {
-    "/front/js/app.js": "/front/js/app.js",
-    "/front/css/app.css": "/front/css/app.css"
+    "/js/dashboard/app.js": "/js/dashboard/app.js",
+    "/js/front/app.js": "/js/front/app.js",
+    "/css/front/app.css": "/css/front/app.css",
+    "/css/dashboard/app.css": "/css/dashboard/app.css"
 }

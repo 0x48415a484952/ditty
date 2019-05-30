@@ -32,6 +32,11 @@ class Comment extends Model
         });
     }
 
+    public function commentable()
+    {
+        return $this->morphTo();
+    }
+
     public function setTextAttribute($text)
     {
         $text = preg_replace('/[ \t]+/', ' ', preg_replace("/[\n|\n\r|\r]{3,}/", "\n\n", $text));
