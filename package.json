@@ -11,7 +11,6 @@
     },
     "devDependencies": {
         "@fortawesome/fontawesome-free": "^5.8.1",
-        "axios": "^0.18",
         "bootstrap": "^4.0.0",
         "bootstrap-vue": "^2.0.0-rc.19",
         "cross-env": "^5.1",
@@ -22,7 +21,6 @@
         "lodash": "^4.17.5",
         "popper.js": "^1.12",
         "resolve-url-loader": "^2.3.1",
-        "sarala": "^0.3.10",
         "sass": "^1.15.2",
         "sass-loader": "^7.1.0",
         "vazir-font": "^19.2.0",

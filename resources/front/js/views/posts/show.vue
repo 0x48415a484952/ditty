@@ -1,0 +1,79 @@
+<template>
+    <div class="container">
+        <div class="row">
+
+            <!-- Begin Fixed Left Share -->
+            <div class="col-md-2 col-xs-12">
+                <div class="share" style="">
+                    <p>
+                        دیدگاه
+                    </p>
+                    <ul>
+                        <li>
+                            <a href="#comments">
+                                42<br>
+                                <svg class="svgIcon-use" width="29" height="29" viewBox="0 0 29 29"><path d="M21.27 20.058c1.89-1.826 2.754-4.17 2.754-6.674C24.024 8.21 19.67 4 14.1 4 8.53 4 4 8.21 4 13.384c0 5.175 4.53 9.385 10.1 9.385 1.007 0 2-.14 2.95-.41.285.25.592.49.918.7 1.306.87 2.716 1.31 4.19 1.31.276-.01.494-.14.6-.36a.625.625 0 0 0-.052-.65c-.61-.84-1.042-1.71-1.282-2.58a5.417 5.417 0 0 1-.154-.75zm-3.85 1.324l-.083-.28-.388.12a9.72 9.72 0 0 1-2.85.424c-4.96 0-8.99-3.706-8.99-8.262 0-4.556 4.03-8.263 8.99-8.263 4.95 0 8.77 3.71 8.77 8.27 0 2.25-.75 4.35-2.5 5.92l-.24.21v.32c0 .07 0 .19.02.37.03.29.1.6.19.92.19.7.49 1.4.89 2.08-.93-.14-1.83-.49-2.67-1.06-.34-.22-.88-.48-1.16-.74z"></path></svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- End Fixed Left Share -->
+
+            <!-- Begin Post -->
+            <div class="col-md-10 col-xs-12 text-right">
+
+                <div class="mainheading">
+                    <user-card v-if="post.user" :user="post.user" />
+                    <h1 class="posttitle">{{ post.title }}</h1>
+                </div>
+
+                <!-- Begin Featured Image -->
+                <img v-if="post.cover_image" class="featured-image img-fluid" :src="post.cover_image" :alt="post.cover_image">
+                <!-- End Featured Image -->
+
+                <!-- Begin Post Content -->
+                <div class="article-post" v-html="post.text"></div>
+                <!-- End Post Content -->
+
+                <!-- Begin Tags -->
+                <div v-if="post.tagged.length" class="after-post-tags">
+                    <ul class="tags">
+                        <li v-for="tag in post.tagged">
+                            <a href="#">{{ tag.tag_name }}</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- End Tags -->
+
+            </div>
+            <!-- End Post -->
+
+        </div>
+    </div>
+</template>
+
+<script>
+    import HttpRequest from '../../app/Classes/HttpRequest';
+
+    export default {
+        props: ['id', 'slug'],
+        data() {
+            return {
+                post: {
+                    //
+                }
+            }
+        },
+        components: {
+            UserCard: require("../elements/user-card").default
+        },
+        mounted() {
+            let request = new HttpRequest('/api/v1/posts/' + this.$props.id);
+
+            request.send(
+                (result) => this.post = result.data
+            );
+        }
+    }
+</script>

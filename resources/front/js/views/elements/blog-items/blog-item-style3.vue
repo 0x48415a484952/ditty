@@ -4,7 +4,9 @@
         <img :src="data.cover_image" height="120">
         <div class="pr-3">
             <h2 class="mb-1 h4 font-weight-bold">
-                <a class="text-dark" href="./article.html">{{ data.title }}</a>
+                <router-link class="text-dark" :to="{ name: 'posts.show', params: { id: data.id, slug: (data.slug ? data.slug : data.title) } }">
+                    {{ data.title }}
+                </router-link>
             </h2>
             <p>{{ data.brief_text }}</p>
             <div class="card-text text-muted small">

@@ -10,7 +10,9 @@
             <div class="col-md-7">
                 <div class="card-block p-4">
                     <h2 class="card-title text-right">
-                        <a href="post.html">{{ data.title }}</a>
+                        <router-link :to="{ name: 'posts.show', params: { id: data.id, slug: (data.slug ? data.slug : data.title) } }">
+                            {{ data.title }}
+                        </router-link>
                     </h2>
                     <h4 class="card-text text-justify">
                         {{ data.brief_text }}
