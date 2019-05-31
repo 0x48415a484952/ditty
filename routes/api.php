@@ -39,7 +39,6 @@ Route::group(
                 Route::get('/{post}/comments', 'CommentsController@index');
                 Route::post('/{post}/comments', 'CommentsController@store');
                 Route::delete('/{post}/comments/{comment}', 'CommentsController@destroy');
-
             });
 
             Route::post('/upload-image', 'PhotoUploadController@upload');
@@ -48,10 +47,16 @@ Route::group(
     }
 );
 
-Route::group(['namespace' => 'Api\v1', 'prefix' => 'v1'], function() {
+Route::group(['namespace' => 'Api\v1\Front', 'prefix' => 'v1'], function() {
+    Route::group(['prefix' => 'posts'], function() {
+        Route::get('/', 'PostsController@index');
+        Route::get('/{post}', 'PostsController@show');
+    });
 
-
-
+    Route::group(['prefix' => 'categories'], function() {
+        Route::get('/', 'CategoriesController@index');
+        Route::get('/{category}/posts', 'CategoriesController@posts');
+    });
 
     Route::group(['middleware' => 'auth:api'], function() {
         Route::get('/profile', 'ProfileController@show');

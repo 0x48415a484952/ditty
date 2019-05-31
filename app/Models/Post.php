@@ -41,11 +41,24 @@ class Post extends Model
     {
         return [
             'slug' => [
-                'source' => 'slug'
+                'source' => 'title'
             ]
         ];
     }
 
+    public function necessaryFields()
+    {
+        $fields = $this->fillable;
+        unset($fields[array_search('text', $fields)]);
+        $fields = array_values(array_prepend($fields, 'id'));
+
+        return $this->select($fields);
+    }
+
+    public function scopeIsPublished($query)
+    {
+        return $query->where('status', self::STATUS_PUBLISHED);
+    }
 
     public static function boot()
     {

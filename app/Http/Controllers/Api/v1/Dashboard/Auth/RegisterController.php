@@ -54,7 +54,7 @@ class RegisterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function register(Request $request)
+    public function register(UserRegiserRequest $request)
     {
         try {
             DB::beginTransaction();
