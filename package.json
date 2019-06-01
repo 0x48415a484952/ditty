@@ -10,7 +10,6 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "devDependencies": {
-        "@ckeditor/ckeditor5-alignment": "^11.1.0",
         "@fortawesome/fontawesome-free": "^5.8.1",
         "@voerro/vue-tagsinput": "^1.11.2",
         "axios": "^0.18",
@@ -34,20 +33,7 @@
         "vuex": "^3.1.0"
     },
     "dependencies": {
-        "@ckeditor/ckeditor5-basic-styles": "^11.1.0",
-        "@ckeditor/ckeditor5-build-classic": "^12.1.0",
-        "@ckeditor/ckeditor5-ckfinder": "^11.0.1",
-        "@ckeditor/ckeditor5-dev-utils": "^12.0.1",
-        "@ckeditor/ckeditor5-dev-webpack-plugin": "^8.0.1",
-        "@ckeditor/ckeditor5-editor-classic": "github:ckeditor/ckeditor5-editor-classic",
-        "@ckeditor/ckeditor5-essentials": "github:ckeditor/ckeditor5-essentials",
-        "@ckeditor/ckeditor5-image": "^13.0.1",
-        "@ckeditor/ckeditor5-link": "^11.0.1",
-        "@ckeditor/ckeditor5-paragraph": "^11.0.1",
-        "@ckeditor/ckeditor5-theme-lark": "^13.0.1",
-        "@ckeditor/ckeditor5-vue": "^1.0.0-beta.2",
         "@fortawesome/fontawesome-free": "^5.8.2",
-        "@tinymce/tinymce-vue": "^2.0.0",
         "jquery.nicescroll": "^3.7.6",
         "js-cookie": "^2.2.0",
         "moment": "^2.24.0",
@@ -55,8 +41,8 @@
         "postcss-loader": "^3.0.0",
         "raw-loader": "^0.5.1",
         "summernote": "^0.8.12",
-        "tiptap": "^1.20.1",
-        "vee-validate": "^2.2.8",
+        "tiptap": "^1.21.0",
+        "vee-validate": "^2.2.9",
         "vue-multiselect": "^2.1.6",
         "vue-persian-datetime-picker": "^2.0.1",
         "vuex": "^3.1.0"
