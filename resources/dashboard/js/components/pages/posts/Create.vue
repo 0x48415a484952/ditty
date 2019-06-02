@@ -27,7 +27,7 @@
                 </div>
                 <div class="form-group">
                     <label for="text">متن</label>
-                    <div id="text"></div>
+                    <textarea id="text" name="text"></textarea>
                 </div>
                 <div class="row form-group">
                     <div class="col-md-6">

@@ -16,4 +16,9 @@ class CommentsRepository extends Repository
             $query->select('title', 'id');
         }])->get();
     }
+
+    public function create(array $data)
+    {
+        return new $this->model($data);
+    }
 }
