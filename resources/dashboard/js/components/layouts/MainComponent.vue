@@ -12,6 +12,7 @@
                 <slot></slot>
             </div>
             <footer-layout />
+            <notifications group="general" />
         </div>
     </div>
 </template>

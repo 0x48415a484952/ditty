@@ -1,20 +1,20 @@
 <template>
     <div>
         <b-card title="ویرایش پست">
-            <form v-if="! loading" :action="$root.api_url + '/posts/' + post.id" method="POST" class="js-submit-form">
+            <form v-if="! loading" :action="$root.api_url + '/posts/' + post.id" method="POST" class="js-submit-form" data-on-success="postEdited">
                 <div class="form-group">
                     <label for="title">عنوان</label>
                     <input id="title" type="text" name="title" class="form-control" v-model="post.title" data-required>
                 </div>
                 <div class="form-group">
                     <label for="slug">اسلاگ</label>
-                    <input id="slug" type="text" name="slug" class="form-control" v-model="post.slug">
+                    <input id="slug" type="text" name="slug" class="dir-ltr text-left form-control" v-model="post.slug">
                 </div>
                 <div class="form-group">
                     <label for="brief-text">توضیح کوتاه</label>
                     <textarea id="brief-text" name="brief_text" class="form-control" v-model="post.brief_text"></textarea>
                 </div>
-                <div class="row form-group">
+                <div class="row form-group z-index-501">
                     <div class="col-md-6">
                         <label for="category">دسته بندی</label>
                         <multiselect id="category" dir="rtl" v-model="post.category" :options="categories" placeholder="دسته بندی" label="title" track-by="title"></multiselect>
@@ -88,7 +88,11 @@ export default {
     methods: {
         initializeFunctions() {
             if (! this.functionsInitialized) {
-
+                window.postEdited = (response) => {
+                    if (response.status == 1) {
+                        window.success_notification(response.message);
+                    }
+                }
             }
         },
         loadCategories: function() {
