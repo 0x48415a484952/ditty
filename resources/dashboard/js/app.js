@@ -41,7 +41,7 @@ const router = new VueRouter({
     routes
 });
 
-window.App = new Vue({
+window.Vue = new Vue({
     el: '#app',
     router,
     data: {
@@ -82,7 +82,7 @@ window.App = new Vue({
         updateTable(table) {
             setTimeout(() => {
                 this.$emit('bv::refresh::table', table);
-            }, 50)
+            }, 50);
         },
         redirectToLogin() {
             this.$router.push({ name: 'dashboard.login'});
@@ -98,6 +98,7 @@ window.App = new Vue({
         uploadImage(image) {
             var data = new FormData();
             data.append("image", image);
+
             $.ajax({
                 url: this.api_url + '/upload-image',
                 cache: false,

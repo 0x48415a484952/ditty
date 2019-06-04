@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\Image;
+use Illuminate\Support\Str;
 use Conner\Tagging\Taggable;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -105,6 +106,6 @@ class Post extends Model
 
     public function getSlugAttribute()
     {
-        return $this->attributes['slug'];
+        return Str::slug($this->attributes['slug']);
     }
 }

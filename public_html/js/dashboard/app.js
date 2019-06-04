@@ -95883,7 +95883,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: 'history',
   routes: _routes__WEBPACK_IMPORTED_MODULE_2__["default"]
 });
-window.App = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
+window.Vue = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app',
   router: router,
   data: {
