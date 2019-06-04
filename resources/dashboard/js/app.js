@@ -13,9 +13,11 @@ import routes from './routes';
 // import VeeValidate from 'vee-validate';
 import Multiselect from 'vue-multiselect';
 import BootstrapVue from 'bootstrap-vue';
+import Notifications from 'vue-notification';
 
 Vue.use(VueRouter);
 Vue.use(BootstrapVue);
+Vue.use(Notifications);
 
 /* Vue.use(VeeValidate, {
     classes: true,
@@ -39,7 +41,7 @@ const router = new VueRouter({
     routes
 });
 
-const App = new Vue({
+window.App = new Vue({
     el: '#app',
     router,
     data: {

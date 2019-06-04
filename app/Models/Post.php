@@ -8,12 +8,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
-use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {
-    use Image, SoftDeletes, Taggable, Sluggable;
+    use Image, SoftDeletes, Taggable;
 
     const STATUS_PUBLISHED = 3;
 
@@ -32,19 +31,6 @@ class Post extends Model
     protected $with = ['user', 'category'];
     protected $appends = ['tags'];
 
-    /**
-     * Return the sluggable configuration array for this model.
-     *
-     * @return array
-     */
-    public function sluggable()
-    {
-        return [
-            'slug' => [
-                'source' => 'slug'
-            ]
-        ];
-    }
 
     public function necessaryFields()
     {
@@ -115,4 +101,10 @@ class Post extends Model
 //     {
 //         return jdate($this->attributes['created_at'])->format('y/m/d H:i');
 //     }
+
+
+    public function getSlugAttribute()
+    {
+        return $this->attributes['slug'];
+    }
 }
