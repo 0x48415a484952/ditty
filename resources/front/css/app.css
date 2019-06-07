@@ -1629,6 +1629,7 @@ ul.tags li a:hover {
 }
 .post-top-meta .btn.follow {
     margin-left:5px;
+    margin-right:5px;
     margin-top:-4px;
 }
 .alertbar {

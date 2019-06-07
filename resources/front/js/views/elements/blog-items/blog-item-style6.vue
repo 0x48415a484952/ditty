@@ -25,7 +25,7 @@
                             <a href="author.html">{{ data.user.name }}</a>
                         </span>
                         <br>
-                        <span class="post-date">۱۲ فروردین ۱۳۹۷</span>
+                        <span class="post-date">{{ data.created_at | moment("jYYYY/jM/jD") }}</span>
                         <span class="dot"></span>
                         <span class="post-read">۶ دقیقه</span>
                     </span>

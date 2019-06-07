@@ -9,12 +9,15 @@ let Vue = require('vue');
 let VueRouter = require('vue-router').default;
 let BootstrapVue = require('bootstrap-vue').default;
 let Vuex = require('vuex');
+let VueMoment = require('vue-moment-jalaali');
 
 require('./bootstrap');
 
 Vue.use(Vuex);
 Vue.use(VueRouter);
 Vue.use(BootstrapVue);
+Vue.use(VueMoment);
+
 Vue.component('main-layout', require('./views/layouts/main').default);
 
 const router = new VueRouter({

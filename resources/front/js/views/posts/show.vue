@@ -37,10 +37,10 @@
                 <!-- End Post Content -->
 
                 <!-- Begin Tags -->
-                <div v-if="post.tagged.length" class="after-post-tags">
+                <div v-if="post.tags" class="mt-3">
                     <ul class="tags">
-                        <li v-for="tag in post.tagged">
-                            <a href="#">{{ tag.tag_name }}</a>
+                        <li v-for="tag in post.tags">
+                            <a href="#">{{ tag }}</a>
                         </li>
                     </ul>
                 </div>
