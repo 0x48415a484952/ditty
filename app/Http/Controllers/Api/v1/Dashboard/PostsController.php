@@ -53,10 +53,7 @@ class PostsController extends Controller
             $this->posts->getFillable()
         ));
 
-        return Response::success(
-            'پست با موفقیت اضافه شد',
-            $post->load('tagged')
-        );
+        return Response::success('پست با موفقیت اضافه شد', $post->load('tagged'));
     }
 
     /**
@@ -96,7 +93,7 @@ class PostsController extends Controller
 
         $post->retag($request->input('tags'));
 
-        return Response::success('Edited Successfully', $post->load('tagged'));
+        return Response::success('پست با موفقیت ویراش شد', $post->load('tagged'));
     }
 
     /**
@@ -109,6 +106,6 @@ class PostsController extends Controller
     {
         $post->delete();
 
-        return Response::success('Deleted Successfully');
+        return Response::success('پست با موفقیت حذف شد');
     }
 }

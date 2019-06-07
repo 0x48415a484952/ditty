@@ -1,20 +1,20 @@
 <template>
     <div>
         <b-card title="پست جدید">
-            <form :action="$root.api_url + '/posts'" method="POST" class="js-submit-form">
+            <form :action="$root.api_url + '/posts'" method="POST" class="js-submit-form" data-on-success="postCreated">
                 <div class="form-group">
                     <label for="title">عنوان</label>
                     <input id="title" type="text" name="title" class="form-control" data-required>
                 </div>
                 <div class="form-group">
                     <label for="slug">اسلاگ</label>
-                    <input id="slug" type="text" name="slug" class="form-control">
+                    <input id="slug" type="text" name="slug" class="dir-ltr text-left form-control">
                 </div>
                 <div class="form-group">
                     <label for="brief-text">توضیح کوتاه</label>
                     <textarea id="brief-text" name="brief_text" class="form-control"></textarea>
                 </div>
-                <div class="row form-group">
+                <div class="row form-group z-index-501">
                     <div class="col-md-6">
                         <label for="category">دسته بندی</label>
                         <multiselect id="category" dir="rtl" v-model="new_post.cateogry" :options="categories" placeholder="دسته بندی" label="title" track-by="title"></multiselect>
@@ -27,7 +27,7 @@
                 </div>
                 <div class="form-group">
                     <label for="text">متن</label>
-                    <div id="text"></div>
+                    <textarea id="text" name="text"></textarea>
                 </div>
                 <div class="row form-group">
                     <div class="col-md-6">
@@ -96,7 +96,11 @@ export default {
     methods: {
         initializeFunctions() {
             if (! this.functionsInitialized) {
-
+                window.postCreated = (response) => {
+                    if (response.status == 1) {
+                        window.success_notification(response.message);
+                    }
+                }
             }
         },
         loadCategories: function() {

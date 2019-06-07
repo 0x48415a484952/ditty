@@ -8,7 +8,7 @@ use App\Contracts\RepositoryInterface;
 
 abstract class Repository implements RepositoryInterface
 {
-    public $model;
+    protected $model;
     private $app;
 
     abstract public function model();
@@ -34,6 +34,10 @@ abstract class Repository implements RepositoryInterface
         return $this->model->orderBy('id', 'desc')->paginate($limit);
     }
 
+    public function findBy($col, $value, $limit = 10)
+    {
+        return $this->model->where($col, $value)->paginate($limit);
+    }
 
     public function create(array $data)
     {

@@ -3,17 +3,17 @@
 namespace App\Models;
 
 use App\Traits\Image;
+use Illuminate\Support\Str;
 use Conner\Tagging\Taggable;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
-use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {
-    use Image, SoftDeletes, Taggable, Sluggable;
+    use Image, SoftDeletes, Taggable;
 
     const STATUS_PUBLISHED = 3;
 
@@ -32,20 +32,20 @@ class Post extends Model
     protected $with = ['user', 'category'];
     protected $appends = ['tags'];
 
-    /**
-     * Return the sluggable configuration array for this model.
-     *
-     * @return array
-     */
-    public function sluggable()
+
+    public function necessaryFields()
     {
-        return [
-            'slug' => [
-                'source' => 'slug'
-            ]
-        ];
+        $fields = $this->fillable;
+        unset($fields[array_search('text', $fields)]);
+        $fields = array_values(array_prepend($fields, 'id'));
+
+        return $this->select($fields);
     }
 
+    public function scopeIsPublished($query)
+    {
+        return $query->where('status', self::STATUS_PUBLISHED);
+    }
 
     public static function boot()
     {
@@ -58,7 +58,9 @@ class Post extends Model
 
     public function comments()
     {
-        return $this->morphMany(Comment::class, 'commentable');
+        return $this->morphMany(Comment::class, 'commentable')
+            // ->where('status', Comment::STATUS_APPROVED)
+            ->select(['id', 'name', 'text']);
     }
 
     public function category()
@@ -100,4 +102,10 @@ class Post extends Model
 //     {
 //         return jdate($this->attributes['created_at'])->format('y/m/d H:i');
 //     }
+
+
+    public function getSlugAttribute()
+    {
+        return Str::slug($this->attributes['slug']);
+    }
 }

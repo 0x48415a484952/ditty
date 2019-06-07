@@ -85,13 +85,28 @@ $(document).ready(function() {
 });
 
 
+
 window.show_notification = function(type, message) {
-    alert(message);
+    window.Vue.$notify({
+        group: 'general',
+        title: '',
+        position: 'bottom left',
+        duration: 30000,
+        text: message
+    });
 }
 
 window.success_notification = function(message) {
-    alert(message);
+    window.Vue.$notify({
+        group: 'general',
+        title: '',
+        position: 'bottom left',
+        type: 'success',
+        duration: 30000,
+        text: message
+    });
 }
+
 
 window.clone = function(obj) {
     return JSON.parse( JSON.stringify( obj ) );

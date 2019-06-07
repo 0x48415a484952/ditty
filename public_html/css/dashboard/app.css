@@ -20131,3 +20131,23 @@ body.modal-open .main-content {
     text-align: right;
 }
 
+.z-index-501 {
+    z-index: 501;
+}
+
+.dir-ltr {
+    direction: ltr;
+}
+
+.notifications {
+    left: 0;
+    bottom: 0;
+    top: initial !important;
+    right: initial !important;
+    font-size: 15px !important;
+}
+
+.notifications .notification-content {
+    text-align: right;
+}
+
