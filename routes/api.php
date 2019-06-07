@@ -62,4 +62,5 @@ Route::group(['namespace' => 'Api\v1\Front', 'prefix' => 'v1'], function() {
         Route::get('/profile', 'ProfileController@show');
         Route::put('/profile', 'ProfileController@update');
     });
+
 });

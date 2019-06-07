@@ -1,7 +1,5 @@
 <?php
 
-
-
 Route::group(['namespace' => 'Web\Dashboard', 'prefix' => 'dashboard'], function() {
     Route::get('/', 'HomeController@index')->name('dashboard.home');
     Route::get('/login', 'Auth\LoginController@showLoginForm');

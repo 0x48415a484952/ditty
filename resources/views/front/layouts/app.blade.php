@@ -8,6 +8,7 @@
 
         <!-- Styles -->
         <link href="{{ mix('css/front/app.css') }}" rel="stylesheet">
+
         @stack('styles')
     </head>
     <body>
@@ -17,6 +18,7 @@
 
         <!-- Scripts -->
         <script src="{{ mix('js/front/app.js') }}" defer></script>
+
         @stack('scripts')
     </body>
 </html>

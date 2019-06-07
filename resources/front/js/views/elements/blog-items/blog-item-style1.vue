@@ -3,7 +3,9 @@
         <div class="cover" :style="{ backgroundImage: 'url(' + data.cover_image + ')' }"></div>
         <div class="card-body px-0 pb-0 d-flex flex-column align-items-start text-right">
             <h2 class="h4 font-weight-bold">
-                <a class="text-dark" href="./article.html">{{ data.title }}</a>
+                <router-link class="text-dark" :to="{ name: 'posts.show', params: { id: data.id, slug: (data.slug ? data.slug : data.title) } }">
+                    {{ data.title }}
+                </router-link>
             </h2>
             <p class="card-text">
                 {{ data.brief_text }}
