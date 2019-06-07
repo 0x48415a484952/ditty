@@ -14,23 +14,10 @@
                             <span>صفحه اصلی</span>
                         </router-link>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./article.html">فرهنگ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./article.html">تکنولوژی</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./article.html">سیاست</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./article.html">سلامت</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./article.html">ورزشی</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./about.html">درباره ما</a>
+                    <li v-for="item in items" class="nav-item">
+                        <router-link class="nav-link" :to="{ name: 'categories.show', params: { id: item.id, slug: item.title } }">
+                            <span>{{ item.title }}</span>
+                        </router-link>
                     </li>
                 </ul>
             </div>
@@ -39,7 +26,26 @@
 </template>
 
 <script>
-    export default {
+    import HttpRequest from '../../app/Classes/HttpRequest';
 
+    export default {
+        data() {
+            return {
+                items: [],
+            }
+        },
+        mounted() {
+            // retrieve categories
+            this.getCategories();
+
+        },
+        methods: {
+            getCategories() {
+                let request = new HttpRequest('/api/v1/categories');
+                request.send(
+                    (result) => this.items = result.data
+                );
+            },
+        }
     };
 </script>

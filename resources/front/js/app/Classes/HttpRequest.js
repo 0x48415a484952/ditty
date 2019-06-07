@@ -1,9 +1,27 @@
 export default class  HttpRequest {
-    constructor(url, method="get", data = {}, headers = {}) {
+    constructor(url = './', method="get", data = {}, headers = {}) {
         this.url = url;
         this.method = method;
         this.data = data;
         this.headers = headers;
+    }
+
+    setUrl(url) {
+        this.url = url;
+    }
+
+    setMethod(method) {
+        this.method = (method.toLowerCase() == 'get' ? 'get' : 'post');
+    }
+
+    setData(data) {
+        this.data = this.data;
+    }
+
+    setHeaders(headers) {
+        this.headers = headers;
+
+        return this;
     }
 
     send (resolve = undefined, reject = undefined) {

@@ -78,6 +78,7 @@
         data() {
             return {
                 posts: [],
+                categories: [],
             };
         },
         components: {
@@ -89,11 +90,17 @@
             blogItemStyle6: require("./elements/blog-items/blog-item-style6").default,
         },
         mounted() {
-            let request = new HttpRequest('/api/v1/posts');
+            // retrieve posts
+            this.getPosts();
 
-            request.send(
-                (result) => this.posts = result.data
-            );
+        },
+        methods: {
+            getPosts() {
+                let request = new HttpRequest('/api/v1/posts');
+                request.send(
+                    (result) => this.posts = result.data
+                );
+            }
         }
     }
 </script>

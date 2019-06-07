@@ -33,6 +33,7 @@ export default [
         path: '/categories/:id-:slug',
         component: require('./views/posts/index').default,
         name: 'categories.show',
+        props: true
     },
 
     // tags
@@ -41,6 +42,7 @@ export default [
         path: '/tags/:id-:slug',
         component: require('./views/posts/index').default,
         name: 'tags.show',
+        props: true
     },
 
     // error pages
@@ -48,12 +50,7 @@ export default [
     {
         path: '/404',
         component: require('./views/404').default,
-        name: '404',
+        alias: '*',
+        name: '404'
     },
-    {
-        path: '*',
-        redirect: {
-            name: '404'
-        }
-    }
 ];
