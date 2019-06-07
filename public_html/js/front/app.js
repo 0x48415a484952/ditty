@@ -49377,7 +49377,7 @@ var render = function() {
       _c(
         "div",
         { staticClass: "card-columns listrecent" },
-        _vm._l(_vm.posts, function(post) {
+        _vm._l(_vm.posts.data, function(post) {
           return _c("blog-item-style6", { key: post.id, attrs: { data: post } })
         }),
         1
