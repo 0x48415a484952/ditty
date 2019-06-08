@@ -16,9 +16,8 @@ class PostsRepository extends Repository // implements PostsRepositoryInterface
         return $this->model
             ->necessaryFields()
             ->isPublished()
-            ->limit($limit)
             ->orderBy('id', 'desc')
-            ->paginate();
+            ->paginate($limit);
     }
 
     public function getByCategory($category_id, $limit = 10)
@@ -27,8 +26,11 @@ class PostsRepository extends Repository // implements PostsRepositoryInterface
             ->necessaryFields()
             ->where('category_id', $category_id)
             ->isPublished()
-            ->limit($limit)
             ->orderBy('id', 'desc')
-            ->paginate();
+            ->paginate($limit);
+    }
+
+    public function getByTag($tag, $limit = 10) {
+        return $this->model->withAnyTag($tag)->paginate($limit);
     }
 }
