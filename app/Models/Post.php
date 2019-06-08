@@ -94,6 +94,7 @@ class Post extends Model
         foreach ($this->tagged as $tag) {
             $tags[] = $tag->tag_name;
         }
+        unset($this->tagged);
 
         return $tags;
     }
