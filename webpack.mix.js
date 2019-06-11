@@ -11,14 +11,10 @@ const mix = require('laravel-mix');
  |
  */
 
-mix
-    .setPublicPath('public_html/')
+mix.setPublicPath('public_html/');
 
-    // front
-    .js('resources/front/js/app.js', 'public_html/js/front')
-    .sass('resources/front/sass/app.scss', 'public_html/css/front')
+mix.js('resources/front/js/app.js', 'public_html/js/front')
+   .sass('resources/front/sass/app.scss', 'public_html/css/front');
 
-    // dashboard
-    .js('resources/dashboard/js/app.js', 'public_html/js/dashboard')
-    .sass('resources/dashboard/sass/app.scss', 'public_html/css/dashboard');
-
+mix.js('resources/dashboard/js/app.js', 'public_html/js/dashboard')
+   .sass('resources/dashboard/sass/app.scss', 'public_html/css/dashboard');

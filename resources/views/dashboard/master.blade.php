@@ -22,6 +22,7 @@
     </div>
 
     <script src="{{ mix('js/dashboard/app.js') }}"></script>
+    <script src="/assets/editors/ckeditor/ckeditor.js"></script>
 </body>
 
 </html>

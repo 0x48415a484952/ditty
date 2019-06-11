@@ -109,22 +109,20 @@ export default {
                 if (response.status == 1) {
                     this.post = response.data;
                     this.loading = false;
-                    setTimeout(function() {
-                        $('#text').summernote({
-                            dialogsInBody: true,
-                            callbacks: {
-                                onImageUpload: (image) => {
-                                    _this.$root.uploadImage(image[0]);
-                                }
-                            }
-                        });
-                    }, 200);
+
+                    setTimeout(() => {
+                        if ($('#cke_text-contents').length == 0) {
+                            CKEDITOR.replace('text');
+                        } else {
+                            CKEDITOR.instances['text'].setData(this.post.text);
+                        }
+                    }, 100);
                 }
             });
         }
     },
     beforeRouteLeave(to, from, next) {
-        $('#text').summernote('destroy');
+        // $('#text').summernote('destroy');
         next();
     }
 }
