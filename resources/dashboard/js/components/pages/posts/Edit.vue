@@ -102,9 +102,8 @@ export default {
                 }
             });
         },
-        loadPost: function() {
+        loadPost: () => {
             var post_id = this.$route.params.post_id;
-            var _this = this;
             $.get(this.$root.api_url + '/posts/' + post_id, (response) => {
                 if (response.status == 1) {
                     this.post = response.data;
