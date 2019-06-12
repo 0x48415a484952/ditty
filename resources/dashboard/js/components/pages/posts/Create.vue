@@ -27,7 +27,7 @@
                 </div>
                 <div class="form-group">
                     <label for="text">متن</label>
-                    <textarea id="text" name="text"></textarea>
+                    <textarea name="text" id="text"></textarea>
                 </div>
                 <div class="row form-group">
                     <div class="col-md-6">
@@ -54,7 +54,6 @@ import VoerroTagsInput from '@voerro/vue-tagsinput';
 export default {
     components: {
         'tags-input': VoerroTagsInput,
-
     },
     beforeCreate() {
         if (! this.$root.isAuthenticated()) {
@@ -83,15 +82,7 @@ export default {
         this.initializeFunctions();
         this.$root.setPageTitle('پست جدید');
         this.loadCategories();
-
-        $('#text').summernote({
-            dialogsInBody: true,
-            callbacks: {
-                onImageUpload: (image) => {
-                    this.$root.uploadImage(image[0]);
-                }
-            }
-        });
+        CKEDITOR.replace('text');
     },
     methods: {
         initializeFunctions() {
@@ -112,7 +103,7 @@ export default {
         }
     },
     beforeRouteLeave(to, from, next) {
-        $('#text').summernote('destroy');
+        // $('#text').summernote('destroy');
         next();
     }
 }

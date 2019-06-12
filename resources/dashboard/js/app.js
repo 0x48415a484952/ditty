@@ -14,19 +14,12 @@ import routes from './routes';
 import Multiselect from 'vue-multiselect';
 import BootstrapVue from 'bootstrap-vue';
 import Notifications from 'vue-notification';
+// import CKEditor from '@ckeditor/ckeditor5-vue';
 
 Vue.use(VueRouter);
 Vue.use(BootstrapVue);
 Vue.use(Notifications);
-
-/* Vue.use(VeeValidate, {
-    classes: true,
-    locale: 'fa',
-    classNames: {
-        valid: 'is-valid',
-        invalid: 'is-invalid'
-    }
-}); */
+// Vue.use(CKEditor);
 
 Vue.component('main-layout', require('./components/layouts/MainComponent.vue').default);
 // Vue.directive('b-card', require('bootstrap-vue/es/components/card/card').default);

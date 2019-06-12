@@ -58,6 +58,8 @@ Route::group(['namespace' => 'Api\v1\Front', 'prefix' => 'v1'], function() {
         Route::get('/{category}/posts', 'CategoriesController@posts');
     });
 
+    Route::get('tags/{tag}', 'TagsController@index');
+
     Route::group(['middleware' => 'auth:api'], function() {
         Route::get('/profile', 'ProfileController@show');
         Route::put('/profile', 'ProfileController@update');

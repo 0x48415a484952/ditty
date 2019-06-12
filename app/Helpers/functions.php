@@ -10,6 +10,21 @@ function text_in_url($text) {
     return preg_replace('/[^A-Za-z\s\x{0600}-\x{06FF}0-9‌_-]/u', '', $text);
 }
 
+function prettifyString($value, $line_breaks = false){
+    if ($value == '') return;
+    $value = strip_tags($value);
+
+    if ($line_breaks == true) {
+        $value = preg_replace('/[ \t]+/', ' ', preg_replace("/[\n|\n\r|\r]{3,}/", "\n\n", $value));
+    } else {
+        $value = preg_replace('/\s+/', " ",$value);
+    }
+
+    $value = preg_replace("/[^A-Za-z\s\x{0600}-\x{06FF}0-9_‌:\/«+-»?!.()@#$%&*]/u", "", $value);
+
+    return $value;
+}
+
 function j_date($item) {
     return jdate($item->created_at)->format('y/m/d H:i');
 }
