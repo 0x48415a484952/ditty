@@ -36,8 +36,9 @@ class Post extends Model
     public function necessaryFields()
     {
         $fields = $this->fillable;
+        array_push($fields, 'id', 'created_at');
+        $fields = array_values($fields);
         unset($fields[array_search('text', $fields)]);
-        $fields = array_values(array_prepend($fields, 'id'));
 
         return $this->select($fields);
     }

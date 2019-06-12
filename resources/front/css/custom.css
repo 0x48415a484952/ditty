@@ -1,0 +1,16 @@
+.post-cover-image {
+    max-height: 170px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #c5c5c5;
+}
+
+.listfeaturedtag h2.card-title, .listrecent h2.card-title {
+    font-size: 1.4rem;
+}
+
+.navbar-brand {
+    margin-right: 0;
+}

@@ -11,6 +11,7 @@ form,input,select,option,textarea,
 body {
     overflow-x: hidden;
     padding-top: 69.75px;
+    direction: rtl;
 }
 
 .rtl {
@@ -266,7 +267,7 @@ a.text-dark:hover {
 }
 
 .navbar-brand {
-    margin-right: 2rem;
+    /* margin-right: 2rem; */
     font-size: 1.25rem;
 }
 
@@ -1452,7 +1453,7 @@ span.post-name a,span.post-read-more a:hover {
 }
 .mediumnavigation .navbar-brand img {
     max-height:30px;
-    margin-right:5px;
+    /* margin-right:5px; */
 }
 .mainheading h1.sitetitle {
     font-family:Righteous;
@@ -1473,7 +1474,7 @@ span.post-name a,span.post-read-more a:hover {
     color:rgba(0,0,0,.8);
 }
 .article-post {
-    font-family:Merriweather;
+    font-family: Vazir;
     font-size:1.2rem;
     line-height:1.8;
     color:rgba(0,0,0,.8);

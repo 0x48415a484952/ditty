@@ -7,7 +7,7 @@
                 <blog-item-style1 :data="post"/>
             </div>
             <div class="col-lg-6">
-                <div dir="rtl" class="flex-md-row mb-4 box-shadow h-xl-300 rtl text-right">
+                <div class="flex-md-row mb-4 box-shadow h-xl-300 rtl text-right">
                     <blog-item-style2 :data="post"/>
                     <blog-item-style2 :data="post"/>
                     <blog-item-style2 :data="post"/>
@@ -15,7 +15,8 @@
             </div>
         </div>
 
-        <div dir="rtl" class="row justify-content-between text-right rtl">
+
+        <div class="row justify-content-between text-right rtl">
             <div class="col-md-8">
                 <h5 class="font-weight-bold spanborder">
                     <span>جدیدترین نوشته ها</span>
@@ -36,35 +37,22 @@
                 </ol>
             </div>
         </div>
-
+    -->
         <section class="featured-posts">
             <div class="section-title text-right">
-                <h2>
-                    <span>آخرین مطالب</span>
-                </h2>
+                <h2><span>مطالب داغ</span></h2>
             </div>
             <div class="card-columns listfeaturedtag">
-
-                <blog-item-style5 :data="post" />
-                <blog-item-style5 :data="post" />
-                <blog-item-style5 :data="post" />
-                <blog-item-style5 :data="post" />
-
+                <blog-item-style5 v-for="(post, index) of posts.data" v-if="index < 4" :key="post.id" :data="post" />
             </div>
         </section>
 
-        -->
-
         <section class="recent-posts">
             <div class="section-title text-right">
-                <h2>
-                    <span>آخرین مطالب</span>
-                </h2>
+                <h2><span>آخرین مطالب</span></h2>
             </div>
             <div class="card-columns listrecent">
-
                 <blog-item-style6 v-for="post of posts.data" :key="post.id" :data="post" />
-
             </div>
         </section>
 

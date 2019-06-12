@@ -1,13 +1,24 @@
 <template>
     <div class="container">
         <div class="row">
-
-            <!-- Begin Fixed Left Share -->
+            <div class="col-md-10 col-xs-12 text-right">
+                <div class="mainheading">
+                    <user-card v-if="post.user" :user="post.user" />
+                    <h1 class="posttitle">{{ post.title }}</h1>
+                </div>
+                <img v-if="post.cover_image" class="featured-image img-fluid" :src="post.cover_image" :alt="post.cover_image">
+                <div class="article-post" v-html="post.text"></div>
+                <div v-if="post.tags" class="mt-3">
+                    <ul class="tags">
+                        <li v-for="tag in post.tags">
+                            <a href="#">{{ tag }}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
             <div class="col-md-2 col-xs-12">
-                <div class="share" style="">
-                    <p>
-                        دیدگاه
-                    </p>
+                <div class="share">
+                    <p>دیدگاه</p>
                     <ul>
                         <li>
                             <a href="#comments">
@@ -18,37 +29,6 @@
                     </ul>
                 </div>
             </div>
-            <!-- End Fixed Left Share -->
-
-            <!-- Begin Post -->
-            <div class="col-md-10 col-xs-12 text-right">
-
-                <div class="mainheading">
-                    <user-card v-if="post.user" :user="post.user" />
-                    <h1 class="posttitle">{{ post.title }}</h1>
-                </div>
-
-                <!-- Begin Featured Image -->
-                <img v-if="post.cover_image" class="featured-image img-fluid" :src="post.cover_image" :alt="post.cover_image">
-                <!-- End Featured Image -->
-
-                <!-- Begin Post Content -->
-                <div class="article-post" v-html="post.text"></div>
-                <!-- End Post Content -->
-
-                <!-- Begin Tags -->
-                <div v-if="post.tags" class="mt-3">
-                    <ul class="tags">
-                        <li v-for="tag in post.tags">
-                            <a href="#">{{ tag }}</a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- End Tags -->
-
-            </div>
-            <!-- End Post -->
-
         </div>
     </div>
 </template>

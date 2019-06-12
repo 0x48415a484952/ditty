@@ -19,6 +19,7 @@ Vue.use(BootstrapVue);
 Vue.use(VueMoment);
 
 Vue.component('main-layout', require('./views/layouts/main').default);
+Vue.component('avatar', require('./views/elements/avatar').default);
 
 const router = new VueRouter({
     mode: 'history',
@@ -27,5 +28,9 @@ const router = new VueRouter({
 
 const app = new Vue({
     el: '#app',
-    router
+    router,
+    data: {
+        base_url: document.head.querySelector('meta[name="base-url"]').content,
+        api_url : document.head.querySelector('meta[name="api-url"]').content
+    }
 });

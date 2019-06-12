@@ -7,13 +7,13 @@
             <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div dir="rtl" class="navbar-collapse collapse" id="navbarColor02" style="">
+            <div class="navbar-collapse collapse" id="navbarColor02">
                 <ul class="navbar-nav pr-0 ml-auto d-flex align-items-center">
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <router-link class="nav-link" :to="{ name: 'index' }">
                             <span>صفحه اصلی</span>
                         </router-link>
-                    </li>
+                    </li> -->
                     <li v-for="item in items" class="nav-item">
                         <router-link class="nav-link" :to="{ name: 'categories.show', params: { id: item.id, slug: item.title } }">
                             <span>{{ item.title }}</span>

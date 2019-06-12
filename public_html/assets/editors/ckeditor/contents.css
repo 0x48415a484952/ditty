@@ -8,230 +8,248 @@ Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 
-
 @font-face {
-	font-family: 'IRANSans-web';
-	src: url('/assets/admin/css/fonts/IRANSansWeb(FaNum)_Bold.eot?#') format('eot'),  /* IE6–8 */
-         url('/assets/admin/css/fonts/IRANSansWeb(FaNum)_Bold.woff2') format('woff2'),  /* Chrome36+, Opera24+*/
-         url('/assets/admin/css/fonts/IRANSansWeb(FaNum)_Bold.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+	font-family: Vazir;
+	src: url(/fonts/Vazir.eot?7e0ee3222e08c9447160bcf49bb99480);
+	src: url(/fonts/Vazir.eot?7e0ee3222e08c9447160bcf49bb99480?#iefix) format("embedded-opentype"), url(/fonts/Vazir.woff2?b3f557821fa15e8cdb54f95cc8883b29) format("woff2"), url(/fonts/Vazir.woff?f565dac7b6afbd13acac45b595a818ef) format("woff"), url(/fonts/Vazir.ttf?7fca9deb357c30453f566c0ffcb7e801) format("truetype");
+	font-weight: normal;
+	font-style: normal; }
+
+  @font-face {
+	font-family: Vazir;
+	src: url(/fonts/Vazir-Bold.eot?270d17fedce27e02130f092c0b4ba7de);
+	src: url(/fonts/Vazir-Bold.eot?270d17fedce27e02130f092c0b4ba7de?#iefix) format("embedded-opentype"), url(/fonts/Vazir-Bold.woff2?679f50e43d52295a7d02b93ee2fc2df2) format("woff2"), url(/fonts/Vazir-Bold.woff?ef0b757921d7805be30761a233705759) format("woff"), url(/fonts/Vazir-Bold.ttf?5407a939b2b58fdd8df7d16ad4db2dd9) format("truetype");
 	font-weight: bold;
-}
+	font-style: normal; }
 
-@font-face {
-	font-family: 'IRANSans-web';
-	src: url('/assets/admin/css/fonts/IRANSansWeb(FaNum)_Light.eot?#') format('eot'),  /* IE6–8 */
-         url('/assets/admin/css/fonts/IRANSansWeb(FaNum)_Light.woff2') format('woff2'),  /* Chrome36+, Opera24+*/
-         url('/assets/admin/css/fonts/IRANSansWeb(FaNum)_Light.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
-	font-weight: 200;
-}
-@font-face {
-	font-family: 'IRANSans-web';
-	src: url('/assets/admin/css/fonts/IRANSansWeb(FaNum).eot?#') format('eot'),  /* IE6–8 */
-         url('/assets/admin/css/fonts/IRANSansWeb(FaNum).woff2') format('woff2'),  /* Chrome36+, Opera24+*/
-         url('/assets/admin/css/fonts/IRANSansWeb(FaNum).woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
-	font-weight: normal;
-}
+  @font-face {
+	font-family: Vazir;
+	src: url(/fonts/Vazir-Black.eot?c9ca288f260e030fa359c1f36ba60d65);
+	src: url(/fonts/Vazir-Black.eot?c9ca288f260e030fa359c1f36ba60d65?#iefix) format("embedded-opentype"), url(/fonts/Vazir-Black.woff2?8d0af1bc719167b0904894dd50fdf975) format("woff2"), url(/fonts/Vazir-Black.woff?adb553673307ec90ae1fa774e19e0418) format("woff"), url(/fonts/Vazir-Black.ttf?a53f8c5c4f27ba6941089bb6904b11cf) format("truetype");
+	font-weight: 900;
+	font-style: normal; }
 
-body
-{
-	/* Font */
-	font-family: IRANSans-web, sans-serif, Arial, Verdana, "Trebuchet MS" !important;
-	font-size: 12px;
+  @font-face {
+	font-family: Vazir;
+	src: url(/fonts/Vazir-Medium.eot?df51f05edfad874d428ebeafb054b9ec);
+	src: url(/fonts/Vazir-Medium.eot?df51f05edfad874d428ebeafb054b9ec?#iefix) format("embedded-opentype"), url(/fonts/Vazir-Medium.woff2?6f089e510f748c4f84a752e5a4f17bc3) format("woff2"), url(/fonts/Vazir-Medium.woff?2f455fa973f06809314cdba32e536a24) format("woff"), url(/fonts/Vazir-Medium.ttf?760c3693f1c376b4dbd1013217055bf3) format("truetype");
+	font-weight: 500;
+	font-style: normal; }
 
-	/* Text color */
-	color: #333;
+  @font-face {
+	font-family: Vazir;
+	src: url(/fonts/Vazir-Light.eot?7c5ff64b30d99db91743eb4efcc2b52b);
+	src: url(/fonts/Vazir-Light.eot?7c5ff64b30d99db91743eb4efcc2b52b?#iefix) format("embedded-opentype"), url(/fonts/Vazir-Light.woff2?a73555b22005f4465a2441f00cbb7dd5) format("woff2"), url(/fonts/Vazir-Light.woff?d5a3c3cbb7070f54ce4a2cbdceddc34b) format("woff"), url(/fonts/Vazir-Light.ttf?5db0d5e1510436020a667396d25780b5) format("truetype");
+	font-weight: 300;
+	font-style: normal; }
 
-	/* Remove the background color to make it transparent */
-	background-color: #fff;
+  @font-face {
+	font-family: Vazir;
+	src: url(/fonts/Vazir-Thin.eot?04880c4151fb14219e3355d4e26b58ca);
+	src: url(/fonts/Vazir-Thin.eot?04880c4151fb14219e3355d4e26b58ca?#iefix) format("embedded-opentype"), url(/fonts/Vazir-Thin.woff2?07781c40dd253070c594ce5f2840529a) format("woff2"), url(/fonts/Vazir-Thin.woff?9a02818f0badcc7b1ad34dd3ba5712c0) format("woff"), url(/fonts/Vazir-Thin.ttf?dd6b9e91d125f6db561745d603069bc8) format("truetype");
+	font-weight: 100;
+	font-style: normal; }
 
-	margin: 20px;
-}
+  body
+  {
+	  /* Font */
+	  font-family: Vazir, IRANSans, tahoma, sans-serif, Arial, Verdana, "Trebuchet MS" !important;
+	  font-size: 12px;
 
-.cke_editable
-{
-	font-size: 13px;
-	line-height: 1.6;
+	  /* Text color */
+	  color: #333;
 
-	/* Fix for missing scrollbars with RTL texts. (#10488) */
-	word-wrap: break-word;
-}
+	  /* Remove the background color to make it transparent */
+	  background-color: #fff;
 
-blockquote
-{
-	font-style: italic;
-	font-family: Georgia, Times, "Times New Roman", serif;
-	padding: 2px 0;
-	border-style: solid;
-	border-color: #ccc;
-	border-width: 0;
-}
+	  margin: 20px;
+  }
 
-.cke_contents_ltr blockquote
-{
-	padding-left: 20px;
-	padding-right: 8px;
-	border-left-width: 5px;
-}
+  .cke_editable
+  {
+	  font-size: 13px;
+	  line-height: 1.6;
 
-.cke_contents_rtl blockquote
-{
-	padding-left: 8px;
-	padding-right: 20px;
-	border-right-width: 5px;
-}
+	  /* Fix for missing scrollbars with RTL texts. (#10488) */
+	  word-wrap: break-word;
+  }
 
-a
-{
-	color: #0782C1;
-}
+  blockquote
+  {
+	  font-style: italic;
+	  font-family: Georgia, Times, "Times New Roman", serif;
+	  padding: 2px 0;
+	  border-style: solid;
+	  border-color: #ccc;
+	  border-width: 0;
+  }
 
-ol,ul,dl
-{
-	/* IE7: reset rtl list margin. (#7334) */
-	*margin-right: 0px;
-	/* preserved spaces for list items with text direction other than the list. (#6249,#8049)*/
-	padding: 0 40px;
-}
+  .cke_contents_ltr blockquote
+  {
+	  padding-left: 20px;
+	  padding-right: 8px;
+	  border-left-width: 5px;
+  }
 
-h1,h2,h3,h4,h5,h6
-{
-	font-weight: normal;
-	line-height: 1.2;
-}
+  .cke_contents_rtl blockquote
+  {
+	  padding-left: 8px;
+	  padding-right: 20px;
+	  border-right-width: 5px;
+  }
 
-hr
-{
-	border: 0px;
-	border-top: 1px solid #ccc;
-}
+  a
+  {
+	  color: #0782C1;
+  }
 
-img.right
-{
-	border: 1px solid #ccc;
-	float: right;
-	margin-left: 15px;
-	padding: 5px;
-}
+  ol,ul,dl
+  {
+	  /* IE7: reset rtl list margin. (#7334) */
+	  *margin-right: 0px;
+	  /* preserved spaces for list items with text direction other than the list. (#6249,#8049)*/
+	  padding: 0 40px;
+  }
 
-img.left
-{
-	border: 1px solid #ccc;
-	float: left;
-	margin-right: 15px;
-	padding: 5px;
-}
+  h1,h2,h3,h4,h5,h6
+  {
+	  font-weight: normal;
+	  line-height: 1.2;
+  }
 
-pre
-{
-	white-space: pre-wrap; /* CSS 2.1 */
-	word-wrap: break-word; /* IE7 */
-	-moz-tab-size: 4;
-	tab-size: 4;
-}
+  hr
+  {
+	  border: 0px;
+	  border-top: 1px solid #ccc;
+  }
 
-.marker
-{
-	background-color: Yellow;
-}
+  img.right
+  {
+	  border: 1px solid #ccc;
+	  float: right;
+	  margin-left: 15px;
+	  padding: 5px;
+  }
 
-span[lang]
-{
-	font-style: italic;
-}
+  img.left
+  {
+	  border: 1px solid #ccc;
+	  float: left;
+	  margin-right: 15px;
+	  padding: 5px;
+  }
 
-figure
-{
-	text-align: center;
-	border: solid 1px #ccc;
-	border-radius: 2px;
-	background: rgba(0,0,0,0.05);
-	padding: 10px;
-	margin: 10px 20px;
-	display: inline-block;
-}
+  pre
+  {
+	  white-space: pre-wrap; /* CSS 2.1 */
+	  word-wrap: break-word; /* IE7 */
+	  -moz-tab-size: 4;
+	  tab-size: 4;
+  }
 
-figure > figcaption
-{
-	text-align: center;
-	display: block; /* For IE8 */
-}
+  .marker
+  {
+	  background-color: Yellow;
+  }
 
-a > img {
-	padding: 1px;
-	margin: 1px;
-	border: none;
-	outline: 1px solid #0782C1;
-}
+  span[lang]
+  {
+	  font-style: italic;
+  }
 
-/* Widget Styles */
-.code-featured
-{
-	border: 5px solid red;
-}
+  figure
+  {
+	  text-align: center;
+	  border: solid 1px #ccc;
+	  border-radius: 2px;
+	  background: rgba(0,0,0,0.05);
+	  padding: 10px;
+	  margin: 10px 20px;
+	  display: inline-block;
+  }
 
-.math-featured
-{
-	padding: 20px;
-	box-shadow: 0 0 2px rgba(200, 0, 0, 1);
-	background-color: rgba(255, 0, 0, 0.05);
-	margin: 10px;
-}
+  figure > figcaption
+  {
+	  text-align: center;
+	  display: block; /* For IE8 */
+  }
 
-.image-clean
-{
-	border: 0;
-	background: none;
-	padding: 0;
-}
+  a > img {
+	  padding: 1px;
+	  margin: 1px;
+	  border: none;
+	  outline: 1px solid #0782C1;
+  }
 
-.image-clean > figcaption
-{
-	font-size: .9em;
-	text-align: right;
-}
+  /* Widget Styles */
+  .code-featured
+  {
+	  border: 5px solid red;
+  }
 
-.image-grayscale
-{
-	background-color: white;
-	color: #666;
-}
+  .math-featured
+  {
+	  padding: 20px;
+	  box-shadow: 0 0 2px rgba(200, 0, 0, 1);
+	  background-color: rgba(255, 0, 0, 0.05);
+	  margin: 10px;
+  }
 
-.image-grayscale img, img.image-grayscale
-{
-	filter: grayscale(100%);
-}
+  .image-clean
+  {
+	  border: 0;
+	  background: none;
+	  padding: 0;
+  }
 
-.embed-240p
-{
-	max-width: 426px;
-	max-height: 240px;
-	margin:0 auto;
-}
+  .image-clean > figcaption
+  {
+	  font-size: .9em;
+	  text-align: right;
+  }
 
-.embed-360p
-{
-	max-width: 640px;
-	max-height: 360px;
-	margin:0 auto;
-}
+  .image-grayscale
+  {
+	  background-color: white;
+	  color: #666;
+  }
 
-.embed-480p
-{
-	max-width: 854px;
-	max-height: 480px;
-	margin:0 auto;
-}
+  .image-grayscale img, img.image-grayscale
+  {
+	  filter: grayscale(100%);
+  }
 
-.embed-720p
-{
-	max-width: 1280px;
-	max-height: 720px;
-	margin:0 auto;
-}
+  .embed-240p
+  {
+	  max-width: 426px;
+	  max-height: 240px;
+	  margin:0 auto;
+  }
 
-.embed-1080p
-{
-	max-width: 1920px;
-	max-height: 1080px;
-	margin:0 auto;
-}
+  .embed-360p
+  {
+	  max-width: 640px;
+	  max-height: 360px;
+	  margin:0 auto;
+  }
+
+  .embed-480p
+  {
+	  max-width: 854px;
+	  max-height: 480px;
+	  margin:0 auto;
+  }
+
+  .embed-720p
+  {
+	  max-width: 1280px;
+	  max-height: 720px;
+	  margin:0 auto;
+  }
+
+  .embed-1080p
+  {
+	  max-width: 1920px;
+	  max-height: 1080px;
+	  margin:0 auto;
+  }

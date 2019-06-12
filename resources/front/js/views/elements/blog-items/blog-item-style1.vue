@@ -1,5 +1,5 @@
 <template>
-    <div dir="rtl" class="card border-0 mb-4 box-shadow h-xl-300 rtl">
+    <div class="card border-0 mb-4 box-shadow h-xl-300 rtl">
         <div class="cover" :style="{ backgroundImage: 'url(' + data.cover_image + ')' }"></div>
         <div class="card-body px-0 pb-0 d-flex flex-column align-items-start text-right">
             <h2 class="h4 font-weight-bold">
