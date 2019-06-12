@@ -17,7 +17,7 @@
                 <div class="row form-group z-index-501">
                     <div class="col-md-6">
                         <label for="category">دسته بندی</label>
-                        <multiselect id="category" dir="rtl" v-model="new_post.cateogry" :options="categories" placeholder="دسته بندی" label="title" track-by="title"></multiselect>
+                        <multiselect id="category" v-model="new_post.cateogry" :options="categories" placeholder="دسته بندی" label="title" track-by="title"></multiselect>
                         <input type="hidden" name="category_id" v-model="new_post.cateogry.id">
                     </div>
                     <div class="col-md-6">

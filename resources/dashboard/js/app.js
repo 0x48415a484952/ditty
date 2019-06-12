@@ -10,18 +10,15 @@ require('./bootstrap');
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import routes from './routes';
-// import VeeValidate from 'vee-validate';
 import Multiselect from 'vue-multiselect';
 import BootstrapVue from 'bootstrap-vue';
 import Notifications from 'vue-notification';
-// import CKEditor from '@ckeditor/ckeditor5-vue';
 
 Vue.use(VueRouter);
 Vue.use(BootstrapVue);
 Vue.use(Notifications);
-// Vue.use(CKEditor);
 
-Vue.component('main-layout', require('./components/layouts/MainComponent.vue').default);
+Vue.component('main-layout', require('./components/layouts/Main.vue').default);
 // Vue.directive('b-card', require('bootstrap-vue/es/components/card/card').default);
 
 Vue.component('b-modal', require('bootstrap-vue/es/components/modal/modal').default);

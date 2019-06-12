@@ -20,9 +20,9 @@
 
 <script>
 
-import navbar from './NavbarComponent.vue';
-import sidebar from './SidebarComponent.vue';
-import footerLayout from './FooterComponent.vue';
+import navbar from './Navbar.vue';
+import sidebar from './Sidebar.vue';
+import footerLayout from './Footer.vue';
 
 export default {
     components: {

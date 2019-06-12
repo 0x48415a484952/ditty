@@ -2,7 +2,7 @@
     <div class="main-sidebar sidebar-style-2">
         <aside id="sidebar-wrapper">
             <div class="sidebar-brand">
-                <a href="index.html">مدیریت پاترونیک</a>
+                <a href="/">LARAVEL</a>
             </div>
           <ul class="sidebar-menu">
             <li class="menu-header">داشبورد</li>

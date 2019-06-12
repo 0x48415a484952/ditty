@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-6">
                 <b-card title="دسته‌بندی ها">
-                    <multiselect v-model="categories.selected" dir="rtl" :options="categories.items" placeholder="دسته‌بندی ها" label="title" track-by="title" @input="showCategory"></multiselect>
+                    <multiselect v-model="categories.selected" :options="categories.items" placeholder="دسته‌بندی ها" label="title" track-by="title" @input="showCategory"></multiselect>
                 </b-card>
             </div>
             <div class="col-md-6">

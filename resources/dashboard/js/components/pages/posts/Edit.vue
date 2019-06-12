@@ -17,7 +17,7 @@
                 <div class="row form-group z-index-501">
                     <div class="col-md-6">
                         <label for="category">دسته بندی</label>
-                        <multiselect id="category" dir="rtl" v-model="post.category" :options="categories" placeholder="دسته بندی" label="title" track-by="title"></multiselect>
+                        <multiselect id="category" v-model="post.category" :options="categories" placeholder="دسته بندی" label="title" track-by="title"></multiselect>
                         <input type="hidden" name="category_id" v-model="post.category.id">
                     </div>
                     <div class="col-md-6">
@@ -102,7 +102,7 @@ export default {
                 }
             });
         },
-        loadPost: () => {
+        loadPost: function() {
             var post_id = this.$route.params.post_id;
             $.get(this.$root.api_url + '/posts/' + post_id, (response) => {
                 if (response.status == 1) {
