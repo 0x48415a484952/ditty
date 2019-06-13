@@ -20,6 +20,8 @@ Vue.use(VueMoment);
 
 Vue.component('main-layout', require('./views/layouts/main').default);
 Vue.component('avatar', require('./views/elements/avatar').default);
+Vue.component('post-link', require('./views/elements/post-link').default);
+Vue.component('author-link', require('./views/elements/author-link').default);
 
 const router = new VueRouter({
     mode: 'history',

@@ -26,6 +26,18 @@ export default [
         name: 'posts.show',
         props: true
     },
+    {
+        path: '/@:username',
+        component: require('./views/author/Index').default,
+        name: 'author.index',
+        props: true
+    },
+    {
+        path: '/tags/:tag',
+        component: require('./views/Tags').default,
+        name: 'tags.index',
+        props: true
+    },
 
     // categories
 

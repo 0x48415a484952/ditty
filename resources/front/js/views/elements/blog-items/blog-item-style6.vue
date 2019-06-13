@@ -14,13 +14,13 @@
             <div class="metafooter clearfix">
                 <div class="wrapfooter">
                     <span class="meta-footer-thumb">
-                        <a href="author.html">
+                        <author-link :author="data.user">
                             <avatar :user="data.user" />
-                        </a>
+                        </author-link>
                     </span>
                     <span class="author-meta">
                         <span v-if="data.user" class="post-name">
-                            <a href="author.html">{{ data.user.name }}</a>
+                            <author-link :author="data.user">{{ data.user.name }}</author-link>
                         </span>
                         <br>
                         <span class="post-date">{{ data.created_at | moment("jYYYY/jM/jD") }}</span>

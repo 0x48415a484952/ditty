@@ -12,7 +12,9 @@
             </p>
             <div>
                 <small class="d-block">
-                    <a class="text-muted" href="./author.html">{{ data.user.name }}</a>
+                    <author-link :author="data.user">
+                        <span class="text-muted">{{ data.user.name }}</span>
+                    </author-link>
                 </small>
                 <small class="text-muted">۱۲ اردیبهشت ۹۷ · ۵ دقیقه</small>
             </div>

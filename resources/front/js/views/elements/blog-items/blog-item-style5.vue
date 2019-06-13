@@ -3,28 +3,24 @@
     <div class="card">
         <div class="row">
             <div class="col-md-5 wrapthumbnail">
-                <a href="post.html">
+                <post-link :post="data">
                     <div class="thumbnail" :style="{ backgroundImage: 'url('+ data.cover_image +')' }"></div>
-                </a>
+                </post-link>
             </div>
             <div class="col-md-7">
                 <div class="card-block p-4">
                     <h2 class="card-title text-right">
-                        <router-link :to="{ name: 'posts.show', params: { id: data.id, slug: (data.slug ? data.slug : data.title) } }">
-                            {{ data.title }}
-                        </router-link>
+                        <post-link :post="data">{{ data.title }}</post-link>
                     </h2>
                     <h4 class="card-text text-justify">{{ data.brief_text }}</h4>
                     <div class="metafooter">
                         <div class="wrapfooter">
                             <span class="meta-footer-thumb">
-                                <a href="author.html">
-                                    <avatar :user="data.user" />
-                                </a>
+                                <author-link :author="data.user"><avatar :user="data.user" /></author-link>
                             </span>
                             <span class="author-meta">
                                 <span class="post-name">
-                                    <a href="author.html">{{ data.user.name }}</a>
+                                    <author-link :author="data.user">{{ data.user.name }}</author-link>
                                 </span>
                                 <br>
                                 <span class="post-date">{{ data.created_at | moment("jYYYY/jM/jD") }}</span>
