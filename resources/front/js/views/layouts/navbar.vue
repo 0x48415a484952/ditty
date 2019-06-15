@@ -8,14 +8,14 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="navbar-collapse collapse" id="navbarColor02">
-                <ul class="navbar-nav pr-0 ml-auto d-flex align-items-center">
+                <ul class="navbar-nav pr-0 ml-auto d-flex align-items-center mr-3">
                     <!-- <li class="nav-item">
                         <router-link class="nav-link" :to="{ name: 'index' }">
                             <span>صفحه اصلی</span>
                         </router-link>
                     </li> -->
                     <li v-for="item in items" class="nav-item">
-                        <router-link class="nav-link" :to="{ name: 'categories.show', params: { id: item.id, slug: item.title } }">
+                        <router-link class="nav-link" :to="{ name: 'categories.index', params: { id: item.id, slug: item.title } }">
                             <span>{{ item.title }}</span>
                         </router-link>
                     </li>

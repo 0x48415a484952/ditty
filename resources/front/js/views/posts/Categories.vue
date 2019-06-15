@@ -4,11 +4,13 @@
         <section class="recent-posts">
             <div class="section-title text-right">
                 <h2>
-                    <span>آخرین مطالب</span>
+                    <span>{{ $root.getPageTitle() }}</span>
                 </h2>
             </div>
             <div class="card-columns listrecent">
+
                 <blog-item-style6 v-for="post of posts.data" :key="post.id" :data="post" />
+
             </div>
         </section>
 
@@ -33,15 +35,18 @@
             blogItemStyle6: require("../elements/blog-items/blog-item-style6").default,
         },
         mounted() {
-            this.$root.setPageTitle('پست‌ها');
+            let category = this.$route.params.slug;
+            this.$root.setPageTitle('دسته بندی: ' + category);
             this.getPosts();
         },
         methods: {
             getPosts() {
-                let request = new HttpRequest('/api/v1/posts');
+                let category_id = this.$route.params.id;
+                let request = new HttpRequest('/api/v1/posts?category_id=' + category_id);
+
                 request.send(
                     (result) => {
-                        this.posts = result.data;
+                        this.posts = result.data
                     }
                 );
             }

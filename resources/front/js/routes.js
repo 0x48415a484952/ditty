@@ -34,7 +34,7 @@ export default [
     },
     {
         path: '/tags/:tag',
-        component: require('./views/Tags').default,
+        component: require('./views/posts/Tags').default,
         name: 'tags.index',
         props: true
     },
@@ -43,20 +43,9 @@ export default [
 
     {
         path: '/categories/:id-:slug',
-        component: require('./views/posts/index').default,
-        name: 'categories.show',
-        props: true
+        component: require('./views/posts/Categories').default,
+        name: 'categories.index'
     },
-
-    // tags
-
-    {
-        path: '/tags/:id-:slug',
-        component: require('./views/posts/index').default,
-        name: 'tags.show',
-        props: true
-    },
-
     // error pages
 
     {

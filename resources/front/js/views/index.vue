@@ -78,7 +78,7 @@
             blogItemStyle6: require("./elements/blog-items/blog-item-style6").default,
         },
         mounted() {
-            // retrieve posts
+            this.$root.setPageTitle('Ditty.ir');
             this.getPosts();
 
         },

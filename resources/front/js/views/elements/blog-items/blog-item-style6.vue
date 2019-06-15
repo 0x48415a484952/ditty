@@ -1,14 +1,12 @@
 <template>
 
     <div class="card rtl">
-        <a href="post.html" class="post-cover-image">
+        <post-link class="post-cover-image" :post="data">
             <img class="img-fluid" :src="data.cover_image" alt="">
-        </a>
+        </post-link>
         <div class="card-block p-4">
             <h2 class="card-title text-right">
-                <router-link :to="{ name: 'posts.show', params: { id: data.id, slug: (data.slug ? data.slug : data.title) } }">
-                    {{ data.title }}
-                </router-link>
+                <post-link :post="data">{{ data.title }}</post-link>
             </h2>
             <h4 class="card-text text-justify">{{ data.brief_text }}</h4>
             <div class="metafooter clearfix">

@@ -4,11 +4,13 @@
         <section class="recent-posts">
             <div class="section-title text-right">
                 <h2>
-                    <span>آخرین مطالب</span>
+                    <span>{{ $root.getPageTitle() }}</span>
                 </h2>
             </div>
             <div class="card-columns listrecent">
+
                 <blog-item-style6 v-for="post of posts.data" :key="post.id" :data="post" />
+
             </div>
         </section>
 
@@ -25,24 +27,26 @@
             };
         },
         components: {
-            blogItemStyle1: require("../elements/blog-items/blog-item-style1").default,
-            blogItemStyle2: require("../elements/blog-items/blog-item-style2").default,
-            blogItemStyle3: require("../elements/blog-items/blog-item-style3").default,
-            blogItemStyle4: require("../elements/blog-items/blog-item-style4").default,
-            blogItemStyle5: require("../elements/blog-items/blog-item-style5").default,
+            // blogItemStyle1: require("../elements/blog-items/blog-item-style1").default,
+            // blogItemStyle2: require("../elements/blog-items/blog-item-style2").default,
+            // blogItemStyle3: require("../elements/blog-items/blog-item-style3").default,
+            // blogItemStyle4: require("../elements/blog-items/blog-item-style4").default,
+            // blogItemStyle5: require("../elements/blog-items/blog-item-style5").default,
             blogItemStyle6: require("../elements/blog-items/blog-item-style6").default,
         },
         mounted() {
-            this.$root.setPageTitle('پست‌ها');
+            let tag = this.$route.params.tag;
+            this.$root.setPageTitle('برچسب‌: ' + tag);
             this.getPosts();
+
         },
         methods: {
             getPosts() {
-                let request = new HttpRequest('/api/v1/posts');
+                let tag = this.$route.params.tag;
+                let request = new HttpRequest('/api/v1/tags/' + tag);
+
                 request.send(
-                    (result) => {
-                        this.posts = result.data;
-                    }
+                    (result) => this.posts = result.data
                 );
             }
         }

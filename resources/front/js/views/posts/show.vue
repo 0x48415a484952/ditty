@@ -50,9 +50,11 @@
         },
         mounted() {
             let request = new HttpRequest('/api/v1/posts/' + this.$props.id);
-
             request.send(
-                (result) => this.post = result.data
+                (result) => {
+                    this.post = result.data;
+                    this.$root.setPageTitle(this.post.title);
+                }
             );
         }
     }

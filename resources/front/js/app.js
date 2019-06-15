@@ -33,6 +33,18 @@ const app = new Vue({
     router,
     data: {
         base_url: document.head.querySelector('meta[name="base-url"]').content,
-        api_url : document.head.querySelector('meta[name="api-url"]').content
+        api_url : document.head.querySelector('meta[name="api-url"]').content,
+        document: {
+            title: '',
+        },
+    },
+    methods: {
+        setPageTitle(title) {
+            document.title = title;
+            this.document.title = title;
+        },
+        getPageTitle() {
+            return this.document.title;
+        },
     }
 });
