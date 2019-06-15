@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\v1\Dashboard;
 
 use App\Models\Post;
+use App\Classes\Draft;
 use App\Classes\Response;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostsRequest;
@@ -27,7 +28,7 @@ class PostsController extends Controller
     public function index()
     {
         return Response::success('',
-            $this->posts->paginate(10)->load('tagged')
+            $this->posts->paginate(10, 0)->load('tagged')
         );
     }
 
@@ -107,5 +108,12 @@ class PostsController extends Controller
         $post->delete();
 
         return Response::success('پست با موفقیت حذف شد');
+    }
+
+    public function saveDraft(Request $request)
+    {
+        (new Draft)->save($request->except('cover_image'));
+
+        return Response::success('Saved.');
     }
 }

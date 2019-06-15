@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,9 +11,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
 
 
 Route::group(
@@ -33,13 +28,15 @@ Route::group(
             Route::group(['prefix' => 'posts'], function() {
                 Route::get('/', 'PostsController@index');
                 Route::post('/', 'PostsController@store');
+                Route::post('/save-draft', 'PostsController@saveDraft');
                 Route::get('/{post}', 'PostsController@show');
                 Route::put('/{post}', 'PostsController@update');
                 Route::delete('/{post}', 'PostsController@destroy');
                 Route::delete('/{post}/comments/{comment}', 'CommentsController@destroy');
+
             });
 
-            Route::post('/upload-image', 'PhotoUploadController@upload');
+            // Route::post('/upload-image', 'PhotoUploadController@upload');
             Route::resource('/comments', 'CommentsController');
         });
     }
@@ -55,14 +52,15 @@ Route::group(['namespace' => 'Api\v1\Front', 'prefix' => 'v1'], function() {
 
     Route::group(['prefix' => 'categories'], function() {
         Route::get('/', 'CategoriesController@index');
-        Route::get('/{category}/posts', 'CategoriesController@posts');
+        // Route::get('/{category}/posts', 'CategoriesController@posts');
     });
 
-    Route::get('tags/{tag}', 'TagsController@index');
+    Route::get('/tags/{tag}', 'TagsController@index');
+    Route::get('/users', 'UsersController@show');
 
-    Route::group(['middleware' => 'auth:api'], function() {
-        Route::get('/profile', 'ProfileController@show');
-        Route::put('/profile', 'ProfileController@update');
-    });
+    // Route::group(['middleware' => 'auth:api'], function() {
+    //     Route::get('/profile', 'ProfileController@show');
+    //     Route::put('/profile', 'ProfileController@update');
+    // });
 
 });

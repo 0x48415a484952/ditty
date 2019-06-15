@@ -1,7 +1,7 @@
 <template>
     <div>
         <b-card title="پست جدید">
-            <form :action="$root.api_url + '/posts'" method="POST" class="js-submit-form" data-on-success="postCreated">
+            <form id="create-post" :action="$root.api_url + '/posts'" method="POST" class="js-submit-form" data-on-success="postCreated">
                 <div class="form-group">
                     <label for="title">عنوان</label>
                     <input id="title" type="text" name="title" class="form-control" data-required>
@@ -18,7 +18,7 @@
                     <div class="col-md-6">
                         <label for="category">دسته بندی</label>
                         <multiselect id="category" v-model="new_post.cateogry" :options="categories" placeholder="دسته بندی" label="title" track-by="title"></multiselect>
-                        <input type="hidden" name="category_id" v-model="new_post.cateogry.id">
+                        <input type="hidden" id="category-id" name="category_id" v-model="new_post.cateogry.id">
                     </div>
                     <div class="col-md-6">
                         <label for="tags">برچسب ها</label>
@@ -83,6 +83,8 @@ export default {
         this.$root.setPageTitle('پست جدید');
         this.loadCategories();
         CKEDITOR.replace('text');
+
+        this.saveDraft();
     },
     methods: {
         initializeFunctions() {
@@ -100,6 +102,22 @@ export default {
                     this.categories = response.data;
                 }
             });
+        },
+        saveDraft() {
+            setInterval(() => {
+                var data = {
+                    title: $('#title').val(),
+                    brief_text: $('#brief-text').val(),
+                    text: $('#text').val(),
+                    slug: $('#slug').val(),
+                    tags: $('#tags').val(),
+                    category_id: $('#category-id').val(),
+                }
+
+
+
+                $.post(this.$root.api_url + '/posts/save-draft', { data });
+            }, 15000);
         }
     },
     beforeRouteLeave(to, from, next) {

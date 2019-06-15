@@ -11,20 +11,30 @@ class PostsRepository extends Repository // implements PostsRepositoryInterface
         return \App\Models\Post::class;
     }
 
-    public function paginate($limit = 10)
+    public function paginate($limit = 10, int $status = 3)
     {
         return $this->model
             ->necessaryFields()
+            ->where('status', '>=', $status)
+            ->orderBy('id', 'desc')
+            ->paginate($limit);
+    }
+
+    public function getByCategoryId($category_id, $limit = 10)
+    {
+        return $this->model
+            ->necessaryFields()
+            ->where('category_id', $category_id)
             ->isPublished()
             ->orderBy('id', 'desc')
             ->paginate($limit);
     }
 
-    public function getByCategory($category_id, $limit = 10)
+    public function getByUserId($user_id, $limit = 10)
     {
         return $this->model
             ->necessaryFields()
-            ->where('category_id', $category_id)
+            ->where('user_id', $user_id)
             ->isPublished()
             ->orderBy('id', 'desc')
             ->paginate($limit);

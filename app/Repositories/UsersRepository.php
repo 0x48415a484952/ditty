@@ -9,4 +9,10 @@ class UsersRepository extends Repository
     {
         return \App\Models\User::class;
     }
+
+    public function findByUsername($username)
+    {
+        return $this->model->where('username', $username)->first();
+    }
+
 }
