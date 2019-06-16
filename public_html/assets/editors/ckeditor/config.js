@@ -3,13 +3,23 @@
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
-CKEDITOR.config.font_names = 'Vazir; Tahoma';
-CKEDITOR.config.uiColor = '#f0f0f0';
 CKEDITOR.editorConfig = function( config ) {
-	// Define changes to default configuration here. For example:
+    // Define changes to default configuration here. For example:
+    config.font_names = 'Vazir; Tahoma';
+    config.uiColor = '#f0f0f0';
     config.height = 300;
     config.language = 'fa';
-    config.uiColor = '#f0f0f0';
+    config.uiColor = '#ffffff';
+    config.allowedContent = {
+        script: true,
+        $1: {
+            // This will set the default set of elements
+            elements: CKEDITOR.dtd,
+            attributes: true,
+            styles: true,
+            classes: true
+        }
+    };
     config.filebrowserBrowseUrl = '/assets/editors/kcfinder/browse.php?opener=ckeditor&type=files';
     config.filebrowserImageBrowseUrl = '/assets/editors/kcfinder/browse.php?opener=ckeditor&type=images';
     config.filebrowserFlashBrowseUrl = '/assets/editors/kcfinder/browse.php?opener=ckeditor&type=flash';

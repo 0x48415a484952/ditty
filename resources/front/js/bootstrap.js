@@ -11,6 +11,7 @@ try {
 
     require('bootstrap');
     require('es6-promise/auto');
+    require('./custom.js');
 
 } catch (e) {
     console.warn(e);

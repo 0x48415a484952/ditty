@@ -78,10 +78,10 @@ export default {
         if (! this.$root.isAuthenticated()) {
             return this.$root.redirectToLogin();
         }
-
         this.initializeFunctions();
         this.$root.setPageTitle('پست جدید');
         this.loadCategories();
+        this.loadDraft();
         CKEDITOR.replace('text');
 
         this.saveDraft();
@@ -96,7 +96,20 @@ export default {
                 }
             }
         },
-        loadCategories: function() {
+        loadDraft() {
+            $.get(this.$root.api_url + '/posts/get-draft', (response) => {
+                if (response.status == 1) {
+                    $('#title').val(response.data.title);
+                    $('#brief-text').val(response.data.brief_text);
+                    $('#slug').val(response.data.slug);
+
+                    setTimeout(() => {
+                        CKEDITOR.instances['text'].setData(response.data.text);
+                    }, 100);
+                }
+            });
+        },
+        loadCategories() {
             $.get(this.$root.api_url + '/categories', (response) => {
                 if (response.status == 1) {
                     this.categories = response.data;
@@ -104,25 +117,28 @@ export default {
             });
         },
         saveDraft() {
-            setInterval(() => {
+            window.postDraftInterval = setInterval(() => {
                 var data = {
                     title: $('#title').val(),
                     brief_text: $('#brief-text').val(),
-                    text: $('#text').val(),
+                    text: CKEDITOR.instances['text'].getData(),
                     slug: $('#slug').val(),
                     tags: $('#tags').val(),
                     category_id: $('#category-id').val(),
                 }
 
-
-
                 $.post(this.$root.api_url + '/posts/save-draft', { data });
-            }, 15000);
+            }, 5000);
         }
     },
     beforeRouteLeave(to, from, next) {
-        // $('#text').summernote('destroy');
-        next();
+        window.clearInterval(window.postDraftInterval);
+
+        if (CKEDITOR.instances['text'].getData().length > 0) {
+            if (confirm('Unsaved data! Continue?')) {
+                next();
+            }
+        }
     }
 }
 </script>

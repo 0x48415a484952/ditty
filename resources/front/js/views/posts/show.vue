@@ -54,6 +54,9 @@
                 (result) => {
                     this.post = result.data;
                     this.$root.setPageTitle(this.post.title);
+                    setTimeout(function() {
+                        window.renderScripts();
+                    });
                 }
             );
         }
