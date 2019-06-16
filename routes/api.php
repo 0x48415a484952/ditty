@@ -29,6 +29,7 @@ Route::group(
                 Route::get('/', 'PostsController@index');
                 Route::post('/', 'PostsController@store');
                 Route::post('/save-draft', 'PostsController@saveDraft');
+                Route::get('/get-draft', 'PostsController@getDraft');
                 Route::get('/{post}', 'PostsController@show');
                 Route::put('/{post}', 'PostsController@update');
                 Route::delete('/{post}', 'PostsController@destroy');

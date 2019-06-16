@@ -31,6 +31,15 @@ class Draft
         }
     }
 
+    public function get()
+    {
+        $data = DB::table($this->table)->where('user_id', Auth::id())->first();
+
+        if (!empty($data)) {
+            return json_decode($data->content)->data;
+        }
+    }
+
     public function deleteDraft(): void
     {
         DB::table($this->table)->where('user_id', Auth::id())->delete();

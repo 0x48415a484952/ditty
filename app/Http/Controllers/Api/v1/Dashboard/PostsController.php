@@ -116,4 +116,9 @@ class PostsController extends Controller
 
         return Response::success('Saved.');
     }
+
+    public function getDraft()
+    {
+        return Response::success('', (new Draft)->get());
+    }
 }
