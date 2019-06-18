@@ -12,7 +12,6 @@ class UsersController extends Controller
 {
     public function show(Request $request, UsersRepository $users)
     {
-        echo 'ssd';
         $validator = Validator::make($request->all(), [
             'username' => 'bail|required|string|min:3|max:32|distinct:ignore_case|regex:/^[A-Za-z][A-Za-z0-9_]*(?:_[A-Za-z0-9]+)*$/',
         ]);

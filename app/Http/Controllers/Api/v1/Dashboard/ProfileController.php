@@ -13,15 +13,12 @@ class ProfileController extends Controller
 {
     public function index()
     {
-        $user = Auth::user();
-
-        return Response::success('', ['user' => $user]);
+        return Response::success('', ['user' => $this->user()]);
     }
 
     public function update(ProfileUpdateRequest $request, UsersRepository $users)
     {
-        $user = Auth::user();
-        $user = $users->update($user, $request->only(
+        $user = $users->update($this->user(), $request->only(
             $users->getFillable()
         ));
 
@@ -29,10 +26,19 @@ class ProfileController extends Controller
             $user->revokeTokens();
         }
 
-
         return Response::success('پروفایل با موفقیت ویرایش شد', [
             'user' => $user,
             'token' => $request->filled('password') ? $user->createToken('General Token')->accessToken : null
         ]);
+    }
+
+    private function user()
+    {
+        $user = Auth::user();
+        $hidden = $user->getHidden();
+        unset($hidden[array_search('email', $hidden)]);
+        $user->setHidden($hidden);
+
+        return $user;
     }
 }

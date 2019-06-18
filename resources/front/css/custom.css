@@ -14,3 +14,7 @@
 .navbar-brand {
     margin-right: 0;
 }
+
+.social-urls a img {
+    width: 24px;
+}

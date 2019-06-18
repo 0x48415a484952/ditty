@@ -1,21 +1,37 @@
 <template>
-        <div class="container">
-
-            <section class="recent-posts">
-                <div class="section-title text-right">
-                    <h2>
-                        <span>{{ $root.getPageTitle() }}</span>
-                    </h2>
+    <div>
+        <div class="container text-right">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="mainheading">
+                        <div class="row post-top-meta authorpage">
+                            <div class="col-md-10 col-xs-12">
+                                <h1>{{ user.name }}</h1>
+                                <p class="author-description">{{ user.biography }}</p>
+                                <div class="social-urls mt-2">
+                                    <a class="ml-2" :href="url" target="_blank" v-for="(url, item) in user.social_urls" v-if="url">
+                                        <img :src="$root.base_url + '/images/social_icon-' + item + '.png'">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-xs-12">
+                                <avatar :user="user" />
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-columns listrecent">
-
-                    <blog-item-style6 v-for="post of posts.data" :key="post.id" :data="post" />
-
-                </div>
-            </section>
-
+            </div>
         </div>
-    </template>
+        <div class="graybg authorpage">
+            <div class="listrecent listrelated">
+                <div class="authorpostbox">
+                    <blog-item-style7 v-for="post of posts.data" :key="post.id" :data="post" />
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
 
     <script>
         import HttpRequest from '../../app/Classes/HttpRequest';
@@ -24,15 +40,11 @@
             data() {
                 return {
                     posts: [],
+                    user: {}
                 };
             },
             components: {
-                // blogItemStyle1: require("../elements/blog-items/blog-item-style1").default,
-                // blogItemStyle2: require("../elements/blog-items/blog-item-style2").default,
-                // blogItemStyle3: require("../elements/blog-items/blog-item-style3").default,
-                // blogItemStyle4: require("../elements/blog-items/blog-item-style4").default,
-                // blogItemStyle5: require("../elements/blog-items/blog-item-style5").default,
-                blogItemStyle6: require("../elements/blog-items/blog-item-style6").default,
+                blogItemStyle7: require("../elements/blog-items/blog-item-style7").default,
             },
             mounted() {
                 let username = this.$route.params.username;
@@ -45,7 +57,7 @@
 
                     request.send(
                         (result) => {
-                            if (result.response == 1) {
+                            if (result.status == 1) {
                                 this.user = result.data;
                                 this.getPosts();
                             }

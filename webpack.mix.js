@@ -14,7 +14,7 @@ const mix = require('laravel-mix');
 mix.setPublicPath('public_html/');
 
 mix.js('resources/front/js/app.js', 'public_html/js/front')
-   .sass('resources/front/sass/app.scss', 'public_html/css/front');
+   .sass('resources/front/sass/app.scss', 'public_html/css/front').version();;
 
 mix.js('resources/dashboard/js/app.js', 'public_html/js/dashboard')
-   .sass('resources/dashboard/sass/app.scss', 'public_html/css/dashboard');
+   .sass('resources/dashboard/sass/app.scss', 'public_html/css/dashboard').version();;

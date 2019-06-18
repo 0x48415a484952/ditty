@@ -10,7 +10,7 @@
             </author-link>
 
             <!--<a href="#" class="btn follow">دنبال کردن</a>-->
-            <p class="author-description">{{ user.biography }}</p>
+            <p class="author-description">{{ user.credentials }}</p>
         </div>
     </div>
 
