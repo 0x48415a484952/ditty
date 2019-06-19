@@ -43,4 +43,15 @@ class PostsRepository extends Repository // implements PostsRepositoryInterface
     public function getByTag($tag, $limit = 10) {
         return $this->model->withAnyTag($tag)->paginate($limit);
     }
+
+    public function related($post, $limit = 3)
+    {
+        return $this->model->necessaryFields()
+            ->where('category_id', $post->category_id)
+            ->where('id', '<>', $post->id)
+            ->isPublished()
+            ->orderBy('id', 'desc')
+            ->limit($limit)
+            ->get();
+    }
 }

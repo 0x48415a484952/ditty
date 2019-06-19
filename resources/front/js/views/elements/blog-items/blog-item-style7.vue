@@ -1,9 +1,9 @@
 <template>
     <div class="authorpostbox">
         <div class="card text-right">
-            <author-link :author="data.user">
+            <post-link :post="data">
                 <img class="img-thumb img-fluid" :src="data.cover_image" alt="">
-            </author-link>
+            </post-link>
 
             <div class="card-block p-3">
                 <h2 class="card-title">

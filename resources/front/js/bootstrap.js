@@ -11,6 +11,7 @@ try {
 
     require('bootstrap');
     require('es6-promise/auto');
+    require('sticky-kit/dist/sticky-kit.js');
     require('./custom.js');
 
 } catch (e) {

@@ -8,8 +8,6 @@
             <author-link :author="user">
                 <span class="link-dark">{{ user.name }}</span>
             </author-link>
-
-            <!--<a href="#" class="btn follow">دنبال کردن</a>-->
             <p class="author-description">{{ user.credentials }}</p>
         </div>
     </div>

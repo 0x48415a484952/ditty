@@ -37,4 +37,11 @@ class PostsController extends Controller
     {
         return Response::success('', $post);
     }
+
+    public function relatedPosts(Post $post)
+    {
+        $posts = $this->posts->related($post);
+
+        return Response::success('', $posts);
+    }
 }

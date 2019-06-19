@@ -84,27 +84,6 @@ window.Vue = new Vue({
             setTimeout(() => {
                 window.initTemplate();
             }, 100);
-        },
-        uploadImage(image) {
-            var data = new FormData();
-            data.append("image", image);
-
-            $.ajax({
-                url: this.api_url + '/upload-image',
-                cache: false,
-                contentType: false,
-                processData: false,
-                data: data,
-                type: "post",
-                success: function(response) {
-                    if (response.status == 1) {
-                        $('#text').summernote("insertImage", response.data.url);
-                    }
-                },
-                error: function(data) {
-                    console.log(data);
-                }
-            });
         }
     }
 });

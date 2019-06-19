@@ -1,6 +1,6 @@
 <template>
 
-    <div class="card rtl">
+    <div class="card">
         <post-link class="post-cover-image" :post="data">
             <img class="img-fluid" :src="data.cover_image" alt="">
         </post-link>

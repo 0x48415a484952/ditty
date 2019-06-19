@@ -5,7 +5,6 @@ try {
     require('jquery.nicescroll');
     window.moment = require('moment');
     window.Cookies = require('js-cookie');
-    window.summernote = require('summernote');
 } catch (e) {
     console.log(e);
 }

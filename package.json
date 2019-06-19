@@ -43,6 +43,6 @@
         "webpack": "^4.33.0"
     },
     "dependencies": {
-
+        "sticky-kit": "^1.1.3"
     }
 }
