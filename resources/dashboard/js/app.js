@@ -46,12 +46,20 @@ window.Vue = new Vue({
             if (response.data.user) {
                 this.$root.user = response.data.user;
             }
-            this.$root.initTemplate();
+            this.initTemplate();
         }).always(() => {
-            this.$root.$set(this.$root, 'isInitializing', false);
+            this.$set(this.$root, 'isInitializing', false);
         });
+
+        this.setPosition();
+        $(window).resize(this.setPosition);
     },
     methods: {
+        setPosition() {
+            $(".main-content").css({
+                minHeight: $(window).outerHeight() - 100
+            });
+        },
         isEmptyObject(object) {
             return $.isEmptyObject(object);
         },

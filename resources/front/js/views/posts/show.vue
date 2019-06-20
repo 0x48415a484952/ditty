@@ -75,6 +75,7 @@
                     (result) => {
                         this.post = result.data;
                         this.$root.setPageTitle(this.post.title);
+                        this.setPageMeta();
 
                         setTimeout(function() {
                             window.renderScripts();
@@ -93,6 +94,12 @@
                         this.related = response.data;
                     }
                 });
+            },
+            setPageMeta() {
+                window.addMeta('name', 'description', this.post.brief_text);
+                window.addMeta('name', 'author', this.post.user.name);
+                window.addMeta('itemprop', 'image', this.post.cover_image);
+                window.addMeta('property', 'og:image', this.post.cover_image);
             }
         },
         watch: {
