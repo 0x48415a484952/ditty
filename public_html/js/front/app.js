@@ -1116,8 +1116,8 @@ __webpack_require__.r(__webpack_exports__);
     setPageMeta: function setPageMeta() {
       window.addMeta('name', 'description', this.post.brief_text);
       window.addMeta('name', 'author', this.post.user.name);
-      window.addMeta('itemprop', 'image', this.$root.base_ + '/' + this.post.cover_image);
-      window.addMeta('property', 'og:image', this.$root.base_ + '/' + this.post.cover_image);
+      window.addMeta('itemprop', 'image', this.$root.base_url + '/' + this.post.cover_image);
+      window.addMeta('property', 'og:image', this.$root.base_url + '/' + this.post.cover_image);
     }
   },
   watch: {
