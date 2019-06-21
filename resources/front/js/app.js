@@ -10,9 +10,13 @@ let VueRouter = require('vue-router').default;
 let BootstrapVue = require('bootstrap-vue').default;
 let Vuex = require('vuex');
 let VueMoment = require('vue-moment-jalaali');
+import VueMeta from 'vue-meta';
+
+
 
 require('./bootstrap');
 
+Vue.use(VueMeta)
 Vue.use(Vuex);
 Vue.use(VueRouter);
 Vue.use(BootstrapVue);

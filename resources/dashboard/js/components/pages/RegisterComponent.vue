@@ -6,7 +6,6 @@
                     <div class="form-group">
                         <label for="name">نام و نام خانوادگی</label>
                         <input id="name" type="text" class="form-control" name="name" data-required>
-                        <span>{{ errors.first('name') }}</span>
                     </div>
 
                     <div class="form-group">

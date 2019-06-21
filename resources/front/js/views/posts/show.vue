@@ -79,10 +79,12 @@
 
                         setTimeout(function() {
                             window.renderScripts();
-                            $('.sidebar-container').stick_in_parent({
-                                parent: '#single-article-sidebar',
-                                offset_top: 100,
-                            });
+                            if ($(window.width()) > 768) {
+                                $('.sidebar-container').stick_in_parent({
+                                    parent: '#single-article-sidebar',
+                                    offset_top: 100,
+                                });
+                            }
                         }, 50);
                         this.loadRelatedPosts(this.$props.id);
                     }
