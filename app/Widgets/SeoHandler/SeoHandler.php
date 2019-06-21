@@ -36,8 +36,6 @@ class SeoHandler extends AbstractWidget
                     'items' => $seoItems
                 ]);
             }
-
-            else die('ssd');
         }
 
         return '';

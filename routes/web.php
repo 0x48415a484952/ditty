@@ -13,8 +13,5 @@ Route::group(['namespace' => 'Web\Dashboard', 'prefix' => 'dashboard'], function
     Route::get('/comments', 'HomeController@index');
 });
 
-Route::group(['namespace' => 'Web\Front'], function() {
-    // Route::get('/posts/{post_id}/{slug?}', 'PostsController@index');
-});
 Route::view('/{uri?}', 'front.main')->where('uri', '.*');
 
