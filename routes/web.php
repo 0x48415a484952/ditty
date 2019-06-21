@@ -13,7 +13,7 @@ Route::group(['namespace' => 'Web\Dashboard', 'prefix' => 'dashboard'], function
 });
 
 Route::group(['namespace' => 'Web\Front'], function() {
-    Route::get('/posts/{post_id}/{slug?}', 'PostsController@index');
+    // Route::get('/posts/{post_id}/{slug?}', 'PostsController@index');
 });
-Route::view('/{parameters?}', 'front.main')->where('parameters', '.*');
+Route::view('/{uri?}', 'front.main')->where('uri', '.*');
 

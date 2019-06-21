@@ -110,4 +110,9 @@ class Post extends Model
     {
         return Str::slug($this->attributes['slug']);
     }
+
+    public function getUrlAttribute()
+    {
+        return url('/posts', $this->attributes['id']) . '/' . $this->slug;
+    }
 }

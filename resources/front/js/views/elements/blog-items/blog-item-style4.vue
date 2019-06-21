@@ -2,7 +2,7 @@
 
     <span>
         <h6 class="font-weight-bold">
-            <router-link class="text-dark" :to="{ name: 'posts.show', params: { id: data.id, slug: (data.slug ? data.slug : data.title) } }">
+            <router-link class="text-dark" :to="{ name: 'posts.single', params: { id: data.id, slug: (data.slug ? data.slug : data.title) } }">
                 {{ data.title }}
             </router-link>
         </h6>

@@ -17,13 +17,13 @@ export default [
 
     {
         path: '/posts',
-        component: require('./views/posts/index').default,
+        component: require('./views/posts/Index').default,
         name: 'posts.index',
     },
     {
-        path: '/posts/:id-:slug',
-        component: require('./views/posts/show').default,
-        name: 'posts.show',
+        path: '/posts/:id/:slug?',
+        component: require('./views/posts/Single').default,
+        name: 'posts.single',
         props: true
     },
     {
