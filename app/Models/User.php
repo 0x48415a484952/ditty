@@ -73,7 +73,9 @@ class User extends Authenticatable
 
     public function getSocialUrlsAttribute()
     {
-        return json_decode($this->attributes['social_urls']);
+        return ! empty($this->attributes['social_urls'])
+            ? json_decode($this->attributes['social_urls'])
+            : [];
     }
 
     public function setAvatarAttribute($value)

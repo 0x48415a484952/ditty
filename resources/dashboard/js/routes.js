@@ -7,12 +7,17 @@ export default [
     },
     {
         path: '/dashboard/login',
-        component: require('./components/pages/LoginComponent.vue').default,
+        component: require('./components/pages/Login.vue').default,
         name: 'dashboard.login'
     },
     {
         path: '/dashboard/register',
-        component: require('./components/pages/RegisterComponent.vue').default,
+        component: require('./components/pages/Register.vue').default,
+        name: 'dashboard.register'
+    },
+    {
+        path: '/dashboard/register-author',
+        component: require('./components/pages/RegisterAuthor.vue').default,
         name: 'dashboard.register'
     },
     {

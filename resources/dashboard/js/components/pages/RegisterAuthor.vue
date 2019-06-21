@@ -49,13 +49,13 @@
 <script>
     export default {
         beforeCreate() {
-            if (this.$root.redirectIfAuthenticated()) {
-                return;
+            if (! this.$root.isAuthenticated()) {
+                return this.$root.redirectToLogin();
             }
         },
         mounted() {
-            if (this.$root.redirectIfAuthenticated()) {
-                return;
+            if (! this.$root.isAuthenticated()) {
+                return this.$root.redirectToLogin();
             }
 
             this.$root.setPageTitle('ثبت نام');
@@ -64,11 +64,8 @@
                 var root = this;
 
                 window.successfullRegsiter = function(response) {
-                    if (response.status) {
-                        Cookies.set('authorization', 'Bearer ' + response.data.token, { expires: 30});
-                        root.$root.$set(root.$root, 'user', response.data.user);
-                        root.$router.push({ name: 'dashboard.index'});
-                        // window.show_notification();
+                    if (response.status == 1) {
+                        window.success_notification(response.message);
                     }
                 }
             }

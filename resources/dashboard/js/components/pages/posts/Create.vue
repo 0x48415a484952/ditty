@@ -98,7 +98,7 @@ export default {
         },
         loadDraft() {
             $.get(this.$root.api_url + '/posts/get-draft', (response) => {
-                if (response.status == 1) {
+                if (response.status == 1 && response.data != null) {
                     $('#title').val(response.data.title);
                     $('#brief-text').val(response.data.brief_text);
                     $('#slug').val(response.data.slug);
@@ -138,6 +138,8 @@ export default {
             if (confirm('Unsaved data! Continue?')) {
                 next();
             }
+        } else {
+            next();
         }
     }
 }
