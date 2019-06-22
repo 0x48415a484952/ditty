@@ -66,7 +66,11 @@
             blogItemStyle6: require("../elements/blog-items/blog-item-style6").default
         },
         mounted() {
-            this.loadPost();
+            if (window.httpCode == 200) {
+                this.loadPost();
+            } else {
+                this.$router.push({ name: '404'});
+            }
         },
         methods: {
             loadPost() {
@@ -87,6 +91,11 @@
                         }, 50);
                         this.loadRelatedPosts(this.$props.id);
                     }
+                    // (result) => {
+                    //     if (result.status == 404) {
+                    //         this.$router.push({ name: '404'});
+                    //     }
+                    // }
                 );
             },
             loadRelatedPosts(id) {

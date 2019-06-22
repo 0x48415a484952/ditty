@@ -61,6 +61,15 @@ abstract class Repository implements RepositoryInterface
         return $model->delete();
     }
 
+    public function exists($id)
+    {
+        return $this->model
+            ->where('id', $id)
+            ->limit(1)
+            ->select(\DB::raw(1))
+            ->exists();
+    }
+
     public function makeModel()
     {
         $model = app($this->model());

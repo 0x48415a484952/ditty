@@ -22,7 +22,7 @@ Vue.use(VueRouter);
 Vue.use(BootstrapVue);
 Vue.use(VueMoment);
 
-Vue.component('main-layout', require('./views/layouts/main').default);
+Vue.component('main-layout', require('./views/layouts/Main').default);
 Vue.component('avatar', require('./views/elements/avatar').default);
 Vue.component('post-link', require('./views/elements/post-link').default);
 Vue.component('author-link', require('./views/elements/author-link').default);
@@ -32,7 +32,7 @@ const router = new VueRouter({
     routes: require('./routes').default,
 });
 
-const app = new Vue({
+window.Vue = new Vue({
     el: '#app',
     router,
     data: {

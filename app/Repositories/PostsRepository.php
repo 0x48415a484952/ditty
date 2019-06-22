@@ -30,12 +30,12 @@ class PostsRepository extends Repository // implements PostsRepositoryInterface
             ->paginate($limit);
     }
 
-    public function getByUserId($user_id, $limit = 10)
+    public function getByUserId($user_id, $limit = 10, $status = 3)
     {
         return $this->model
             ->necessaryFields()
+            ->where('status', '>=', $status)
             ->where('user_id', $user_id)
-            ->isPublished()
             ->orderBy('id', 'desc')
             ->paginate($limit);
     }

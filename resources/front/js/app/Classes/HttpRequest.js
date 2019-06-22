@@ -30,8 +30,12 @@ export default class  HttpRequest {
             data: this.data,
             method: this.method,
             headers: this.headers,
-            error: () => {
-                return reject ? reject() : undefined;
+            error: (result) => {
+                if (result.status == 404) {
+                    window.Vue.$router.push({ name: '404'});
+                } else {
+                    return reject ? reject(result) : undefined;
+                }
             },
             success: (result) => {
                 return resolve ? resolve(result) : undefined;

@@ -86,4 +86,9 @@ class User extends Authenticatable
 
         $this->attributes['avatar'] = $this->storeImage($value, 'avatars', [300, 300]);
     }
+
+    public function isAdmin()
+    {
+        return $this->is_admin === 1;
+    }
 }

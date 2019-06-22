@@ -11,6 +11,9 @@
         @stack('styles')
     </head>
     <body>
+        <script>
+            window.httpCode = parseInt('{{ isset($httpCode) ? $httpCode : 200 }}');
+        </script>
         <div id="app">
             @yield('content')
         </div>

@@ -11,8 +11,8 @@
 <script>
     export default {
         components: {
-            navbar: require('./navbar').default,
-            'footer-layout': require('./footer').default
+            navbar: require('./Navbar').default,
+            'footer-layout': require('./Footer').default
         }
     };
 </script>

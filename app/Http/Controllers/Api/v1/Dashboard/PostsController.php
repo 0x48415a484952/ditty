@@ -8,6 +8,7 @@ use App\Classes\Response;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostsRequest;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Repositories\PostsRepository;
 
 class PostsController extends Controller
@@ -27,9 +28,11 @@ class PostsController extends Controller
      */
     public function index()
     {
-        return Response::success('',
-            $this->posts->paginate(10, 0)->load('tagged')
-        );
+        $posts = Auth::user()->isAdmin()
+            ? $this->posts->paginate(10, 0)
+            : $this->posts->getByUserId(Auth::id(), 10, 0);
+
+        return Response::success('', $posts->load('tagged'));
     }
 
     /**
@@ -88,13 +91,15 @@ class PostsController extends Controller
      */
     public function update(PostsRequest $request, Post $post)
     {
-        $post = $this->posts->update($post, $request->only(
-            $this->posts->getFillable()
-        ));
+        if ($this->hasPrivileges($post)) {
+            $post = $this->posts->update($post, $request->only(
+                $this->posts->getFillable()
+            ));
 
-        $post->retag($request->input('tags'));
+            $post->retag($request->input('tags'));
 
-        return Response::success('پست با موفقیت ویراش شد', $post->load('tagged'));
+            return Response::success('پست با موفقیت ویراش شد', $post->load('tagged'));
+        }
     }
 
     /**
@@ -105,9 +110,11 @@ class PostsController extends Controller
      */
     public function destroy(Post $post)
     {
-        $post->delete();
+        if ($this->hasPrivileges($post)) {
+            $post->delete();
 
-        return Response::success('پست با موفقیت حذف شد');
+            return Response::success('پست با موفقیت حذف شد');
+        }
     }
 
     public function saveDraft(Request $request)
@@ -120,5 +127,10 @@ class PostsController extends Controller
     public function getDraft()
     {
         return Response::success('', (new Draft)->get());
+    }
+
+    private function hasPrivileges($post)
+    {
+        return Auth::user()->isAdmin() || $post->user_id === Auth::id();
     }
 }

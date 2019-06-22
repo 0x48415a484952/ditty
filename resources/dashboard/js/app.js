@@ -42,13 +42,13 @@ window.Vue = new Vue({
         footerStack: []
     },
     mounted() {
-        $.get(this.$root.api_url + '/profile', (response) => {
-            if (response.data.user) {
-                this.$root.user = response.data.user;
+        $.get(this.api_url + '/profile', (response) => {
+            if (response.status == 1) {
+                this.user = response.data.user;
             }
             this.initTemplate();
         }).always(() => {
-            this.$set(this.$root, 'isInitializing', false);
+            this.isInitializing = false;
         });
 
         this.setPosition();
