@@ -108,7 +108,7 @@ class Post extends Model
 
     public function getSlugAttribute()
     {
-        return Str::slug($this->attributes['slug']);
+        return Str::slug($this->attributes['slug'], '-', null);
     }
 
     public function getUrlAttribute()

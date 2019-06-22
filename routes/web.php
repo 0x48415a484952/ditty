@@ -13,6 +13,7 @@ Route::group(['namespace' => 'Web\Dashboard', 'prefix' => 'dashboard'], function
     Route::get('/comments', 'HomeController@index');
 });
 
+Route::get('/sitemap.xml', 'Web\Front\SitemapController@index');
 Route::get('/posts/{post}/{slug?}', 'Web\Front\PostsController@show')->middleware('web');
 Route::view('/{uri?}', 'front.main')->where('uri', '.*');
 

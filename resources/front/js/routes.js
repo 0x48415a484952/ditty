@@ -42,7 +42,7 @@ export default [
     // categories
 
     {
-        path: '/categories/:id-:slug',
+        path: '/categories/:id/:slug?',
         component: require('./views/posts/Categories').default,
         name: 'categories.index'
     },
