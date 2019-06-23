@@ -22,3 +22,7 @@
 #single-article-sidebar ul li {
     list-style: none;
 }
+
+.text-red {
+    color: red;
+}

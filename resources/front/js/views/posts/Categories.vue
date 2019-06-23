@@ -28,13 +28,22 @@
             blogItemStyle6: require("../elements/blog-items/blog-item-style6").default
         },
         mounted() {
-            this.getPosts();
+            this.getCategory();
         },
         methods: {
+            getCategory() {
+                let category_id = this.$route.params.id;
+                let request = new HttpRequest('/api/v1/categories/' + category_id);
+                request.send(
+                    (response) => {
+                        this.category = response.data;
+                        this.$root.setPageTitle('دسته بندی: ' + response.data.title);
+                        this.getPosts();
+                    }
+                );
+            },
             getPosts() {
                 let category_id = this.$route.params.id;
-                let category = this.$route.params.slug;
-                this.$root.setPageTitle('دسته بندی: ' + category);
                 let request = new HttpRequest('/api/v1/posts?category_id=' + category_id);
                 request.send(
                     (result) => {
@@ -45,7 +54,7 @@
         },
         watch: {
             '$route.params.id': function() {
-                this.getPosts();
+                this.getCategory();
             }
         }
     }

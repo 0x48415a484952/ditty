@@ -54,7 +54,7 @@ Route::group(['namespace' => 'Api\v1\Front', 'prefix' => 'v1'], function() {
 
     Route::group(['prefix' => 'categories'], function() {
         Route::get('/', 'CategoriesController@index');
-        // Route::get('/{category}/posts', 'CategoriesController@posts');
+        Route::get('/{category}/', 'CategoriesController@single');
     });
 
     Route::get('/tags/{tag}', 'TagsController@index');

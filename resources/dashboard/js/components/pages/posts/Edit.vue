@@ -121,8 +121,9 @@ export default {
         }
     },
     beforeRouteLeave(to, from, next) {
-        // $('#text').summernote('destroy');
-        next();
+        if (confirm('Are you sure you want to leave?')) {
+            next();
+        }
     }
 }
 </script>

@@ -37,4 +37,9 @@ class CategoriesController extends Controller
 
         return Response::success('', $posts);
     }
+
+    public function single(Category $category)
+    {
+        return Response::success('', $category);
+    }
 }
