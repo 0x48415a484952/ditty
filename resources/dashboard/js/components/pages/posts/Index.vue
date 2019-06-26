@@ -86,7 +86,7 @@ export default {
         deletePost(index) {
             if (confirm('Really?')) {
                 let post = this.posts.items[index];
-                $.post(this.$root.api_url + '/posts/' + post.id, { _method: 'delete' }, (response) => {
+                $.post(this.$root.api_url + '/posts/' + post.hash_id, { _method: 'delete' }, (response) => {
                     if (response.status == 1) {
                         this.$root.$delete(this.posts.items, index);
                         window.success_notification(response.message);
