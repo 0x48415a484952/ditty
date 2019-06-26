@@ -41,7 +41,7 @@
                 <div class="listrecent">
                     <div class="row">
                         <div class="col-md-4" v-for="post in related">
-                            <blog-item-style6 :key="post.id" :data="post" />
+                            <blog-item-style6 :key="post.hash_id" :data="post" />
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,9 @@
         },
         methods: {
             loadPost() {
-                let request = new HttpRequest('/api/v1/posts/' + this.$props.id);
+                let id = this.$route.params.id;
+
+                let request = new HttpRequest('/api/v1/posts/' + id);
                 request.send(
                     (result) => {
                         this.post = result.data;
@@ -89,7 +91,7 @@
                                 });
                             }
                         }, 50);
-                        this.loadRelatedPosts(this.$props.id);
+                        this.loadRelatedPosts(this.$props.hash_id);
                     }
                     // (result) => {
                     //     if (result.status == 404) {
@@ -107,7 +109,7 @@
             }
         },
         watch: {
-            '$route.params.id': function() {
+            '$route.params.hash_id': function() {
                 // $("html, body").animate({ scrollTop: 0 }, "slow");
                 $(window).scrollTop(0);
                 this.loadPost();

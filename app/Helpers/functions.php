@@ -91,6 +91,9 @@ function to_gregorian($date, $month = null, $day = null, $hour = null, $minute =
     return \Carbon\Carbon::createSafe($gregorian_bd[0], $gregorian_bd[1], $gregorian_bd[2], $hour, $minute, $second);
 }
 
+function get_post_id($id) {
+    return \Hashids::connection(\App\Models\Post::class)->decode($id);
+}
 
 function p($array) {
     return print_r($array);

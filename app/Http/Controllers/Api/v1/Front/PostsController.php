@@ -33,7 +33,7 @@ class PostsController extends Controller
         return Response::success('', $posts);
     }
 
-    public function show(Post $post)
+    public function show($post)
     {
         return Response::success('', $post);
     }

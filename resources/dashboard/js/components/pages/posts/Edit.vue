@@ -42,7 +42,10 @@
                     </div>
                 </div>
                 <input type="hidden" name="_method" value="PUT">
-                <button class="btn btn-primary">ویرایش</button>
+                <div class="clearfix">
+                    <button class="float-right btn btn-primary">ویرایش</button>
+                    <a :href="'/preview/' + post.hash_id" target="_blank" class="float-left btn btn-default">پیش نمایش</a>
+                </div>
             </form>
         </b-card>
     </div>

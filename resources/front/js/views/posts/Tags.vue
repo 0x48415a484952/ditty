@@ -9,7 +9,7 @@
             </div>
             <div class="card-columns listrecent">
 
-                <blog-item-style6 v-for="post of posts.data" :key="post.id" :data="post" />
+                <blog-item-style6 v-for="post of posts.data" :key="post.hash_id" :data="post" />
 
             </div>
         </section>

@@ -21,9 +21,15 @@ export default [
         name: 'posts.index',
     },
     {
-        path: '/posts/:id/:slug?',
+        path: '/posts/:slug/:id',
         component: require('./views/posts/Single').default,
         name: 'posts.single',
+        props: true
+    },
+    {
+        path: '/preview/:id',
+        component: require('./views/posts/Single').default,
+        name: 'posts.preview',
         props: true
     },
     {

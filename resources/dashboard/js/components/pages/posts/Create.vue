@@ -41,7 +41,9 @@
                         </select>
                     </div>
                 </div>
-                <button class="btn btn-success">ثبت</button>
+                <div class="clearfix">
+                    <button class="float-right btn btn-success">ثبت</button>
+                </div>
             </form>
         </b-card>
     </div>
@@ -92,6 +94,7 @@ export default {
                 window.postCreated = (response) => {
                     if (response.status == 1) {
                         window.success_notification(response.message);
+                        this.$router.push({name: 'dashboard.posts.edit', params: { post_id: response.data.id } });
                     }
                 }
             }

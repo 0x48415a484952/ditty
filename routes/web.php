@@ -14,6 +14,6 @@ Route::group(['namespace' => 'Web\Dashboard', 'prefix' => 'dashboard'], function
 });
 
 Route::get('/sitemap.xml', 'Web\Front\SitemapController@index');
-Route::get('/posts/{post}/{slug?}', 'Web\Front\PostsController@show')->middleware('web');
+Route::get('/posts/{slug}/{post_id}', 'Web\Front\PostsController@show'); //->middleware('web');
 Route::view('/{uri?}', 'front.main')->where('uri', '.*');
 

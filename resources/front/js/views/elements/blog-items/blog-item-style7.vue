@@ -19,7 +19,9 @@
                         </span>
                         <span class="author-meta">
                             <span class="post-name">
-                                <a href="author.html">{{ data.user.name }}</a>
+                                <author-link :author="data.user">
+                                    <a href="author.html">{{ data.user.name }}</a>
+                                </author-link>
                             </span>
                             <br/>
                             <span class="post-date">{{ data.created_at | moment("jYYYY/jM/jD") }}</span>

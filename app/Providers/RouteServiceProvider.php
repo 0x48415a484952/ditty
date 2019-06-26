@@ -23,10 +23,22 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-
         parent::boot();
+
+        Route::bind('post', function ($value, $route) {
+            return $this->getModel(\App\Models\Post::class, $value);
+        });
     }
+
+    private function getModel($model, $routeKey)
+    {
+        $id = \Hashids::connection($model)->decode($routeKey)[0] ?? null;
+        $modelInstance = resolve($model);
+
+
+        return $modelInstance->findOrFail($id);
+    }
+
 
     /**
      * Define the routes for the application.

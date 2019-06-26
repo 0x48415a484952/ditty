@@ -9,9 +9,9 @@ use App\Repositories\PostsRepository;
 
 class PostsController extends Controller
 {
-    public function show(PostsRepository $posts, $post_id)
+    public function show(PostsRepository $posts, $slug, $post_id)
     {
-        if ($posts->exists($post_id)) {
+        if ($posts->find(get_post_id($post_id))) {
             return view('front.main');
         }
 

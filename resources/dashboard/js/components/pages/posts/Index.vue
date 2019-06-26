@@ -4,7 +4,10 @@
 
         <b-table id="posts" :items="posts.items" class="mt-5 bg-white" :fields="table_fields">
             <template slot="edit" slot-scope="data">
-                <router-link class="btn btn-primary" :to="{name: 'dashboard.posts.edit', params: { post_id: data.item.id } }"><i class="fa fa-edit"></i></router-link>
+                <router-link class="btn btn-primary" :to="{ name: 'dashboard.posts.edit', params: { post_id: data.item.hash_id } }"><i class="fa fa-edit"></i></router-link>
+            </template>
+            <template slot="delete" slot-scope="data">
+                <button class="btn btn-danger" v-on:click="deletePost(data.index)">×</button>
             </template>
             <template slot="status" slot-scope="data">
                 <span :class="'badge badge-' + post_statuses[data.item.status].color">{{ post_statuses[data.item.status].title }}</span>
@@ -39,7 +42,8 @@ export default {
                 {key: 'category', label: 'دسته بندی'},
                 {key: 'status', label: 'وضعیت'},
                 {key: 'created_at', label: 'ایجاد شده'},
-                {key: 'edit', label: 'ویرایش'}
+                {key: 'edit', label: 'ویرایش'},
+                {key: 'delete', label: 'حذف'}
             ],
             categories: [],
             post_statuses: {
@@ -78,6 +82,18 @@ export default {
                     this.posts.items = response.data;
                 }
             });
+        },
+        deletePost(index) {
+            if (confirm('Really?')) {
+                let post = this.posts.items[index];
+                $.post(this.$root.api_url + '/posts/' + post.id, { _method: 'delete' }, (response) => {
+                    if (response.status == 1) {
+                        this.$root.$delete(this.posts.items, index);
+                        window.success_notification(response.message);
+                    }
+                });
+            }
+
         }
     }
 }

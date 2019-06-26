@@ -3,7 +3,7 @@
         <div class="cover" :style="{ backgroundImage: 'url(' + data.cover_image + ')' }"></div>
         <div class="card-body px-0 pb-0 d-flex flex-column align-items-start text-right">
             <h2 class="h4 font-weight-bold">
-                <router-link class="text-dark" :to="{ name: 'posts.single', params: { id: data.id, slug: (data.slug ? data.slug : data.title) } }">
+                <router-link class="text-dark" :to="{ name: 'posts.single', params: { hash_id: data.hash_id, slug: (data.slug ? data.slug : data.title) } }">
                     {{ data.title }}
                 </router-link>
             </h2>

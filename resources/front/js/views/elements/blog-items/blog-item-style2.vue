@@ -4,7 +4,7 @@
         <img :src="data.cover_image" height="80">
         <div class="pr-3">
             <h2 class="mb-2 h6 font-weight-bold">
-                <router-link class="text-dark" :to="{ name: 'posts.single', params: { id: data.id, slug: (data.slug ? data.slug : data.title) } }">
+                <router-link class="text-dark" :to="{ name: 'posts.single', params: { hash_id: data.hash_id, slug: (data.slug ? data.slug : data.title) } }">
                     {{ data.title }}
                 </router-link>
             </h2>

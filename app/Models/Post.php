@@ -29,9 +29,16 @@ class Post extends Model
         'status'
     ];
 
-    protected $with = ['user', 'category'];
-    protected $appends = ['tags'];
+    protected $hidden = ['id'];
 
+    protected $with = ['user', 'category'];
+    protected $appends = ['tags', 'hash_id'];
+
+
+    public function getRouteKey()
+    {
+        return \Hashids::connection(get_called_class())->encode($this->getKey());
+    }
 
     public function necessaryFields()
     {
@@ -113,6 +120,13 @@ class Post extends Model
 
     public function getUrlAttribute()
     {
-        return url('/posts', $this->attributes['id']) . '/' . $this->slug;
+        $id = \Hashids::connection(self::class)->encode($this->attributes['id']);
+
+        return url('/posts', $id) . '/' . $this->slug;
+    }
+
+    public function getHashIdAttribute()
+    {
+        return \Hashids::connection(self::class)->encode($this->attributes['id']);
     }
 }
