@@ -109,7 +109,7 @@
             }
         },
         watch: {
-            '$route.params.hash_id': function() {
+            '$route.params.id': function() {
                 // $("html, body").animate({ scrollTop: 0 }, "slow");
                 $(window).scrollTop(0);
                 this.loadPost();
