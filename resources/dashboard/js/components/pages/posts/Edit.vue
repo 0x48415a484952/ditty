@@ -1,7 +1,7 @@
 <template>
     <div>
         <b-card title="ویرایش پست">
-            <form v-if="! loading" :action="$root.api_url + '/posts/' + post.id" method="POST" class="js-submit-form" data-on-success="postEdited">
+            <form v-if="! loading" :action="$root.api_url + '/posts/' + post.hash_id" method="POST" class="js-submit-form" data-on-success="postEdited">
                 <div class="form-group">
                     <label for="title">عنوان</label>
                     <input id="title" type="text" name="title" class="form-control" v-model="post.title" data-required>

@@ -16,6 +16,8 @@ class Post extends Model
     use Image, SoftDeletes, Taggable;
 
     const STATUS_PUBLISHED = 3;
+    const STATUS_DRAFT = 2;
+    const STATUS_HIDDEN = 1;
 
     protected $fillable = [
         'user_id',
@@ -29,7 +31,7 @@ class Post extends Model
         'status'
     ];
 
-    protected $hidden = ['id'];
+    // protected $hidden = ['id'];
 
     protected $with = ['user', 'category'];
     protected $appends = ['tags', 'hash_id'];

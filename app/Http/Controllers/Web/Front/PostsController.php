@@ -11,6 +11,20 @@ class PostsController extends Controller
 {
     public function show(PostsRepository $posts, $slug, $post_id)
     {
+        $posts->setStatus(Post::STATUS_PUBLISHED);
+
+        if ($posts->find(get_post_id($post_id))) {
+            return view('front.main');
+        }
+
+        return response()->view('front.main', [
+            'httpCode' => 404
+        ], 404);
+    }
+
+    public function preview(PostsRepository $posts, $post_id)
+    {
+        $posts->setStatus(Post::STATUS_HIDDEN);
         if ($posts->find(get_post_id($post_id))) {
             return view('front.main');
         }

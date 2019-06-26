@@ -91,7 +91,7 @@
                                 });
                             }
                         }, 50);
-                        this.loadRelatedPosts(this.$props.hash_id);
+                        this.loadRelatedPosts(id);
                     }
                     // (result) => {
                     //     if (result.status == 404) {

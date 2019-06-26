@@ -35,6 +35,7 @@ class PostsController extends Controller
 
     public function show($post)
     {
+        // dd(request()->route()->);
         return Response::success('', $post);
     }
 

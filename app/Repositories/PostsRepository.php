@@ -1,14 +1,23 @@
 <?php
 namespace App\Repositories;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 // use App\Contracts\PostsRepositoryInterface;
 
 class PostsRepository extends Repository // implements PostsRepositoryInterface
 {
+
+    private $status = Post::STATUS_PUBLISHED;
+
     public function model()
     {
-        return \App\Models\Post::class;
+        return Post::class;
+    }
+
+    public function setStatus(int $status)
+    {
+        $this->status = $status;
     }
 
     public function paginate($limit = 10, int $status = 3)
@@ -27,6 +36,7 @@ class PostsRepository extends Repository // implements PostsRepositoryInterface
             ->where('category_id', $category_id)
             ->isPublished()
             ->orderBy('id', 'desc')
+            ->where('status', $this->status)
             ->paginate($limit);
     }
 
@@ -44,12 +54,21 @@ class PostsRepository extends Repository // implements PostsRepositoryInterface
         return $this->model->withAnyTag($tag)->paginate($limit);
     }
 
+    public function find($id)
+    {
+        return $this->model
+            ->where('id', $id)
+            ->where('status', '>=' ,$this->status)
+            ->first();
+    }
+
     public function related($post, $limit = 3)
     {
         return $this->model->necessaryFields()
             ->where('category_id', $post->category_id)
             ->where('id', '<>', $post->id)
             ->isPublished()
+            ->where('status', '>=' ,$this->status)
             ->orderBy('id', 'desc')
             ->limit($limit)
             ->get();
