@@ -57,6 +57,7 @@ class PostsController extends Controller
         $post = $this->posts->create($request->only(
             $this->posts->getFillable()
         ));
+        (new Draft)->deleteDraft();
 
         return Response::success('پست با موفقیت اضافه شد', $post->load('tagged'));
     }

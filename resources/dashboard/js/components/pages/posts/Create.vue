@@ -94,7 +94,7 @@ export default {
                 window.postCreated = (response) => {
                     if (response.status == 1) {
                         window.success_notification(response.message);
-                        this.$router.push({name: 'dashboard.posts.edit', params: { post_id: response.data.id } });
+                        this.$router.push({name: 'dashboard.posts.edit', params: { post_id: response.data.hash_id } });
                     }
                 }
             }

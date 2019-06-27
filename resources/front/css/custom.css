@@ -26,3 +26,7 @@
 .text-red {
     color: red;
 }
+
+.listfeaturedtag .thumbnail {
+    background-position: 50% 22% !important;
+}

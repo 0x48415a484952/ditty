@@ -19,12 +19,10 @@
                         </span>
                         <span class="author-meta">
                             <span class="post-name">
-                                <author-link :author="data.user">
-                                    <a href="author.html">{{ data.user.name }}</a>
-                                </author-link>
+                                <author-link :author="data.user">{{ data.user.name }}</author-link>
                             </span>
                             <br/>
-                            <span class="post-date">{{ data.created_at | moment("jYYYY/jM/jD") }}</span>
+                            <span class="post-date">{{ data.created_at | moment("jYYYY/jm/jd") }}</span>
                         </span>
                     </div>
                 </div>
