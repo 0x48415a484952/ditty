@@ -22,7 +22,7 @@
                                 <author-link :author="data.user">{{ data.user.name }}</author-link>
                             </span>
                             <br/>
-                            <span class="post-date">{{ data.created_at | moment("jYYYY/jm/jd") }}</span>
+                            <span class="post-date">{{ data.created_at | moment("jYYYY/jM/jD") }}</span>
                         </span>
                     </div>
                 </div>
