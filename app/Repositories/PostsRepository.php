@@ -51,7 +51,10 @@ class PostsRepository extends Repository // implements PostsRepositoryInterface
     }
 
     public function getByTag($tag, $limit = 10) {
-        return $this->model->withAnyTag($tag)->paginate($limit);
+        return $this->model
+            ->where('status', '>=', $this->status)
+            ->withAnyTag($tag)
+            ->paginate($limit);
     }
 
     public function find($id)

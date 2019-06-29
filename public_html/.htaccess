@@ -1,6 +1,6 @@
 <IfModule mod_headers.c>
     # WEEK
-    <FilesMatch "\.(jpg|jpeg|png|ttf|woff)$">
+    <FilesMatch "\.(jpg|jpeg|png|ttf|woff|woff2)$">
         Header set Cache-Control "max-age=2592000, public"
         Header set Access-Control-Allow-Origin "*"
     </FilesMatch>
