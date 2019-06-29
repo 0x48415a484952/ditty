@@ -124,7 +124,7 @@ class Post extends Model
     {
         $id = \Hashids::connection(self::class)->encode($this->attributes['id']);
 
-        return url('/posts', $id) . '/' . $this->slug;
+        return url('/posts', $this->slug) . '/' . $id;
     }
 
     public function getHashIdAttribute()
