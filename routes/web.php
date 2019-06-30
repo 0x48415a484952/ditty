@@ -13,8 +13,15 @@ Route::group(['namespace' => 'Web\Dashboard', 'prefix' => 'dashboard'], function
     Route::get('/comments', 'HomeController@index');
 });
 
-Route::get('/sitemap.xml', 'Web\Front\SitemapController@index');
-// Route::get('/posts/{slug}/{post_id}', 'Web\Front\PostsController@show')->middleware('web');
-Route::get('/preview/{post_id}', 'Web\Front\PostsController@preview'); //->middleware('web');
-Route::view('/{uri?}', 'front.main')->where('uri', '.*');
+Route::group(['namespace' => 'Web\Front'], function() {
+    Route::get('/', 'HomeController@index');
+    Route::get('/sitemap.xml', 'SitemapController@index');
+    Route::get('/posts/{slug}/{post_id}', 'HomeController@index');
+    Route::get('/@{username}', 'HomeController@index');
+    Route::get('/tags/{tag}', 'HomeController@index');
+    Route::get('/categories/{id}/{slug?}', 'HomeController@index');
+    Route::get('/posts', 'HomeController@index');
+    Route::get('/preview/{post_id}', 'HomeController@index');
+    Route::any('/{uri?}', 'HomeController@notFound')->where('uri', '.*');
+});
 

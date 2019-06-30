@@ -30,3 +30,8 @@
 .listfeaturedtag .thumbnail {
     background-position: 50% 22% !important;
 }
+
+blockquote {
+    border-left: none;
+    border-right: 4px solid #00ab6b;
+}

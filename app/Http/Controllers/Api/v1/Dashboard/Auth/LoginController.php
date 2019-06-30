@@ -51,7 +51,7 @@ class LoginController extends Controller
         $this->validateLogin($request);
 
         if (!empty($user = $this->getUser($request))) {
-            return Response ::success('Login successful', [
+            return Response::success('Login successful', [
                 'user' => $user,
                 'remember' => $request->has('remember') ? 30 : 1/24,
                 'token' => $user->createToken('General Token')->accessToken

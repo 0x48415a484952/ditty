@@ -23,14 +23,13 @@ class SeoHandler extends AbstractWidget
     {
         $validRoots = ['posts'];
 
-        if (! empty($request->route()->parameters['uri'])) {
-            $uri = $request->route()->parameters['uri'];
-            $parsedUri = explode('/', $uri);
-            $root = $parsedUri[0];
+        if (! empty($path = $request->path())) {
+            $parsedPath = explode('/', $path);
+            $root = $parsedPath[0];
 
             if (in_array($root, $validRoots)) {
                 $class = __NAMESPACE__ . "\Pages\\" . Str::studly($root);
-                $seoItems = (new $class)->get($parsedUri);
+                $seoItems = (new $class)->get($parsedPath);
 
                 return view('widgets.seo_handler.seo_handler', [
                     'items' => $seoItems
