@@ -24,7 +24,9 @@ class SitemapController extends Controller
     private function posts()
     {
         return Cache::remember('sitemap_posts', 3600, function() {
-            return Post::select('title', 'id', 'slug', 'updated_at')->get();
+            return Post::select('title', 'id', 'slug', 'updated_at')
+                ->where('status', Post::STATUS_PUBLISHED)
+                ->get();
         });
     }
 
