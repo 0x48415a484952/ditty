@@ -28,9 +28,8 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $this->posts->setStatus(Post::STATUS_HIDDEN);
         $posts = Auth::user()->isAdmin()
-            ? $this->posts->paginate(10, 0)
+            ? $this->posts->paginate(10, 0, 0)
             : $this->posts->getByUserId(Auth::id(), 10, 0);
 
         return Response::success('', $posts->load('tagged'));

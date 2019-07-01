@@ -8,17 +8,11 @@ use Illuminate\Http\Request;
 class PostsRepository extends Repository // implements PostsRepositoryInterface
 {
 
-    private $status = Post::STATUS_PUBLISHED;
-
     public function model()
     {
         return Post::class;
     }
 
-    public function setStatus(int $status)
-    {
-        $this->status = $status;
-    }
 
     public function paginate($limit = 10, int $status = 3)
     {
@@ -29,14 +23,14 @@ class PostsRepository extends Repository // implements PostsRepositoryInterface
             ->paginate($limit);
     }
 
-    public function getByCategoryId($category_id, $limit = 10)
+    public function getByCategoryId($category_id, $limit = 10, int $status = 3)
     {
         return $this->model
             ->necessaryFields()
             ->where('category_id', $category_id)
             ->isPublished()
             ->orderBy('id', 'desc')
-            ->where('status', $this->status)
+            ->where('status', $status)
             ->paginate($limit);
     }
 
@@ -50,28 +44,28 @@ class PostsRepository extends Repository // implements PostsRepositoryInterface
             ->paginate($limit);
     }
 
-    public function getByTag($tag, $limit = 10) {
+    public function getByTag($tag, $limit = 10, int $status = 3) {
         return $this->model
-            ->where('status', '>=', $this->status)
+            ->where('status', '>=', $status)
             ->withAnyTag($tag)
             ->paginate($limit);
     }
 
-    public function find($id)
+    public function find($id, int $status = 3)
     {
         return $this->model
             ->where('id', $id)
-            ->where('status', '>=' ,$this->status)
+            ->where('status', '>=' ,$status)
             ->first();
     }
 
-    public function related($post, $limit = 3)
+    public function related($post, $limit = 6, int $status = 3)
     {
         return $this->model->necessaryFields()
             ->where('category_id', $post->category_id)
             ->where('id', '<>', $post->id)
             ->isPublished()
-            ->where('status', '>=' ,$this->status)
+            ->where('status', '>=' ,$status)
             ->orderBy('id', 'desc')
             ->limit($limit)
             ->get();

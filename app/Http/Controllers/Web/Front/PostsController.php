@@ -11,8 +11,6 @@ class PostsController extends Controller
 {
     public function show(PostsRepository $posts, $slug, $post_id)
     {
-        $posts->setStatus(Post::STATUS_PUBLISHED);
-
         if ($posts->find(get_post_id($post_id))) {
             return view('front.main');
         }
@@ -24,8 +22,7 @@ class PostsController extends Controller
 
     public function preview(PostsRepository $posts, $post_id)
     {
-        $posts->setStatus(Post::STATUS_HIDDEN);
-        if ($posts->find(get_post_id($post_id))) {
+        if ($posts->find(get_post_id($post_id), 0)) {
             return view('front.main');
         }
 
