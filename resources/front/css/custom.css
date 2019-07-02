@@ -35,3 +35,9 @@ blockquote {
     border-left: none;
     border-right: 4px solid #00ab6b;
 }
+
+
+.post-cover-link {
+    font-size: 12px;
+    color: #999;
+}

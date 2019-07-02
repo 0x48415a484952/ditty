@@ -94,6 +94,7 @@ export default {
                 window.postEdited = (response) => {
                     if (response.status == 1) {
                         window.success_notification(response.message);
+                        $('input#cover_image').val('');
                     }
                 }
             }

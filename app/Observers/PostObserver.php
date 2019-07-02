@@ -32,6 +32,12 @@ class PostObserver
      */
     public function updated(Post $post)
     {
+        if ($post->isDirty('cover_image')) {
+            if (! empty($image = $post->getOriginal('cover_image'))) {
+                $file = public_path() . '/assets/images/cover-images/' . $image . '.jpg';
+                File::delete($file);
+            }
+        }
         $post->retag(request()->tags);
     }
 
