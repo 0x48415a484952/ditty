@@ -32,6 +32,10 @@ const router = new VueRouter({
     routes: require('./routes').default,
 });
 
+router.afterEach((to, from) => {
+    gtag('config', 'UA-142575214-1', { page_path: to.path });
+});
+
 window.Vue = new Vue({
     el: '#app',
     router,
