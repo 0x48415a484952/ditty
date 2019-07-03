@@ -87,7 +87,8 @@
 
                         setTimeout(function() {
                             window.renderScripts();
-                            if ($(window.width()) > 768) {
+                            window.highlightSyntaxes();
+                            if ($(window).width() > 768) {
                                 $('.sidebar-container').stick_in_parent({
                                     parent: '#single-article-sidebar',
                                     offset_top: 100,

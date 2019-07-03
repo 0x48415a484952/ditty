@@ -26,4 +26,13 @@ CKEDITOR.editorConfig = function( config ) {
     config.filebrowserUploadUrl = '/assets/editors/kcfinder/upload.php?opener=ckeditor&type=files';
     config.filebrowserImageUploadUrl = '/assets/editors/kcfinder/upload.php?opener=ckeditor&type=images';
     config.filebrowserFlashUploadUrl = '/assets/editors/kcfinder/upload.php?opener=ckeditor&type=flash';
+    // config.extraPlugins = 'codesnippet';
+    // config.extraPlugins = 'prism,codesnippet';
+    // config.extraPlugins = "lineutils,widget,codesnippet,prism";
+
+    // config.codeSnippet_languages = {
+    //     javascript: 'JavaScript',
+    //     php: 'PHP',
+    //     css: 'CSS',
+    // };
 };

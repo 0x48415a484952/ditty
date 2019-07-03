@@ -41,3 +41,12 @@ blockquote {
     font-size: 12px;
     color: #999;
 }
+
+
+.hljs {
+    direction: ltr;
+    text-align: left;
+}
+.hljs * {
+    font-family: consolas, monospace;
+}

@@ -10,6 +10,13 @@ window.renderScripts = () => {
     });
 }
 
+window.highlightSyntaxes = () => {
+    document.querySelectorAll('pre code').forEach((block) => {
+        hljs.highlightBlock(block);
+      });
+}
+
+
 window.addMeta = (attributeTitle, attributeValue, content) => {
     var meta = document.createElement('meta');
     meta[attributeTitle] = attributeValue;
