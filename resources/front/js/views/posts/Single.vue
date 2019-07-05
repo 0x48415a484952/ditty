@@ -39,17 +39,8 @@
                 </div>
             </div>
         </div>
-        <div class="graybg">
-            <div class="container">
-                <div class="listrecent">
-                    <div class="row">
-                        <div class="col-md-4" v-for="post in related">
-                            <blog-item-style6 :key="post.hash_id" :data="post" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <related :post_id="$route.params.id" v-if="! $root.isEmptyObject(post)"></related>
+        <comments v-if="! $root.isEmptyObject(post)"></comments>
     </div>
 </template>
 
@@ -61,12 +52,12 @@
         data() {
             return {
                 post: {},
-                related: []
             }
         },
         components: {
             UserCard: require("../elements/user-card").default,
-            blogItemStyle6: require("../elements/blog-items/blog-item-style6").default
+            Related: require("./Related").default,
+            Comments: require("./Comments").default,
         },
         mounted() {
             if (window.httpCode == 200) {
@@ -95,7 +86,7 @@
                                 });
                             }
                         }, 50);
-                        this.loadRelatedPosts(id);
+                        // this.loadRelatedPosts(id);
                     }
                     // (result) => {
                     //     if (result.status == 404) {
@@ -103,13 +94,6 @@
                     //     }
                     // }
                 );
-            },
-            loadRelatedPosts(id) {
-                $.get(this.$root.base_url + '/api/v1/posts/' + id + '/related', (response) => {
-                    if (response.status == 1) {
-                        this.related = response.data;
-                    }
-                });
             }
         },
         watch: {

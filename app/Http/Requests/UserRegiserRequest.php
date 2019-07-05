@@ -26,7 +26,7 @@ class UserRegiserRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'username' => 'bail|required|string|min:3|max:32|distinct:ignore_case|regex:/^[A-Za-z][A-Za-z0-9_]*(?:_[A-Za-z0-9]+)*$/',
+            'username' => 'bail|required|string|min:3|max:32|distinct:ignore_case|regex:/^[A-Za-z][A-Za-z0-9_]*(?:_[A-Za-z0-9]+)*$/|unique:users,username',
             'password' => ['required', 'string', 'min:6', 'confirmed'],
         ];
     }

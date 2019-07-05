@@ -13,6 +13,15 @@
 
 
 
+
+Route::group(['namespace' => 'Api\v1\Front', 'prefix' => 'v1'], function() {
+    Auth::routes();
+    Route::group(['middleware' => 'auth:api'], function() {
+        Route::get('/profile', 'ProfileController@index');
+        Route::put('/profile', 'ProfileController@update');
+    });
+});
+
 Route::group(
     [
         'namespace' => 'Api\v1\Dashboard',

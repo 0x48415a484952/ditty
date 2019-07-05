@@ -41,6 +41,7 @@ class User extends Authenticatable
         'email_verified_at',
         'created_at',
         'updated_at',
+        'level',
     ];
 
     /**
@@ -89,6 +90,6 @@ class User extends Authenticatable
 
     public function isAdmin()
     {
-        return $this->is_admin === 1;
+        return $this->level === 5;
     }
 }

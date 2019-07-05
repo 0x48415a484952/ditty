@@ -5,6 +5,7 @@
             <slot></slot>
         </main>
         <footer-layout />
+        <notifications group="general" />
     </div>
 </template>
 

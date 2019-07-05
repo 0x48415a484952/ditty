@@ -5,12 +5,12 @@
                 <form method="POST" class="js-submit-form" :action="$root.api_url + '/login'" data-on-success="successfullLogin">
                     <div class="form-group">
                         <label for="email">ایمیل</label>
-                        <input id="email" type="email" class="form-control" name="email" v-validate="'required|email'">
+                        <input id="email" type="email" class="form-control" name="email" data-required>
                     </div>
 
                     <div class="form-group">
                         <label for="password">رمز عبور</label>
-                        <input id="password" name="password" type="password" class="form-control" v-validate="'required'">
+                        <input id="password" name="password" type="password" class="form-control" data-required>
                     </div>
                     <div class="form-group">
                         <div class="custom-control custom-checkbox">

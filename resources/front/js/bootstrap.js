@@ -14,7 +14,13 @@ try {
     require('sticky-kit/dist/sticky-kit.js');
     window.hljs = require('highlight.js');
     require('./custom.js');
+    window.Cookies = require('js-cookie');
 
 } catch (e) {
     console.warn(e);
 }
+
+
+$.ajaxSetup({
+    headers: {'Authorization': Cookies.get('authorization')}
+});

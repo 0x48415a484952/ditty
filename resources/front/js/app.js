@@ -10,13 +10,14 @@ let VueRouter = require('vue-router').default;
 let BootstrapVue = require('bootstrap-vue').default;
 let Vuex = require('vuex');
 let VueMoment = require('vue-moment-jalaali');
+import Notifications from 'vue-notification';
 
 
 require('./bootstrap');
-
 Vue.use(Vuex);
 Vue.use(VueRouter);
 Vue.use(BootstrapVue);
+Vue.use(Notifications);
 Vue.use(VueMoment);
 
 Vue.component('main-layout', require('./views/layouts/Main').default);
@@ -37,6 +38,7 @@ window.Vue = new Vue({
     el: '#app',
     router,
     data: {
+        user: null,
         base_url: document.head.querySelector('meta[name="base-url"]').content,
         api_url : document.head.querySelector('meta[name="api-url"]').content,
         document: {
@@ -51,5 +53,15 @@ window.Vue = new Vue({
         getPageTitle() {
             return this.document.title;
         },
+        isEmptyObject(object) {
+            return $.isEmptyObject(object);
+        },
+    },
+    mounted() {
+        $.get(this.api_url + '/profile', (response) => {
+            if (response.status == 1) {
+                this.user = response.data.user;
+            }
+        });
     }
 });

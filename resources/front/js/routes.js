@@ -4,13 +4,20 @@
  */
 
 export default [
-
-    // home page
-
     {
         path: '/',
         component: require('./views/index').default,
         name: 'index',
+    },
+    {
+        path: '/login',
+        component: require('./views/auth/Login').default,
+        name: 'login',
+    },
+    {
+        path: '/register',
+        component: require('./views/auth/Register').default,
+        name: 'register',
     },
 
     // posts

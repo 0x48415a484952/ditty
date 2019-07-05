@@ -50,3 +50,7 @@ blockquote {
 .hljs * {
     font-family: consolas, monospace;
 }
+
+.btn {
+    font-family: Vazir;
+}
