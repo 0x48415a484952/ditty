@@ -29,7 +29,7 @@ Route::group(
     ],
     function() {
         Auth::routes();
-        Route::group(['middleware' => 'auth:api'], function() {
+        Route::group(['middleware' => ['auth:api', 'is_author']], function() {
             Route::get('/profile', 'ProfileController@index');
             Route::put('/profile', 'ProfileController@update');
             Route::resource('categories', 'CategoriesController');
