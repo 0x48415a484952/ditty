@@ -28,7 +28,7 @@ CKEDITOR.editorConfig = function( config ) {
     config.filebrowserFlashUploadUrl = '/assets/editors/kcfinder/upload.php?opener=ckeditor&type=flash';
     // config.extraPlugins = 'codesnippet';
     // config.extraPlugins = 'prism,codesnippet';
-    // config.extraPlugins = "lineutils,widget,codesnippet,prism";
+    config.extraPlugins = "lineutils,widget,codesnippet,prism";
 
     // config.codeSnippet_languages = {
     //     javascript: 'JavaScript',
