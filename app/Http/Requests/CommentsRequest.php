@@ -25,10 +25,10 @@ class CommentsRequest extends FormRequest
     {
         return [
             // 'post_id' => 'required|integer|exists:posts,id',
-            // 'user_id' => 'nullable|integer',
-            'parent_id' => 'nullable|integer|exists:comments,id',
-            'email'   => 'required|email',
-            'name'    => 'nullable|string|max:191',
+            'user_id' => 'nullable|integer|in:0',
+            // 'parent_id' => 'nullable|integer|exists:comments,id',
+            // 'email'   => 'nullable|email',
+            // 'name'    => 'nullable|string|max:191',
             'text'    => 'required|min:3|max:1000'
         ];
     }

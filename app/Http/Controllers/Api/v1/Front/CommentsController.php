@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Classes\Response;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CommentsRequest;
 use App\Repositories\CommentsRepository;
 
@@ -29,16 +30,20 @@ class CommentsController extends Controller
 
     public function store(CommentsRequest $request, Post $post)
     {
-        $comment = $this->comments->create($request->only(
-            $this->comments->getFillable()
-        ));
+        if (Auth::check()) {
+            $comment = $this->comments->create([
+                'text' => $request->text,
+                'user_id' => Auth::id()
+            ]);
 
-        $post->cnt_comments++;
-        $post->comments()->save($comment);
+            $post->comments()->save($comment);
 
-        return Response::success(
-            'Created Successfully',
-            $comment->only(['name', 'email', 'text'])
-        );
+            return Response::success(
+                'نظر شما با موفقیت ثبت شد و بعد از تایید نمایش داده میشه.',
+                $comment->only(['text'])
+            );
+        } else {
+            return Response::error('Authorization required.', 401);
+        }
     }
 }

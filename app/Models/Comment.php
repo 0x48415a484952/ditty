@@ -14,11 +14,11 @@ class Comment extends Model
     const STATUS_REJECTED  = 1;
 
     protected $fillable = [
-        // 'user_id',
+        'user_id',
         'post_id',
         'parent_id',
-        'name',
-        'email',
+        // 'name',
+        // 'email',
         'text',
         'status'
     ];

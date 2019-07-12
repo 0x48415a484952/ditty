@@ -40,7 +40,7 @@
             </div>
         </div>
         <related :post_id="$route.params.id" v-if="! $root.isEmptyObject(post)"></related>
-        <comments v-if="! $root.isEmptyObject(post)"></comments>
+        <comments v-if="! $root.isEmptyObject(post)" :post="post"></comments>
     </div>
 </template>
 
