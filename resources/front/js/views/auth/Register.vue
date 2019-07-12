@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="row">
-            <div class="col-6 mx-auto">
+            <div class="col-md-6 mx-auto">
                 <b-card title="ثبت نام" class="text-center">
                     <form method="POST" class="mt-4 js-submit-form text-right" :action="$root.api_url + '/register'" data-on-success="successfullRegsiter">
                         <div class="form-group">

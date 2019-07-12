@@ -2,7 +2,7 @@
     <nav class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
         <div class="container">
             <router-link class="navbar-brand" :to="{ name: 'index' }">
-                <strong>بلاگ</strong>
+                <strong>{{ env('APP_NAME', '') }}</strong>
             </router-link>
             <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

@@ -137,7 +137,7 @@ export default {
     beforeRouteLeave(to, from, next) {
         window.clearInterval(window.postDraftInterval);
 
-        if (CKEDITOR.instances['text'].getData().length > 0) {
+        if (typeof CKEDITOR.instances['text'] != 'undefined' && CKEDITOR.instances['text'].getData().length > 0) {
             if (confirm('Unsaved data! Continue?')) {
                 next();
             }

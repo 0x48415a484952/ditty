@@ -18,7 +18,7 @@ export default [
     {
         path: '/dashboard/register-author',
         component: require('./components/pages/RegisterAuthor.vue').default,
-        name: 'dashboard.register'
+        name: 'dashboard.register-author'
     },
     {
         path: '/dashboard/posts',

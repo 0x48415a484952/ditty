@@ -37,8 +37,9 @@ blockquote {
 }
 
 
-.post-cover-link {
+.post-cover-link, .post-citation {
     font-size: 12px;
+    margin: 0;
     color: #999;
 }
 
@@ -53,4 +54,8 @@ blockquote {
 
 .btn {
     font-family: Vazir;
+}
+
+.cke_source {
+    direction: ltr;
 }
