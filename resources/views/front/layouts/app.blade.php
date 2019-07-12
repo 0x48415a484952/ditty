@@ -12,6 +12,7 @@
     <body>
         <script>
             window.httpCode = parseInt('{{ isset($httpCode) ? $httpCode : 200 }}');
+            window.appName = "{{ env('APP_NAME', '') }}";
         </script>
         <div id="app">
             @yield('content')

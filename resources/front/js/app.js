@@ -43,6 +43,7 @@ window.Vue = new Vue({
         api_url : document.head.querySelector('meta[name="api-url"]').content,
         document: {
             title: '',
+            appName: window.appName
         },
     },
     methods: {
