@@ -50,3 +50,8 @@ body.modal-open .main-content {
 .notifications .notification-content {
     text-align: right;
 }
+
+.cke_dialog_ui_input_textarea {
+    text-align: left;
+    direction: ltr;
+}
