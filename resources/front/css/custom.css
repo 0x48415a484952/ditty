@@ -41,11 +41,13 @@ blockquote {
 
 
 .post-cover-link, .post-citation {
-    font-size: 12px;
     margin: 0;
-    color: #999;
+    text-align: left;
 }
-
+.post-citation a {
+    color: #999;
+    font-size: 14px;
+}
 
 .hljs {
     direction: ltr;
@@ -73,4 +75,8 @@ blockquote {
 
 .notifications .notification-content {
     text-align: right;
+}
+
+pre {
+    font-size: 72%;
 }
