@@ -1,5 +1,5 @@
 export default class  HttpRequest {
-    constructor(url = './', method="get", data = {}, headers = {}) {
+    constructor(url = './', method = "get", data = {}, headers = {}) {
         this.url = url;
         this.method = method;
         this.data = data;

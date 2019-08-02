@@ -80,3 +80,9 @@ blockquote {
 pre {
     font-size: 72%;
 }
+
+.three-dots {
+    font-size: 20px !important;
+    text-align: center !important;
+    display: block !important;
+}

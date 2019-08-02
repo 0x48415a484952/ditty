@@ -47,6 +47,8 @@
             </div>
         </section>
 
+        <group-posts :groups="widgets.group_posts"></group-posts>
+
         <section class="recent-posts">
             <div class="section-title text-right">
                 <h2><span>آخرین مطالب</span></h2>
@@ -67,6 +69,9 @@
             return {
                 posts: [],
                 categories: [],
+                widgets: {
+                    group_posts: []
+                }
             };
         },
         components: {
@@ -76,17 +81,24 @@
             // blogItemStyle4: require("./elements/blog-items/blog-item-style4").default,
             blogItemStyle5: require("./elements/blog-items/blog-item-style5").default,
             blogItemStyle6: require("./elements/blog-items/blog-item-style6").default,
+            groupPosts: require("./posts/GroupPosts.vue").default,
         },
         mounted() {
             this.$root.setPageTitle('Ditty.ir');
             this.getPosts();
-
+            this.loadGroupPosts();
         },
         methods: {
             getPosts() {
                 let request = new HttpRequest('/api/v1/posts');
                 request.send(
                     (result) => this.posts = result.data
+                );
+            },
+            loadGroupPosts() {
+                let request = new HttpRequest('/api/v1/widgets/group-posts');
+                request.send(
+                    (result) => this.widgets.group_posts = result.data
                 );
             }
         }

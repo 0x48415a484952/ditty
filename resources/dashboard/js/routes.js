@@ -2,7 +2,7 @@
 export default [
     {
         path: '/dashboard',
-        component: require('./components/pages/IndexComponent.vue').default,
+        component: require('./components/pages/Index.vue').default,
         name: 'dashboard.index'
     },
     {
@@ -37,17 +37,24 @@ export default [
     },
     {
         path: '/dashboard/categories',
-        component: require('./components/pages/CategoriesComponent.vue').default,
+        component: require('./components/pages/Categories.vue').default,
         name: 'dashboard.categories'
     },
     {
         path: '/dashboard/comments',
-        component: require('./components/pages/CommentsComponent.vue').default,
+        component: require('./components/pages/Comments.vue').default,
         name: 'dashboard.comments'
     },
     {
         path: '/dashboard/profile',
-        component: require('./components/pages/ProfileComponent.vue').default,
+        component: require('./components/pages/Profile.vue').default,
         name: 'dashboard.profile'
+    },
+
+
+    {
+        path: '/dashboard/group-posts',
+        component: require('./components/widgets/group_posts/Index.vue').default,
+        name: 'dashboard.widgets.group_posts'
     }
 ];

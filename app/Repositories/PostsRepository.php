@@ -23,15 +23,18 @@ class PostsRepository extends Repository // implements PostsRepositoryInterface
             ->paginate($limit);
     }
 
-    public function getByCategoryId($category_id, $limit = 10, int $status = 3)
+    public function getByCategoryId($category_id, $limit = 10, int $status = 3, $paginate = true)
     {
-        return $this->model
+        $posts = $this->model
             ->necessaryFields()
             ->where('category_id', $category_id)
             ->isPublished()
             ->orderBy('id', 'desc')
             ->where('status', $status)
-            ->paginate($limit);
+            ->limit($limit);
+
+
+        return $paginate ? $posts->paginate() : $posts->get();
     }
 
     public function getByUserId($user_id, $limit = 10, $status = 3)
@@ -44,11 +47,15 @@ class PostsRepository extends Repository // implements PostsRepositoryInterface
             ->paginate($limit);
     }
 
-    public function getByTag($tag, $limit = 10, int $status = 3) {
-        return $this->model
+    public function getByTag($tag, $limit = 10, int $status = 3, $paginate = true) {
+        $posts = $this->model
+            ->necessaryFields()
             ->where('status', '>=', $status)
+            ->orderBy('id', 'desc')
             ->withAnyTag($tag)
-            ->paginate($limit);
+            ->limit($limit);
+
+        return $paginate ? $posts->paginate() : $posts->get();
     }
 
     public function find($id, int $status = 3)

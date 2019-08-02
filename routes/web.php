@@ -11,6 +11,7 @@ Route::group(['namespace' => 'Web\Dashboard', 'prefix' => 'dashboard'], function
     Route::resource('/posts', 'HomeResourceController');
     Route::get('/categories', 'HomeController@index');
     Route::get('/comments', 'HomeController@index');
+    Route::get('/group-posts', 'HomeController@index');
 });
 
 Route::group(['namespace' => 'Web\Front'], function() {

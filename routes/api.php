@@ -48,6 +48,10 @@ Route::group(
 
             // Route::post('/upload-image', 'PhotoUploadController@upload');
             Route::resource('/comments', 'CommentsController');
+
+            Route::group(['prefix' => 'widgets', 'namespace' => '\App\Widgets'], function() {
+                Route::resource('/group-posts', 'GroupPosts\GroupPosts')->middleware('is_admin');
+            });
         });
     }
 );
@@ -74,5 +78,9 @@ Route::group(['namespace' => 'Api\v1\Front', 'prefix' => 'v1'], function() {
     //     Route::get('/profile', 'ProfileController@show');
     //     Route::put('/profile', 'ProfileController@update');
     // });
+
+    Route::group(['prefix' => 'widgets', 'namespace' => '\App\Widgets'], function() {
+        Route::get('/group-posts', 'GroupPosts\GroupPosts@posts');
+    });
 
 });
