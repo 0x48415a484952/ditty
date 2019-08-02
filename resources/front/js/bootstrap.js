@@ -15,6 +15,7 @@ try {
     window.hljs = require('highlight.js');
     require('./custom.js');
     window.Cookies = require('js-cookie');
+    window.slick = require('slick-carousel');
 
 } catch (e) {
     console.warn(e);

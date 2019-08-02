@@ -5,26 +5,26 @@
             <img class="img-fluid" :src="data.cover_image" alt="">
         </post-link>
         <div class="card-block p-4">
-            <h2 class="card-title text-right">
+            <h2 class="card-title text-right post-title">
                 <post-link :post="data">{{ data.title }}</post-link>
             </h2>
-            <h4 class="card-text text-justify">{{ data.brief_text }}</h4>
+            <p class="card-text text-justify post-brief-text" v-if="$props.no_brief_text !== true">{{ data.brief_text }}</p>
             <div class="metafooter clearfix">
                 <div class="wrapfooter">
-                    <span class="meta-footer-thumb">
-                        <author-link :author="data.user">
-                            <avatar :user="data.user" />
-                        </author-link>
-                    </span>
-                    <span class="author-meta">
-                        <span v-if="data.user" class="post-name">
-                            <author-link :author="data.user">{{ data.user.name }}</author-link>
+                    <div v-if="$props.no_user !== true">
+                        <span class="meta-footer-thumb">
+                            <author-link :author="data.user">
+                                <avatar :user="data.user" />
+                            </author-link>
                         </span>
-                        <br>
-                        <span class="post-date">{{ data.created_at | moment("jYYYY/jM/jD") }}</span>
-                        <!-- <span class="dot"></span> -->
-                        <!-- <span class="post-read">۶ دقیقه</span> -->
-                    </span>
+                        <span class="author-meta">
+                            <span v-if="data.user" class="post-name">
+                                <author-link :author="data.user">{{ data.user.name }}</author-link>
+                            </span>
+                            <br>
+                            <span class="post-date">{{ data.created_at | moment("jYYYY/jM/jD") }}</span>
+                        </span>
+                    </div>
                     <!-- <span class="post-read-more">
                         <a href="post.html" title="Read Story">
                             <svg class="svgIcon-use" width="25" height="25" viewBox="0 0 25 25">
@@ -41,7 +41,7 @@
 
 <script>
     export default {
-        props: ['data']
+        props: ['data', 'no_brief_text', 'no_user']
     }
 </script>
 

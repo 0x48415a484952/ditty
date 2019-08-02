@@ -1,11 +1,13 @@
 <template>
     <div>
-        <section class="recent-posts" v-for="groups, title in $props.groups">
+        <section v-for="group, title in groups" :key="title" class="listrecent">
             <div class="section-title text-right">
                 <h2><span>{{ title }}</span></h2>
             </div>
-            <div class="card-columns listrecent">
-                <blog-item-style6 v-for="post in groups" :key="post.hash_id" :data="post" />
+            <div class="group-posts">
+                <div v-for="post in group" class="group-posts-item">
+                    <blog-item-style6 :key="post.hash_id" :data="post"/>
+                </div>
             </div>
         </section>
     </div>
@@ -14,9 +16,54 @@
 
 <script>
     export default {
-        props: ['groups'],
         components: {
             blogItemStyle6: require("../elements/blog-items/blog-item-style6").default,
+        },
+        data() {
+            return {
+                groups: []
+            }
+        },
+        mounted() {
+            $.get(this.$root.base_url + '/api/v1/widgets/group-posts', (response) => {
+                if (response.status == 1) {
+                    this.groups = response.data
+
+                    setTimeout(function() {
+                        $('.group-posts').slick({
+                            infinite: false,
+                            autoplay: true,
+                            slidesToShow: 3,
+                            slidesToScroll: 3,
+                            rtl: true,
+                            speed: 500,
+                            responsive: [
+                                {
+                                    breakpoint: 1024,
+                                    settings: {
+                                        slidesToShow: 3,
+                                        slidesToScroll: 3,
+                                    }
+                                },
+                                {
+                                    breakpoint: 600,
+                                    settings: {
+                                        slidesToShow: 2,
+                                        slidesToScroll: 2
+                                    }
+                                },
+                                {
+                                    breakpoint: 480,
+                                    settings: {
+                                        slidesToShow: 1,
+                                        slidesToScroll: 1
+                                    }
+                                }
+                            ]
+                        });
+                    }, 500);
+                }
+            });
         }
     }
 </script>

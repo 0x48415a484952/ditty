@@ -86,3 +86,21 @@ pre {
     text-align: center !important;
     display: block !important;
 }
+
+
+.card .post-title {
+    font-size: 1.2em;
+}
+
+.card .post-date {
+    font-size: 14px !important;
+}
+
+.group-posts .group-posts-item {
+    /* padding: 2%; */
+    padding-left: 10px;
+}
+
+.group-posts .group-posts-item .card {
+    height: 370px;
+}

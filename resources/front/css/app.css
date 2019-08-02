@@ -1341,7 +1341,7 @@ section {
     color:rgba(0,0,0,.6);
     text-decoration:none;
 }
-.listfeaturedtag h4.card-text,.listrecent h4.card-text {
+.listfeaturedtag .card-text,.listrecent .card-text {
     color:rgba(0,0,0,.44);
     font-size:0.85rem;
     line-height:1.5;

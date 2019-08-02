@@ -47,8 +47,8 @@
             </div>
         </section>
 
-        <group-posts :groups="widgets.group_posts"></group-posts>
-
+        <group-posts></group-posts>
+        <br>
         <section class="recent-posts">
             <div class="section-title text-right">
                 <h2><span>آخرین مطالب</span></h2>
@@ -68,10 +68,7 @@
         data() {
             return {
                 posts: [],
-                categories: [],
-                widgets: {
-                    group_posts: []
-                }
+                categories: []
             };
         },
         components: {
@@ -86,19 +83,12 @@
         mounted() {
             this.$root.setPageTitle('Ditty.ir');
             this.getPosts();
-            this.loadGroupPosts();
         },
         methods: {
             getPosts() {
                 let request = new HttpRequest('/api/v1/posts');
                 request.send(
                     (result) => this.posts = result.data
-                );
-            },
-            loadGroupPosts() {
-                let request = new HttpRequest('/api/v1/widgets/group-posts');
-                request.send(
-                    (result) => this.widgets.group_posts = result.data
                 );
             }
         }
