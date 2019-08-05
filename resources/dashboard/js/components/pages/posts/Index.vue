@@ -2,7 +2,7 @@
     <div>
         <router-link class="btn btn-success" :to="{name: 'dashboard.posts.create'}">پست جدید</router-link>
 
-        <b-table id="posts" :items="posts.items" class="mt-5 bg-white" :fields="table_fields">
+        <b-table id="posts" :items="posts.items.data" class="mt-5 bg-white" :fields="table_fields">
             <template slot="edit" slot-scope="data">
                 <router-link class="btn btn-primary" :to="{ name: 'dashboard.posts.edit', params: { post_id: data.item.hash_id } }"><i class="fa fa-edit"></i></router-link>
             </template>
@@ -19,11 +19,20 @@
                 {{ data.item.user.name }}
             </template>
         </b-table>
+
+        <pagination :data="posts.items" @pagination-change-page="loadPosts"></pagination>
+
     </div>
 </template>
 
 <script>
+
+import pagination from 'laravel-vue-pagination';
+
 export default {
+    components: {
+        pagination
+    },
     beforeCreate() {
         if (! this.$root.isAuthenticated()) {
             this.$root.redirectToLogin();
@@ -76,8 +85,8 @@ export default {
                 }
             });
         },
-        loadPosts: function() {
-            $.get(this.$root.api_url + '/posts', (response) => {
+        loadPosts: function(page = 1) {
+            $.get(this.$root.api_url + '/posts?page=' + page, (response) => {
                 if (response.status == 1) {
                     this.posts.items = response.data;
                 }
@@ -93,7 +102,6 @@ export default {
                     }
                 });
             }
-
         }
     }
 }

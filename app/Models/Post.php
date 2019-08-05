@@ -69,8 +69,8 @@ class Post extends Model
     public function comments()
     {
         return $this->morphMany(Comment::class, 'commentable')
-            // ->where('status', Comment::STATUS_APPROVED)
-            ->select(['id', 'name', 'text']);
+            ->where('status', Comment::STATUS_APPROVED);
+            // ->select(['id', 'name', 'text']);
     }
 
     public function category()

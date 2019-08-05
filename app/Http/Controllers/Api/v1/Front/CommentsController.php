@@ -21,11 +21,10 @@ class CommentsController extends Controller
 
     public function index($post_id)
     {
-        $post = Post::where('id', $post_id)->select('id')->firstOrFail();
-        // if ($post->cnt_comments > 0) {}
-        $comments = $post->comments;
+        $post = Post::where('id', get_post_id($post_id))->select('id')->firstOrFail();
+        $post = $post->load('comments.user');
 
-        return Response::success('', $comments);
+        return Response::success('', $post->comments);
     }
 
     public function store(CommentsRequest $request, Post $post)

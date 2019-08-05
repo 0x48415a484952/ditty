@@ -32,7 +32,17 @@ class Comment extends Model
         });
     }
 
+    public function user()
+    {
+        return $this->belongsTo(\App\Models\User::class, 'user_id');
+    }
+
     public function commentable()
+    {
+        return $this->morphTo();
+    }
+
+    public function count()
     {
         return $this->morphTo();
     }
@@ -45,4 +55,9 @@ class Comment extends Model
             'HTML.Allowed' => ''
         ]);
     }
+
+    // public function getCreatedAtAttribute($value)
+    // {
+    //     return $value->format('y/m/d H:i');
+    // }
 }

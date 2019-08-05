@@ -12,7 +12,6 @@ use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class PostsController extends Controller
 {
-
     private $posts;
 
     public function __construct(PostsRepository $posts)
@@ -35,8 +34,7 @@ class PostsController extends Controller
 
     public function show($post)
     {
-        // dd(request()->route()->);
-        return Response::success('', $post);
+        return Response::success('', $post->loadCount('comments')->load('comments.user'));
     }
 
     public function relatedPosts(Post $post)

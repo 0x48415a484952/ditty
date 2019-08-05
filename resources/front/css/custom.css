@@ -104,3 +104,12 @@ pre {
 .group-posts .group-posts-item .card {
     height: 370px;
 }
+
+.slick-next i.fa, .slick-prev i.fa {
+    font-size: 20px;
+    color: #999;
+}
+
+.font-consolas {
+    font-family: consolas;
+}

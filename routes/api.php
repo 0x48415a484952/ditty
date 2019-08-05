@@ -61,7 +61,7 @@ Route::group(['namespace' => 'Api\v1\Front', 'prefix' => 'v1'], function() {
         Route::get('/', 'PostsController@index');
         Route::get('/{post}', 'PostsController@show');
         Route::get('/preview/{post}', 'PostsController@preview');
-        Route::get('/{post}/comments', 'CommentsController@index');
+        Route::get('/{post_id}/comments', 'CommentsController@index');
         Route::get('/{post}/related', 'PostsController@relatedPosts');
         Route::post('/{post}/comments', 'CommentsController@store');
     });

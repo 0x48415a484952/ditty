@@ -32,7 +32,7 @@ class PostsController extends Controller
             ? $this->posts->paginate(10, 0, 0)
             : $this->posts->getByUserId(Auth::id(), 10, 0);
 
-        return Response::success('', $posts->load('tagged'));
+        return Response::success('', $posts);
     }
 
     /**
@@ -56,6 +56,7 @@ class PostsController extends Controller
         $post = $this->posts->create($request->only(
             $this->posts->getFillable()
         ));
+
         (new Draft)->deleteDraft();
 
         return Response::success('پست با موفقیت اضافه شد', $post->load('tagged'));

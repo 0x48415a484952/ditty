@@ -65,8 +65,8 @@ export default {
             table_fields: [
                 { key: 'id', label: 'شناسه '},
                 { key: 'post', label: 'پست '},
-                { key: 'name', label: 'نام '},
-                { key: 'email', label: 'ایمیل '},
+                // { key: 'name', label: 'نام '},
+                // { key: 'email', label: 'ایمیل '},
                 { key: 'text', label: 'متن '},
                 { key: 'status', label: 'وضعیت '},
                 { key: 'created_at', label: 'ایجاد شده '},

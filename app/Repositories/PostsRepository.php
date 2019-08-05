@@ -13,6 +13,14 @@ class PostsRepository extends Repository // implements PostsRepositoryInterface
         return Post::class;
     }
 
+    public function exists($post_id, $status = Post::STATUS_PUBLISHED)
+    {
+        return DB::table('posts')
+            ->where('id', get_post_id($post_id))
+            ->where('status', $status)
+            ->select('id')
+            ->exists();
+    }
 
     public function paginate($limit = 10, int $status = 3)
     {
@@ -20,6 +28,7 @@ class PostsRepository extends Repository // implements PostsRepositoryInterface
             ->necessaryFields()
             ->where('status', '>=', $status)
             ->orderBy('id', 'desc')
+            ->with('tagged')
             ->paginate($limit);
     }
 
@@ -44,6 +53,7 @@ class PostsRepository extends Repository // implements PostsRepositoryInterface
             ->where('status', '>=', $status)
             ->where('user_id', $user_id)
             ->orderBy('id', 'desc')
+            ->with('tagged')
             ->paginate($limit);
     }
 
