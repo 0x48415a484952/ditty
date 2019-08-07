@@ -57,6 +57,16 @@ window.Vue = new Vue({
         isEmptyObject(object) {
             return $.isEmptyObject(object);
         },
+        redirectIfAuthenticated() {
+            if (this.isAuthenticated()) {
+                this.$router.push({ name: 'index'});
+                return true;
+            }
+            return false;
+        },
+        isAuthenticated() {
+            return ! this.isEmptyObject(this.user);
+        }
     },
     mounted() {
         $.get(this.api_url + '/profile', (response) => {

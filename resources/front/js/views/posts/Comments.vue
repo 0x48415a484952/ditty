@@ -3,10 +3,16 @@
         <div class="mx-auto col-md-8 py-3">
 
             <h3>نظرات ({{ $props.post.comments_count }})</h3>
-            <form :action="$root.api_url + '/posts/' + post_id + '/comments'" method="post" class="js-submit-form mt-3" data-clear-onsuccess="true">
-                <textarea class="form-control" name="text" rows="5" placeholder="نوبت نظر شماست :) اینجا بنویسید ..." data-required></textarea>
-                <button class="btn btn-success mt-1 btn-sm">ارسال</button>
-            </form>
+
+            <div v-if="$root.isAuthenticated()">
+                <form :action="$root.api_url + '/posts/' + post_id + '/comments'" method="post" class="js-submit-form mt-3" data-clear-onsuccess="true">
+                    <textarea class="form-control" name="text" rows="5" placeholder="نوبت نظر شماست :) اینجا بنویسید ..." data-required></textarea>
+                    <button class="btn btn-success mt-1 btn-sm">ارسال</button>
+                </form>
+            </div>
+            <div class="text-center" v-else>
+                <u><router-link :to="{ name: 'login' }">برای ثبت نظر لطفا وارد شوید :)</router-link></u>
+            </div>
 
             <section v-if="items.length > 0">
                 <hr>
