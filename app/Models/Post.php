@@ -36,7 +36,6 @@ class Post extends Model
     protected $with = ['user', 'category'];
     protected $appends = ['tags', 'hash_id'];
 
-
     public function getRouteKey()
     {
         return \Hashids::connection(get_called_class())->encode($this->getKey());
@@ -49,7 +48,7 @@ class Post extends Model
         $fields = array_values($fields);
         unset($fields[array_search('text', $fields)]);
 
-        return $this->select($fields);
+        return $fields;
     }
 
     public function scopeIsPublished($query)
@@ -130,5 +129,10 @@ class Post extends Model
     public function getHashIdAttribute()
     {
         return \Hashids::connection(self::class)->encode($this->attributes['id']);
+    }
+
+    public function featured()
+    {
+        return $this->hasOne(FeaturedPost::class, 'post_id')->select(['post_id']);
     }
 }

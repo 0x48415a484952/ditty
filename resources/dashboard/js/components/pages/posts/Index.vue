@@ -3,6 +3,12 @@
         <router-link class="btn btn-success" :to="{name: 'dashboard.posts.create'}">پست جدید</router-link>
 
         <b-table id="posts" :items="posts.items.data" class="mt-5 bg-white" :fields="table_fields">
+            <template slot="title" slot-scope="data">
+                <span v-on:click="handleFeatured(data.index)">
+                    <i class="fa fa-star text-warning" v-if="data.item.featured"></i>
+                    {{ data.item.title }}
+                </span>
+            </template>
             <template slot="edit" slot-scope="data">
                 <router-link class="btn btn-primary" :to="{ name: 'dashboard.posts.edit', params: { post_id: data.item.hash_id } }"><i class="fa fa-edit"></i></router-link>
             </template>
@@ -94,7 +100,7 @@ export default {
         },
         deletePost(index) {
             if (confirm('Really?')) {
-                let post = this.posts.items[index];
+                let post = this.posts.items.data[index];
                 $.post(this.$root.api_url + '/posts/' + post.hash_id, { _method: 'delete' }, (response) => {
                     if (response.status == 1) {
                         this.$root.$delete(this.posts.items, index);
@@ -102,6 +108,16 @@ export default {
                     }
                 });
             }
+        },
+        handleFeatured(index) {
+            let post = this.posts.items.data[index];
+            let path = post.featured ? 'remove-from-featured' : 'add-to-featured';
+
+            $.post(this.$root.api_url + '/posts/' + post.hash_id + '/' + path, (response) => {
+                if (response.status) {
+                    this.$root.$set(post, 'featured', ! post.featured);
+                }
+            });
         }
     }
 }

@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\PostsRepository;
 use App\Http\Requests\PostsFetchRequest;
-use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class PostsController extends Controller
 {
@@ -40,6 +39,13 @@ class PostsController extends Controller
     public function relatedPosts(Post $post)
     {
         $posts = $this->posts->related($post);
+
+        return Response::success('', $posts);
+    }
+
+    public function featured()
+    {
+        $posts = $this->posts->featured();
 
         return Response::success('', $posts);
     }

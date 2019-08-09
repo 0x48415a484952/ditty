@@ -1,6 +1,6 @@
 <template>
     <div>
-        <section v-for="group, title in groups" :key="title" class="listrecent">
+        <section v-for="group, title in groups" :key="title" class="listrecent mb-5 mt-5">
             <div class="section-title text-right">
                 <h2><span>{{ title }}</span></h2>
             </div>

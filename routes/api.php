@@ -44,6 +44,8 @@ Route::group(
                 Route::delete('/{post}', 'PostsController@destroy');
                 Route::delete('/{post}/comments/{comment}', 'CommentsController@destroy');
 
+                Route::post('/{post}/add-to-featured', 'FeaturedPostsController@add')->middleware('is_admin');
+                Route::post('/{post}/remove-from-featured', 'FeaturedPostsController@remove')->middleware('is_admin');
             });
 
             // Route::post('/upload-image', 'PhotoUploadController@upload');
@@ -59,6 +61,7 @@ Route::group(
 Route::group(['namespace' => 'Api\v1\Front', 'prefix' => 'v1'], function() {
     Route::group(['prefix' => 'posts'], function() {
         Route::get('/', 'PostsController@index');
+        Route::get('/featured-posts', 'PostsController@featured');
         Route::get('/{post}', 'PostsController@show');
         Route::get('/preview/{post}', 'PostsController@preview');
         Route::get('/{post_id}/comments', 'CommentsController@index');

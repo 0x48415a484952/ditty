@@ -43,7 +43,7 @@
                 <h2><span>مطالب داغ</span></h2>
             </div>
             <div class="card-columns listfeaturedtag">
-                <blog-item-style5 v-for="(post, index) of posts.data" v-if="index < 4" :key="post.hash_id" :data="post" />
+                <blog-item-style5 v-for="(post, index) of featured" :key="post.hash_id" :data="post" />
             </div>
         </section>
 
@@ -68,6 +68,7 @@
         data() {
             return {
                 posts: [],
+                featured: [],
                 categories: []
             };
         },
@@ -83,6 +84,7 @@
         mounted() {
             this.$root.setPageTitle('Ditty.ir');
             this.getPosts();
+            this.featuredPosts();
         },
         methods: {
             getPosts() {
@@ -90,6 +92,13 @@
                 request.send(
                     (result) => this.posts = result.data
                 );
+            },
+            featuredPosts() {
+                $.get(this.$root.api_url + '/posts/featured-posts', (response) => {
+                    if (response.status == 1) {
+                        this.featured = response.data;
+                    }
+                });
             }
         }
     }

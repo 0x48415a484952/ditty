@@ -2,6 +2,7 @@
 namespace App\Repositories;
 
 use App\Models\Post;
+use App\Models\FeaturedPost;
 use Illuminate\Http\Request;
 // use App\Contracts\PostsRepositoryInterface;
 
@@ -25,17 +26,17 @@ class PostsRepository extends Repository // implements PostsRepositoryInterface
     public function paginate($limit = 10, int $status = 3)
     {
         return $this->model
-            ->necessaryFields()
+            ->select($this->model->necessaryFields())
             ->where('status', '>=', $status)
             ->orderBy('id', 'desc')
-            ->with('tagged')
+            ->with(['tagged', 'featured'])
             ->paginate($limit);
     }
 
     public function getByCategoryId($category_id, $limit = 10, int $status = 3, $paginate = true)
     {
         $posts = $this->model
-            ->necessaryFields()
+            ->select($this->model->necessaryFields())
             ->where('category_id', $category_id)
             ->isPublished()
             ->orderBy('id', 'desc')
@@ -49,7 +50,7 @@ class PostsRepository extends Repository // implements PostsRepositoryInterface
     public function getByUserId($user_id, $limit = 10, $status = 3)
     {
         return $this->model
-            ->necessaryFields()
+            ->select($this->model->necessaryFields())
             ->where('status', '>=', $status)
             ->where('user_id', $user_id)
             ->orderBy('id', 'desc')
@@ -59,7 +60,7 @@ class PostsRepository extends Repository // implements PostsRepositoryInterface
 
     public function getByTag($tag, $limit = 10, int $status = 3, $paginate = true) {
         $posts = $this->model
-            ->necessaryFields()
+            ->select($this->model->necessaryFields())
             ->where('status', '>=', $status)
             ->orderBy('id', 'desc')
             ->withAnyTag($tag)
@@ -78,7 +79,8 @@ class PostsRepository extends Repository // implements PostsRepositoryInterface
 
     public function related($post, $limit = 6, int $status = 3)
     {
-        return $this->model->necessaryFields()
+        return $this->model
+            ->select($this->model->necessaryFields())
             ->where('category_id', $post->category_id)
             ->where('id', '<>', $post->id)
             ->isPublished()
@@ -86,5 +88,16 @@ class PostsRepository extends Repository // implements PostsRepositoryInterface
             ->orderBy('id', 'desc')
             ->limit($limit)
             ->get();
+    }
+
+    public function featured($limit = 4)
+    {
+        return FeaturedPost::limit($limit)
+        ->latest('id')
+        ->with(['post' => function($query) {
+            $query->where('status', Post::STATUS_PUBLISHED)->select($this->model->necessaryFields());
+        }])
+        ->get()
+        ->pluck('post');
     }
 }
