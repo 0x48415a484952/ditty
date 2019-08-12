@@ -91,6 +91,10 @@ div.three-dots::after {
     content: '. . .';
 }
 
+div.three-dots p {
+    display: none;
+}
+
 
 .card .post-title {
     font-size: 1.2em;
