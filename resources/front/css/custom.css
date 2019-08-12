@@ -87,6 +87,10 @@ pre {
     display: block !important;
 }
 
+div.three-dots::after {
+    content: '. . .';
+}
+
 
 .card .post-title {
     font-size: 1.2em;
