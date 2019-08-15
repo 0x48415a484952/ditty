@@ -1,5 +1,4 @@
 <template>
-
     <div class="card">
         <post-link class="post-cover-image" :post="data">
             <img class="img-fluid" :src="data.cover_image" alt="">
@@ -8,7 +7,11 @@
             <h2 class="card-title text-right post-title">
                 <post-link :post="data">{{ data.title }}</post-link>
             </h2>
-            <p class="card-text text-justify post-brief-text" v-if="$props.no_brief_text !== true">{{ data.brief_text }}</p>
+            <p
+                class="card-text text-justify post-brief-text"
+                v-if="typeof data.brief_text == 'string' && $props.no_brief_text !== true"
+                :title="data.brief_text"
+            >{{ data.brief_text.limit(90) }}</p>
             <div class="metafooter clearfix">
                 <div class="wrapfooter">
                     <div v-if="$props.no_user !== true">

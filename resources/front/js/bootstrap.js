@@ -13,6 +13,8 @@ try {
     require('es6-promise/auto');
     require('sticky-kit/dist/sticky-kit.js');
     window.hljs = require('highlight.js');
+    require('highlightjs-line-numbers.js');
+    require('highlight.js/styles/gruvbox-dark.css');
     require('./custom.js');
     window.Cookies = require('js-cookie');
     window.slick = require('slick-carousel');

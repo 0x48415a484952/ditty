@@ -42,8 +42,12 @@
             <div class="section-title text-right">
                 <h2><span>مطالب داغ</span></h2>
             </div>
-            <div class="card-columns listfeaturedtag">
-                <blog-item-style5 v-for="(post, index) of featured" :key="post.hash_id" :data="post" />
+            <div class="listfeaturedtag">
+                <div class="row">
+                    <div class="col-md-6" v-for="(post, index) of featured" :key="post.hash_id">
+                        <blog-item-style5 :data="post" />
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -53,8 +57,12 @@
             <div class="section-title text-right">
                 <h2><span>آخرین مطالب</span></h2>
             </div>
-            <div class="card-columns listrecent">
-                <blog-item-style6 v-for="post of posts.data" :key="post.hash_id" :data="post" />
+            <div class="listrecent">
+                <div class="row">
+                    <div class="col-md-4 mb-3" v-for="post of posts.data" :key="post.hash_id" >
+                        <blog-item-style6 :data="post" />
+                    </div>
+                </div>
             </div>
         </section>
 

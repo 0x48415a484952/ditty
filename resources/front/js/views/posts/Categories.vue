@@ -7,8 +7,12 @@
                     <span>{{ $root.getPageTitle() }}</span>
                 </h2>
             </div>
-            <div class="card-columns listrecent">
-                <blog-item-style6 v-for="post of posts.data" :key="post.id" :data="post" />
+            <div class="listrecent">
+                <div class="row">
+                    <div class="col-md-4 mb-3" v-for="post of posts.data" :key="post.id">
+                        <blog-item-style6 :data="post" />
+                    </div>
+                </div>
             </div>
         </section>
 

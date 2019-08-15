@@ -99,6 +99,7 @@ window.renderScripts = () => {
 window.highlightSyntaxes = () => {
     document.querySelectorAll('pre code').forEach((block) => {
         hljs.highlightBlock(block);
+        hljs.lineNumbersBlock(block);
       });
 }
 
@@ -130,4 +131,13 @@ window.success_notification = function(message) {
         duration: 30000,
         text: message
     });
+}
+
+
+String.prototype.limit = function(limit) {
+    if (this.length > limit) {
+        return this.substr(0, limit) + '...'
+    }
+
+    return this;
 }

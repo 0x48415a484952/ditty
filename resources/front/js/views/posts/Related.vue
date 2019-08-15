@@ -3,7 +3,7 @@
         <div class="container">
             <div class="listrecent">
                 <div class="row">
-                    <div class="col-md-4" v-for="post in related">
+                    <div class="col-md-4 mb-3" v-for="post in related">
                         <blog-item-style6 :key="post.hash_id" :data="post" />
                     </div>
                 </div>

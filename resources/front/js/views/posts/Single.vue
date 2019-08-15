@@ -22,7 +22,7 @@
                             <span>{{ post.category.title }}</span>
                         </router-link>
                     </div>
-                    <img v-if="post.cover_image" class="featured-image img-fluid" :src="post.cover_image" :alt="post.cover_image">
+                    <img v-if="post.cover_image" class="rounded featured-image img-fluid" :src="post.cover_image" :alt="post.cover_image">
                     <div v-if="post.brief_text" class="rounded bg-light p-3 mb-3">
                         <p class="m-0">{{ post.brief_text }}</p>
                     </div>
