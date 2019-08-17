@@ -37,6 +37,7 @@ class ProfileController extends Controller
         $user = Auth::user();
         $hidden = $user->getHidden();
         unset($hidden[array_search('email', $hidden)]);
+        unset($hidden[array_search('level', $hidden)]);
         $user->setHidden($hidden);
 
         return $user;

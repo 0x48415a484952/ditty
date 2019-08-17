@@ -23,11 +23,12 @@
                 <ul class="dropdown-menu">
                     <li><router-link class="nav-link" :to="{name: 'dashboard.posts.index'}">پست ها</router-link></li>
                     <li><router-link class="nav-link" :to="{name: 'dashboard.categories'}">دسته‌بندی ها</router-link></li>
-                    <li><router-link class="nav-link" :to="{name: 'dashboard.comments'}">نظرات</router-link></li>
-                    <li><router-link class="nav-link" :to="{name: 'dashboard.widgets.group_posts'}">پست‌های گروهی</router-link></li>
+                    <li><router-link class="nav-link" :to="{name: 'dashboard.comments'}" v-if="$root.isAdmin()">نظرات</router-link></li>
+                    <li><router-link class="nav-link" :to="{name: 'dashboard.widgets.group_posts'}" v-if="$root.isAdmin()">پست‌های گروهی</router-link></li>
                 </ul>
             </li>
-            <li><router-link :to="{name: 'dashboard.profile'}" v-if="$root.isAuthenticated()"><i class="fas fa-fire"></i> پروفایل</router-link></li>
+            <li><router-link :to="{ name: 'dashboard.users' }" v-if="$root.isAdmin()"><i class="fas fa-fire"></i>کاربران</router-link></li>
+            <li><router-link :to="{ name: 'dashboard.profile' }" v-if="$root.isAuthenticated()"><i class="fas fa-fire"></i> پروفایل</router-link></li>
           </ul>
 
 

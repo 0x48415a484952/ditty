@@ -23,7 +23,7 @@ class ProfileUpdateRequest extends FormRequest
      */
     public function rules()
     {
-        $user = $this->user();
+        $user = $this->route()->parameter('user');
 
         return [
             "name" => "required|string",

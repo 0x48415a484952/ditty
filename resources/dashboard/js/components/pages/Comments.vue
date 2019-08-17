@@ -94,9 +94,6 @@ export default {
             this.comments.edit = comment;
             this.$root.$emit('bv::toggle::modal', 'edit-comment', '#btnToggle');
         },
-        showComment(item) {
-            this.comments.edit = window.clone(item);
-        },
         deleteComment(id) {
             if (confirm('نظر حذف شود؟')) {
                 $.post(this.$root.api_url + '/comments/' + id, {_method: 'delete'}, (response) => {

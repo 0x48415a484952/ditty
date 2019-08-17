@@ -46,6 +46,11 @@ export default [
         name: 'dashboard.comments'
     },
     {
+        path: '/dashboard/users',
+        component: require('./components/pages/Users.vue').default,
+        name: 'dashboard.users'
+    },
+    {
         path: '/dashboard/profile',
         component: require('./components/pages/Profile.vue').default,
         name: 'dashboard.profile'

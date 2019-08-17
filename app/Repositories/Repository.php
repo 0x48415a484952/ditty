@@ -56,6 +56,13 @@ abstract class Repository implements RepositoryInterface
         return $model;
     }
 
+    public function forceUpdate($model, array $data)
+    {
+        $model->forceUpdate($data);
+
+        return $model;
+    }
+
     public function delete($model)
     {
         return $model->delete();

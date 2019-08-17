@@ -66,6 +66,9 @@ window.Vue = new Vue({
         isAuthenticated() {
             return this.user !== null;
         },
+        isAdmin() {
+            return this.isAuthenticated() && this.user.level == 5;
+        },
         redirectIfAuthenticated() {
             if (this.isAuthenticated()) {
                 this.$router.push({ name: 'dashboard.index'});
@@ -83,7 +86,10 @@ window.Vue = new Vue({
             }, 50);
         },
         redirectToLogin() {
-            this.$router.push({ name: 'dashboard.login'});
+            this.$router.push({ name: 'dashboard.login' });
+        },
+        redirectTo(to) {
+            this.$router.push({ name: 'dashboard.' + to });
         },
         setPageTitle(title) {
             document.title = title;

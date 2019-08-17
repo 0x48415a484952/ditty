@@ -50,7 +50,8 @@ Route::group(
             });
 
             // Route::post('/upload-image', 'PhotoUploadController@upload');
-            Route::resource('/comments', 'CommentsController');
+            Route::resource('/comments', 'CommentsController')->middleware('is_admin');
+            Route::resource('/users', 'UsersController')->middleware('is_admin');
 
             Route::group(['prefix' => 'widgets', 'namespace' => '\App\Widgets'], function() {
                 Route::resource('/group-posts', 'GroupPosts\GroupPosts')->middleware('is_admin');
